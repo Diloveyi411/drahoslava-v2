@@ -6,6 +6,28 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 **Brand Essence:** "Art as Medicine" - A fusion of psychology, creativity, and wellness.
 
 ## Recent Changes (October 23, 2025)
+
+### Design Updates (V0 Prototype Implementation)
+- **About Section**: Swapped layout - photo now on LEFT, text on RIGHT (50/50 split on desktop)
+  - Photo made more prominent with portrait orientation (3:4 aspect ratio)
+  - Updated text content to better reflect artistic practice
+- **Gallery Section**: Redesigned for gallery wall aesthetic
+  - Changed from 4 columns to 2 columns on desktop
+  - Images now square (1:1 aspect ratio) instead of portrait (3:4)
+  - Minimal rounded corners (rounded-sm) for cleaner gallery look
+  - Added subtle shadow for depth
+- **Services Section**: Simplified card design
+  - Removed bullet point feature lists
+  - Clean layout: circular icon background → title → description → Learn More button
+  - Icons displayed in circular bg-primary/10 backgrounds
+  - Changed to bg-card for improved text contrast (11.9 ratio - exceeds WCAG AAA)
+- **Hero Section**: Enhanced background image prominence
+  - Added scale-105 effect for more impactful display
+  - Lighter gradient overlay (from-black/50 via-black/40 to-black/50)
+  - Swapped button order: "View Gallery" is now primary CTA
+  - Updated subtitle to better describe services
+
+### Previous Updates
 - Implemented backend API routes for contact form and newsletter subscription
 - Added data persistence using in-memory storage
 - Connected frontend forms to backend APIs using TanStack Query mutations
@@ -65,11 +87,12 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 - **Accents:** Crimson Text (for quotes)
 
 ### Key Features
-1. **Gallery** - Displays 4 textured floral artworks with lightbox modal for detailed viewing
+1. **Gallery** - 4 textured floral artworks in 2-column grid with square aspect ratio, lightbox modal for detailed viewing
 2. **Contact Form** - Collects visitor inquiries with subject selection (Painting Meditations, 1-on-1 Session, Workshop, Commission, Other)
 3. **Newsletter** - Email subscription with duplicate prevention
-4. **Services** - Four service offerings displayed in card grid
+4. **Services** - Four simplified service cards (2x2 grid) with icons, descriptions, and CTAs (no bullet lists)
 5. **Smooth Navigation** - Sticky header with anchor links to sections
+6. **About Section** - Portrait photo on left, bio text on right, with expertise highlight cards below
 
 ## Data Models
 
