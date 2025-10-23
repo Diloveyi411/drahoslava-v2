@@ -168,7 +168,7 @@ export default function ContactForm() {
                     <FormLabel>Message</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Tell me about what brings you here..."
+                        placeholder="What would you like to explore together?"
                         className="min-h-[150px] resize-none"
                         {...field}
                         data-testid="input-message"
