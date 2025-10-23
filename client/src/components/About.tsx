@@ -39,7 +39,7 @@ export default function About() {
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6"
               data-testid="text-about-title"
             >
-              Psychologist, Artist, and Creator of experiences
+              Psychologist, artist, and creator of experiences
             </h2>
             <div className="space-y-4 text-base md:text-lg text-foreground/80 leading-relaxed">
               <p data-testid="text-about-paragraph-1">
