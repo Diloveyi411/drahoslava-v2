@@ -57,7 +57,7 @@ export default function Gallery() {
             Floral Meditations
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
-            Explore my textured floral paintings, where each piece is a meditation in color and form
+            Where beauty becomes awareness, and every bloom carries a quiet truth.
           </p>
         </div>
 
