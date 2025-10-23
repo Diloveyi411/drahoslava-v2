@@ -12,10 +12,12 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
   - Photo made more prominent with portrait orientation (3:4 aspect ratio)
   - Updated text content to better reflect artistic practice
 - **Gallery Section**: Redesigned for gallery wall aesthetic
-  - Changed from 4 columns to 2 columns on desktop
-  - Images now square (1:1 aspect ratio) instead of portrait (3:4)
-  - Minimal rounded corners (rounded-sm) for cleaner gallery look
-  - Added subtle shadow for depth
+  - Grid layout: Mobile (1 column), Tablet/Desktop (2 columns) - grid-cols-1 sm:grid-cols-2 md:grid-cols-2
+  - Images now square (aspect-square) - 1:1 aspect ratio
+  - Card frames have rounded corners (rounded-md), images have sharp edges
+  - Subtle shadow for depth (shadow-md)
+  - Gap spacing: gap-6 lg:gap-8 between artworks
+  - 4 artworks displayed in 2x2 grid on larger screens
 - **Services Section**: Simplified card design
   - Removed bullet point feature lists
   - Clean layout: circular icon background → title → description → Learn More button

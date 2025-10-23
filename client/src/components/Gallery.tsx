@@ -61,12 +61,12 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 lg:gap-8">
           {artworks.map((artwork, index) => (
             <button
               key={artwork.id}
               onClick={() => openLightbox(index)}
-              className="group relative overflow-hidden rounded-sm hover-elevate active-elevate-2 transition-all shadow-md"
+              className="group relative overflow-hidden rounded-md hover-elevate active-elevate-2 transition-all shadow-md"
               data-testid={`button-artwork-${index}`}
             >
               <img
