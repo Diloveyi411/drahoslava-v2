@@ -19,17 +19,19 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/30" />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <h1
           className="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
+          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2)' }}
           data-testid="text-hero-title"
         >
           Art, Psychology & Vibes
         </h1>
         <p
           className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 font-light max-w-3xl mx-auto leading-relaxed"
+          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2)' }}
           data-testid="text-hero-subtitle"
         >
           Creating textured floral art and guiding journeys of self-understanding through painting meditations
