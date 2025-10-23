@@ -7,17 +7,17 @@ export default function About() {
     {
       icon: Brain,
       title: 'Inner Work',
-      description: 'Licensed psychologist specializing in creative therapeutic approaches',
+      description: 'Sessions for awareness and self-honesty. Gentle psychological guidance to help you see your patterns and reconnect with your true self.',
     },
     {
       icon: Palette,
       title: 'Creative Practice',
-      description: 'Professional artist creating healing-centered textured floral works',
+      description: 'Workshops where art becomes self-reflection. Textures, colors, and gestures as quiet ways of understanding.',
     },
     {
       icon: Sparkles,
       title: 'Digital Space',
-      description: 'Unique methodology combining mindfulness, art, and psychological insight',
+      description: 'Experiments at the intersection of art, psychology, and technology. Digital works that translate inner experience into form and motion.',
     },
   ];
 
