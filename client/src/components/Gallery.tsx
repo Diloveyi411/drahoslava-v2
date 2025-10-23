@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogPortal, DialogOverlay, DialogTitle } from '@/components/ui/dialog';
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { cn } from '@/lib/utils';
 import gallery1 from '@assets/13b_1761189596670.jpg';
 import gallery2 from '@assets/Obraz 2_1761189596670.jpg';
 import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.png';
@@ -88,65 +90,75 @@ export default function Gallery() {
       </div>
 
       <Dialog open={selectedIndex !== null} onOpenChange={closeLightbox}>
-        <DialogContent className="max-w-5xl bg-background/98 backdrop-blur-sm border-0">
-          {selectedIndex !== null && (
-            <div className="relative p-4 sm:p-8">
-              <VisuallyHidden>
-                <DialogTitle>{artworks[selectedIndex].title}</DialogTitle>
-              </VisuallyHidden>
-              <Button
-                size="icon"
-                variant="ghost"
-                onClick={closeLightbox}
-                className="absolute top-2 right-2 z-20"
-                data-testid="button-close-lightbox"
-              >
-                <X className="h-5 w-5" />
-              </Button>
-
-              <div className="relative flex items-center justify-center gap-4">
+        <DialogPortal>
+          <DialogOverlay className="bg-background/50 backdrop-blur-md" />
+          <DialogPrimitive.Content
+            className={cn(
+              "fixed left-[50%] top-[50%] z-50 grid w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] border-0 bg-transparent p-0 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg"
+            )}
+          >
+            {selectedIndex !== null && (
+              <>
+                <VisuallyHidden>
+                  <DialogTitle>{artworks[selectedIndex].title}</DialogTitle>
+                </VisuallyHidden>
+                
                 <Button
                   size="icon"
-                  variant="ghost"
-                  onClick={goToPrevious}
-                  className="flex-shrink-0"
-                  data-testid="button-previous"
+                  variant="default"
+                  onClick={closeLightbox}
+                  className="absolute top-4 right-4 z-50 bg-background/90 hover:bg-background shadow-lg"
+                  data-testid="button-close-lightbox"
                 >
-                  <ChevronLeft className="h-8 w-8" />
+                  <X className="h-5 w-5" />
                 </Button>
 
-                <Card className="flex-1 max-w-3xl shadow-lg">
-                  <div className="p-6 sm:p-8">
-                    <img
-                      src={artworks[selectedIndex].image}
-                      alt={artworks[selectedIndex].title}
-                      className="w-full max-h-[60vh] object-contain mx-auto"
-                      data-testid="img-lightbox-artwork"
-                    />
-                    <div className="text-center mt-6">
-                      <h3 className="font-serif text-2xl text-foreground mb-2" data-testid="text-lightbox-title">
-                        {artworks[selectedIndex].title}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {artworks[selectedIndex].medium} • {artworks[selectedIndex].year}
-                      </p>
-                    </div>
+                <div className="p-4 sm:p-8">
+                  <div className="relative flex items-center justify-center gap-4">
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={goToPrevious}
+                      className="flex-shrink-0"
+                      data-testid="button-previous"
+                    >
+                      <ChevronLeft className="h-8 w-8" />
+                    </Button>
+
+                    <Card className="flex-1 max-w-3xl shadow-lg bg-background">
+                      <div className="p-6 sm:p-8">
+                        <img
+                          src={artworks[selectedIndex].image}
+                          alt={artworks[selectedIndex].title}
+                          className="w-full max-h-[60vh] object-contain mx-auto"
+                          data-testid="img-lightbox-artwork"
+                        />
+                        <div className="text-center mt-6">
+                          <h3 className="font-serif text-2xl text-foreground mb-2" data-testid="text-lightbox-title">
+                            {artworks[selectedIndex].title}
+                          </h3>
+                          <p className="text-muted-foreground">
+                            {artworks[selectedIndex].medium} • {artworks[selectedIndex].year}
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={goToNext}
+                      className="flex-shrink-0"
+                      data-testid="button-next"
+                    >
+                      <ChevronRight className="h-8 w-8" />
+                    </Button>
                   </div>
-                </Card>
-
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  onClick={goToNext}
-                  className="flex-shrink-0"
-                  data-testid="button-next"
-                >
-                  <ChevronRight className="h-8 w-8" />
-                </Button>
-              </div>
-            </div>
-          )}
-        </DialogContent>
+                </div>
+              </>
+            )}
+          </DialogPrimitive.Content>
+        </DialogPortal>
       </Dialog>
     </section>
   );

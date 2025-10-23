@@ -21,10 +21,12 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
   - Artwork titles displayed below each image inside the frame
   - 4 artworks displayed in 2x2 grid on larger screens
   - **Lightbox Modal**: Also framed with soft milky background
-    - Soft transparent background (bg-background/98 with backdrop-blur)
-    - Image displayed in Card frame with padding (p-6 sm:p-8)
-    - Navigation buttons positioned outside the frame
+    - Custom DialogOverlay with 50% milky transparent background (bg-background/50 with backdrop-blur-md)
+    - Image displayed in Card frame with padding (p-6 sm:p-8) and solid background
+    - X button positioned at top-right corner (top-4 right-4) with high visibility styling
+    - Navigation buttons (Previous/Next) positioned inline with the frame
     - Title and medium info displayed below image inside frame
+    - Full-width milky overlay creates aesthetic gallery viewing experience
 - **Services Section**: Simplified card design
   - Removed bullet point feature lists
   - Clean layout: circular icon background → title → description → Learn More button
