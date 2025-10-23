@@ -29,13 +29,6 @@ export default function Hero() {
         >
           Connecting psychology, art, and technology to help you rediscover your true essence.
         </h1>
-        <p
-          className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 font-light max-w-3xl mx-auto leading-relaxed"
-          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2)' }}
-          data-testid="text-hero-subtitle"
-        >
-          Creating textured floral art and guiding journeys of self-understanding through painting meditations
-        </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
