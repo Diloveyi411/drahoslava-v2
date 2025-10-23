@@ -17,10 +17,7 @@ const services: Service[] = [
   {
     icon: User,
     title: 'Body — Creative Practice',
-    description: `Art becomes a mirror when creation is guided by awareness.
-In these workshops, textures, gestures, and colors turn into language — the language of feeling.
-You'll explore meditative painting, floral sculpting, and other tactile forms that connect thought with touch.
-It's not about artistic skill; it's about letting your body speak what words cannot.`,
+    description: 'Art becomes a mirror when creation is guided by awareness. In my workshops, you\'ll explore meditative painting, floral sculpting, and other tactile forms that connect thought with touch. It\'s not about artistic skill; it\'s about letting your body speak what words cannot.',
   },
   {
     icon: Palette,
