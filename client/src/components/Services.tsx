@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Users, User, Palette, Calendar } from 'lucide-react';
+import { Users, User, Palette } from 'lucide-react';
 
 interface Service {
   icon: typeof Users;
@@ -23,11 +23,6 @@ const services: Service[] = [
     icon: Palette,
     title: 'Mind — Digital Space',
     description: 'Explore stories and emotions through my comic work. Each piece tells a tale of human experience, growth, and connection.',
-  },
-  {
-    icon: Calendar,
-    title: 'Events',
-    description: 'Participate in creative workshops and events that blend art, psychology, and community. Learn techniques while exploring your inner world.',
   },
 ];
 
