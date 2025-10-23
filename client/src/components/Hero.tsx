@@ -1,0 +1,67 @@
+import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
+import heroImage from '@assets/generated_images/Hero_background_floral_artwork_21e8ce17.png';
+
+export default function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        <h1
+          className="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
+          data-testid="text-hero-title"
+        >
+          Art, Psychology & Vibes
+        </h1>
+        <p
+          className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 font-light max-w-3xl mx-auto leading-relaxed"
+          data-testid="text-hero-subtitle"
+        >
+          Discover healing through creative expression. Where psychology meets artistry for transformative experiences.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Button
+            size="lg"
+            onClick={() => scrollToSection('services')}
+            className="bg-primary/90 hover:bg-primary text-primary-foreground backdrop-blur-sm min-w-[200px]"
+            data-testid="button-book-session"
+          >
+            Book a Session
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => scrollToSection('gallery')}
+            className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm min-w-[200px]"
+            data-testid="button-view-gallery"
+          >
+            View Gallery
+          </Button>
+        </div>
+      </div>
+
+      <button
+        onClick={() => scrollToSection('about')}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 hover:text-white transition-colors animate-bounce"
+        data-testid="button-scroll-down"
+      >
+        <ChevronDown className="h-8 w-8" />
+      </button>
+    </section>
+  );
+}
