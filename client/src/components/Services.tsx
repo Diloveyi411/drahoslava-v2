@@ -6,33 +6,28 @@ interface Service {
   icon: typeof Users;
   title: string;
   description: string;
-  features: string[];
 }
 
 const services: Service[] = [
   {
     icon: Users,
     title: 'Painting Meditations',
-    description: 'Group sessions combining mindfulness practices with guided creative expression',
-    features: ['Weekly group sessions', 'All materials provided', 'Beginner-friendly', 'Community connection'],
+    description: 'Join guided painting sessions where creativity meets mindfulness. Experience the therapeutic power of art in a supportive group setting.',
   },
   {
     icon: User,
     title: '1-on-1 Sessions',
-    description: 'Personalized psychology and art therapy sessions tailored to your unique journey',
-    features: ['Individual attention', 'Psychology + art fusion', 'Flexible scheduling', 'Customized approach'],
+    description: 'Personal sessions combining psychology and art for deep self-understanding and self-actualization. Tailored to your unique journey.',
   },
   {
     icon: Palette,
     title: 'Comics & Illustrations',
-    description: 'Custom artistic creations and illustrated explorations of personal narratives',
-    features: ['Personal storytelling', 'Visual narratives', 'Commission work', 'Therapeutic art'],
+    description: 'Explore stories and emotions through my comic work. Each piece tells a tale of human experience, growth, and connection.',
   },
   {
     icon: Calendar,
     title: 'Workshops & Events',
-    description: 'Special events, retreats, and workshops exploring the intersection of art and healing',
-    features: ['Weekend workshops', 'Seasonal retreats', 'Guest collaborations', 'Special themes'],
+    description: 'Participate in creative workshops and events that blend art, psychology, and community. Learn techniques while exploring your inner world.',
   },
 ];
 
@@ -55,36 +50,30 @@ export default function Services() {
             Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-services-subtitle">
-            Choose the experience that resonates with your path to healing and creative discovery
+            Discover ways to connect with your creativity and inner self through art and psychology
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="p-8 hover-elevate active-elevate-2 transition-all"
+              className="p-8 flex flex-col hover-elevate active-elevate-2 transition-all"
               data-testid={`card-service-${index}`}
             >
-              <service.icon className="h-10 w-10 text-primary mb-4" />
-              <h3 className="font-serif text-2xl font-normal text-foreground mb-3">
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-6">
+                <service.icon className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-2xl font-normal text-foreground mb-4">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-muted-foreground mb-8 leading-relaxed flex-1">
                 {service.description}
               </p>
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center text-sm text-foreground/80">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
               <Button
                 variant="outline"
                 onClick={scrollToContact}
-                className="w-full"
+                className="w-full mt-auto"
                 data-testid={`button-learn-more-${index}`}
               >
                 Learn More
