@@ -23,7 +23,7 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
   - Changed to bg-card for improved text contrast (11.9 ratio - exceeds WCAG AAA)
 - **Hero Section**: Enhanced background image prominence
   - Replaced generic background with personal photo (paintbrushes and artwork)
-  - Background image set to 20% transparency (opacity-80) for maximum visibility
+  - Background image set to 50% transparency (opacity-50) for subtle backdrop
   - Subtle gradient overlay (from-black/20 via-black/15 to-black/20) for depth
   - Added text shadows for readability against photo background
   - Added scale-105 effect for more impactful display
