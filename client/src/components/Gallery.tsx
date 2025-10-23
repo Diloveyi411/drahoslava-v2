@@ -57,22 +57,22 @@ export default function Gallery() {
             Gallery
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
-            Explore my collection of textured floral artwork, each piece a meditation on healing and transformation
+            Explore my textured floral paintings, where each piece is a meditation in color and form
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
           {artworks.map((artwork, index) => (
             <button
               key={artwork.id}
               onClick={() => openLightbox(index)}
-              className="group relative overflow-hidden rounded-2xl hover-elevate active-elevate-2 transition-all"
+              className="group relative overflow-hidden rounded-sm hover-elevate active-elevate-2 transition-all shadow-md"
               data-testid={`button-artwork-${index}`}
             >
               <img
                 src={artwork.image}
                 alt={artwork.title}
-                className="w-full aspect-[3/4] object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
