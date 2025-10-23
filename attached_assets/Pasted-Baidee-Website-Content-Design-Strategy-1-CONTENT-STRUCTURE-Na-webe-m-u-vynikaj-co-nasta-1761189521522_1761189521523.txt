@@ -1,0 +1,145 @@
+Baidee Website - Content & Design Strategy
+1. 📋 CONTENT & STRUCTURE
+Na webe máš už vynikajúco nastavené 6 hlavných sekcií:
+✅ Existujúce sekcie:
+
+Navigation Bar - Quick links na všetky sekcie
+Hero Section - Catchy headline "Art, Psychology & Vibes"
+About/Bio - Predstavenie Drahoslavy (Artist, Psychologist & Vibe-Coder)
+Gallery - 4 textúrované floral paintings s lightbox
+Services - 4 služby:
+
+Painting Meditations (skupinové)
+1-on-1 Sessions (psychology + art)
+Comics & Illustrations
+Workshops & Events
+
+
+Newsletter - Email signup na updates
+Footer - Contacts & info
+
+
+2. 🎨 DESIGN STYLE - CURRENT & RECOMMENDATIONS
+✨ Tvoj aktuálny aesthetic:
+
+Balanced Blend - Perfektne kombinuješ artistry + professionalism
+Creative a dovolená, ale zároveň profesionálna a klíčová
+Modern minimálny s teplými ľudskými prvkami
+Texturované floral artwork ako visual hero
+
+🌈 Aktuálne farby:
+
+Primary - Warm, welcoming tone (pravdepodobne teal/rose/earth tone)
+Secondary - Complementary calm color
+Muted backgrounds - Soft, non-distracting
+Light typography - Elegant, spacious
+
+💡 Odporúčania na vylepšenie:
+Čo byť lepšie definovať:
+
+Color Palette - Je to svetlý/tmavý režim? Alebo light-only?
+Typography hierarchy - "Light" font weight na nadpisoch je super, ale skúsil by som viac kontrasty
+Mood boards - Specific psychology + art vibe? (healing, creative, introspective)
+
+Čo by som opravil:
+
+Hero headline je super, ale mohla by byť väčšia/bolder pre viac impact
+Services cards - Super! Ale mohli by byť s väčšou hover animation
+Contact CTA - Chýba jasný button na "Book Session" alebo "Contact Me"
+
+
+3. 🔧 KEY FEATURES - CURRENT & MISSING
+✅ Co už máš (super!):
+FeatureStatusDetailsImage Gallery✅Lightbox modal, 4 artwork piecesNewsletter Form✅Email input + subscribe buttonResponsive Design✅Mobile + tablet + desktopSmooth Scrolling✅Navigation links scroll to sectionsModern UI✅Radix UI + Tailwind CSSDark Mode Ready✅Theme provider je nastaviť
+⚠️ Čo chýba a odporúčam doplniť:
+FeaturePriorityImplementationAppointment Booking🔴 HIGHPotrebuješ:  <br> - Calendar picker <br> - Service selection <br> - Backend na uloženieContact Form🔴 HIGHFormulár s: <br> - Name, Email, Message <br> - Subject (inquiry type) <br> - Email notificationsBlog/Articles🟡 MEDIUMČlánky o: <br> - Psychology of art <br> - Meditation tips <br> - TestimonialsTestimonials🟡 MEDIUMSocial proof z klientovAbout - rozšírenie🟡 MEDIUMCV, certifikácie, backgroundServices - detaily🟡 MEDIUMCena, trvanie, ako sa prihlásiťComic Portfolio🟡 MEDIUMAk máš komiksy, nejaký kúsok?Search/Filter🟢 LOWGallery filter by color/themeInstagram/Social🟢 LOWLink na sociálne siete
+
+4. 📝 AKČNÝ PLÁN - ČO ROBIŤ ĎALEJ
+Fáza 1: Basics (tento týždeň)
+
+ Uploadni kód na Replit/Cursor
+ Testuj na mobiloch a tabletoch
+ Skontroluj všetky linky a formuláre
+
+Fáza 2: Contact & Booking (nasledujúci týždeň)
+
+ Pridaj Contact Form s validáciou
+ Nastav Newsletter API (Mailchimp, SendGrid, alebo custom backend)
+ Pridaj Appointment Booking (kalendár)
+
+Fáza 3: Content Expansion (week 3)
+
+ Rozšír About sekciu (CV, story, certifikácie)
+ Pridaj Service Details (cena, trvanie, ako sa prihlásiť)
+ Pridaj Testimonials sekciu (ak máš feedback od klientov)
+
+Fáza 4: Nice-to-have (keď bude čas)
+
+ Blog/Articles
+ Comic Portfolio showcase
+ Social media integration
+ Analytics & SEO
+
+
+5. 🎯 SPÔSOB, AKO TO ODPREZENTOVAŤ
+Ak sa pýtajú na Content & Structure:
+
+"Mám už nastavené 6 key sections: Hero headline, About bio, Art gallery s 4 pieces, Services (4 options), Newsletter, a Footer. Plánujem pridať Contact Form, Appointment Booking, a Service Details."
+
+Ak sa pýtajú na Design Style:
+
+"Je to vyrovnaný blend profesionality a kreativity. Minimálny, moderný design s texturovanými artworks ako focal point. Light hierarchy typography, warm color palette, a soft backgrounds. Všetko je responsívne a prístupné."
+
+Ak sa pýtajú na Key Features:
+
+"Máme funkčnú galériu s lightbox, newsletter signup, smooth scrolling, a responsive design. Ďalší kroky: Appointment Booking, Contact Form, a Testimonials section."
+
+
+6. 📊 DESIGN DECISIONS - VISUAL BRIEF
+🎭 Brand Essence: "Art as Medicine"
+├── Psychology + Creativity + Wellness
+├── Professional yet Artistic
+├── Healing & Introspective
+└── Modern + Minimalist
+
+🎨 Visual Language:
+├── Textured, organic artwork as hero
+├── Soft, muted color palette
+├── Elegant light typography
+├── Generous white space
+└── Smooth animations & transitions
+
+📱 UX Priorities:
+├── Easy booking/contact
+├── Beautiful gallery showcase
+├── Clear service descriptions
+├── Mobile-first responsive
+└── Accessibility (WCAG)
+
+7. 💻 TECH STACK - AKO MÁŠ
+
+Frontend: Next.js 16 + React 19 + TypeScript
+Styling: Tailwind CSS 4 + Radix UI components
+State: React hooks (useState, etc.)
+Forms: React Hook Form + Zod validation
+Database: (potrebuješ nastaviť!)
+Backend: (potrebuješ nastaviť!)
+
+
+✨ NEXT STEPS
+
+Uploadni projekt na Replit/Cursor (DM ak potrebuješ help)
+Povedz mi priority - Čo je pre teba najdôležitejšie?
+
+Appointment booking?
+Contact form?
+Blog?
+Niečo iné?
+
+
+Backend decision - Aký backend chceš?
+
+Node.js + Express?
+Firebase?
+Supabase?
+Vercel Serverless functions?
