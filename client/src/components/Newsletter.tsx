@@ -64,7 +64,7 @@ export default function Newsletter() {
           Stay in Touch
         </h2>
         <p className="text-muted-foreground mb-8" data-testid="text-newsletter-description">
-          Receive updates on new workshops, art releases, and insights on creative healing. No spam, just good vibes.
+          A thoughtful newsletter on art, psychology, and digital creation.
         </p>
 
         {isSubscribed ? (
