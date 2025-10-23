@@ -88,7 +88,7 @@ export default function Gallery() {
       </div>
 
       <Dialog open={selectedIndex !== null} onOpenChange={closeLightbox}>
-        <DialogContent className="max-w-6xl p-0 bg-black/95 border-0">
+        <DialogContent className="max-w-5xl p-8 bg-background/98 backdrop-blur-sm border-0">
           {selectedIndex !== null && (
             <div className="relative">
               <VisuallyHidden>
@@ -98,45 +98,47 @@ export default function Gallery() {
                 size="icon"
                 variant="ghost"
                 onClick={closeLightbox}
-                className="absolute top-4 right-4 z-10 text-white hover:bg-white/10"
+                className="absolute -top-2 -right-2 z-10"
                 data-testid="button-close-lightbox"
               >
                 <X className="h-5 w-5" />
               </Button>
 
-              <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[600px]">
+              <div className="relative flex items-center justify-center">
                 <Button
                   size="icon"
                   variant="ghost"
                   onClick={goToPrevious}
-                  className="absolute left-4 z-10 text-white hover:bg-white/10"
+                  className="absolute left-0 z-10 -translate-x-14"
                   data-testid="button-previous"
                 >
                   <ChevronLeft className="h-8 w-8" />
                 </Button>
 
-                <div className="px-16 py-8">
-                  <img
-                    src={artworks[selectedIndex].image}
-                    alt={artworks[selectedIndex].title}
-                    className="max-h-[70vh] w-auto mx-auto rounded-lg"
-                    data-testid="img-lightbox-artwork"
-                  />
-                  <div className="text-center mt-6 text-white">
-                    <h3 className="font-serif text-2xl mb-2" data-testid="text-lightbox-title">
-                      {artworks[selectedIndex].title}
-                    </h3>
-                    <p className="text-white/70">
-                      {artworks[selectedIndex].medium} • {artworks[selectedIndex].year}
-                    </p>
+                <Card className="max-w-3xl shadow-lg">
+                  <div className="p-6 sm:p-8">
+                    <img
+                      src={artworks[selectedIndex].image}
+                      alt={artworks[selectedIndex].title}
+                      className="w-full max-h-[60vh] object-contain mx-auto"
+                      data-testid="img-lightbox-artwork"
+                    />
+                    <div className="text-center mt-6">
+                      <h3 className="font-serif text-2xl text-foreground mb-2" data-testid="text-lightbox-title">
+                        {artworks[selectedIndex].title}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {artworks[selectedIndex].medium} • {artworks[selectedIndex].year}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Card>
 
                 <Button
                   size="icon"
                   variant="ghost"
                   onClick={goToNext}
-                  className="absolute right-4 z-10 text-white hover:bg-white/10"
+                  className="absolute right-0 z-10 translate-x-14"
                   data-testid="button-next"
                 >
                   <ChevronRight className="h-8 w-8" />

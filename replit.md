@@ -20,6 +20,11 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
   - Gap spacing: gap-6 lg:gap-8 between artworks
   - Artwork titles displayed below each image inside the frame
   - 4 artworks displayed in 2x2 grid on larger screens
+  - **Lightbox Modal**: Also framed with soft milky background
+    - Soft transparent background (bg-background/98 with backdrop-blur)
+    - Image displayed in Card frame with padding (p-6 sm:p-8)
+    - Navigation buttons positioned outside the frame
+    - Title and medium info displayed below image inside frame
 - **Services Section**: Simplified card design
   - Removed bullet point feature lists
   - Clean layout: circular icon background → title → description → Learn More button
