@@ -25,13 +25,14 @@ export default function About() {
     <section id="about" className="py-20 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
-          <div className="order-1 md:order-1">
+          <div className="order-1 md:order-1 relative">
             <img
               src={profileImage}
               alt="Drahoslava Forgacova"
               className="w-full rounded-lg shadow-xl aspect-[3/4] object-cover"
               data-testid="img-about-profile"
             />
+            <div className="absolute inset-0 bg-white/10 rounded-lg pointer-events-none" />
           </div>
           <div className="order-2 md:order-2">
             <h2
