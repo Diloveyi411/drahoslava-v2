@@ -17,7 +17,7 @@ interface Artwork {
 }
 
 const artworks: Artwork[] = [
-  { id: 1, image: gallery1, title: 'Night Garden', medium: 'Textured Mixed Media', year: '2024' },
+  { id: 1, image: gallery1, title: 'Silent Garden', medium: 'Textured Mixed Media', year: '2024' },
   { id: 2, image: gallery2, title: 'Golden Meadow', medium: 'Textured Acrylic', year: '2024' },
   { id: 3, image: gallery3, title: 'Sky & Field', medium: 'Mixed Media on Canvas', year: '2025' },
   { id: 4, image: gallery4, title: 'Pastel Dreams', medium: 'Textured Painting', year: '2025' },
