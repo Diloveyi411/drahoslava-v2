@@ -144,7 +144,7 @@ export default function ContactForm() {
                     <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger data-testid="select-subject">
-                          <SelectValue placeholder="What would you like to explore together?" />
+                          <SelectValue placeholder="Topic of intention" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
