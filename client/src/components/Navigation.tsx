@@ -42,7 +42,7 @@ export default function Navigation() {
             className="font-serif text-xl lg:text-2xl font-light text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors"
             data-testid="link-logo"
           >
-            Drahoslava Forgacova
+            Drahoslava Forgáčová
           </button>
 
           <div className="hidden md:flex items-center gap-2">
