@@ -1,6 +1,6 @@
 import { Card } from '@/components/ui/card';
 import { Palette, Brain, Sparkles } from 'lucide-react';
-import profileImage from '@assets/Dadi-art-175_1761199829322.jpg';
+import profileImage from '@assets/Dadi-art-11_1761189784462.jpg';
 
 export default function About() {
   const highlights = [
