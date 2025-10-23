@@ -43,13 +43,16 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-base md:text-lg text-foreground/80 leading-relaxed">
               <p data-testid="text-about-paragraph-1">
-                I create textured floral paintings that invite you into a world of soft colors and gentle emotions. Each piece is a meditation in itself, built layer by layer with intention and care.
+                My work explores how psychology, art, and technology can serve as mirrors for self-awareness.
               </p>
               <p data-testid="text-about-paragraph-2">
-                As a psychologist, I believe in the healing power of creativity. Through painting meditations and 1-on-1 sessions, I guide people on journeys of self-understanding and self-actualization, where art becomes a bridge to inner wisdom.
+                I'm interested in what happens when understanding becomes not only intellectual but sensory — when reflection takes form, color, and motion.
               </p>
               <p data-testid="text-about-paragraph-3">
-                My work spans from textured canvases to comics, each medium offering a unique way to explore emotions, stories, and the beautiful complexity of being human.
+                Every project I create, whether digital or physical, is an experiment in how consciousness expresses itself through creation.
+              </p>
+              <p data-testid="text-about-paragraph-4">
+                My goal is not to teach people who they are, but to build spaces where they can see themselves more clearly — through beauty, structure, and attention.
               </p>
             </div>
           </div>
