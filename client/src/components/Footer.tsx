@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
           <div>
             <h3 className="font-serif text-2xl font-light text-foreground mb-4" data-testid="text-footer-brand">
-              Drahoslava Forgacova
+              Drahoslava Forgáčová
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Artist, Psychologist & Vibe-Coder. Combining creative expression with psychological insight for transformative healing experiences.
@@ -61,7 +61,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground" data-testid="text-footer-copyright">
-            © {currentYear} Drahoslava Forgacova. All rights reserved.
+            © {currentYear} Drahoslava Forgáčová. All rights reserved.
           </p>
         </div>
       </div>
