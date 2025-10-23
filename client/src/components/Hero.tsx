@@ -16,7 +16,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center scale-105 opacity-40"
+        className="absolute inset-0 bg-cover bg-center scale-105 opacity-60"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/20" />
