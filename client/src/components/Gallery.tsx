@@ -54,7 +54,7 @@ export default function Gallery() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-gallery-title"
           >
-            Gallery
+            Floral Meditations
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
             Explore my textured floral paintings, where each piece is a meditation in color and form
