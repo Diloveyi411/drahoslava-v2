@@ -29,6 +29,9 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
   - Added scale-105 effect for more impactful display
   - Swapped button order: "View Gallery" is now primary CTA
   - Updated subtitle to better describe services
+- **Typography**: Changed to Cormorant Garamond throughout
+  - Replaced Inter/Playfair Display with Cormorant Garamond for unified, elegant aesthetic
+  - Fira Mono for monospace/technical content
 
 ### Previous Updates
 - Implemented backend API routes for contact form and newsletter subscription
@@ -85,9 +88,9 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 - **Text Secondary:** Muted gray (220 10% 50%)
 
 ### Typography
-- **Headings:** Playfair Display (serif) - Elegant, artistic
-- **Body:** Inter/DM Sans (sans-serif) - Clean, professional
-- **Accents:** Crimson Text (for quotes)
+- **Primary Font:** Cormorant Garamond (serif) - Elegant, refined typography throughout
+- **Monospace:** Fira Mono - Clean, professional for code/technical content
+- All text uses Cormorant Garamond for a cohesive, artistic aesthetic
 
 ### Key Features
 1. **Gallery** - 4 textured floral artworks in 2-column grid with square aspect ratio, lightbox modal for detailed viewing

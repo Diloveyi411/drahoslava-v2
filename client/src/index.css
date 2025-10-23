@@ -76,9 +76,9 @@
   --chart-4: 220 20% 45%;
   --chart-5: 280 30% 50%;
 
-  --font-sans: 'Inter', 'DM Sans', sans-serif;
-  --font-serif: 'Playfair Display', 'Cormorant', Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-sans: 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'Fira Mono', 'Courier New', monospace;
   --radius: .5rem; /* 8px */
   --shadow-2xs: 0px 1px 2px 0px hsl(220 15% 20% / 0.05);
   --shadow-xs: 0px 1px 2px 0px hsl(220 15% 20% / 0.06);
