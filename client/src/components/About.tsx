@@ -6,17 +6,17 @@ export default function About() {
   const highlights = [
     {
       icon: Brain,
-      title: 'Psychology Expertise',
+      title: 'Inner Work',
       description: 'Licensed psychologist specializing in creative therapeutic approaches',
     },
     {
       icon: Palette,
-      title: 'Artistic Practice',
+      title: 'Creative Practice',
       description: 'Professional artist creating healing-centered textured floral works',
     },
     {
       icon: Sparkles,
-      title: 'Vibe Coding',
+      title: 'Digital Space',
       description: 'Unique methodology combining mindfulness, art, and psychological insight',
     },
   ];
