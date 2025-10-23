@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import gallery1 from '@assets/13b_1761189596670.jpg';
@@ -63,24 +64,25 @@ export default function Gallery() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 lg:gap-8">
           {artworks.map((artwork, index) => (
-            <button
+            <Card
               key={artwork.id}
+              className="overflow-visible hover-elevate active-elevate-2 transition-all shadow-md cursor-pointer"
               onClick={() => openLightbox(index)}
-              className="group relative overflow-hidden rounded-md hover-elevate active-elevate-2 transition-all shadow-md"
               data-testid={`button-artwork-${index}`}
             >
-              <img
-                src={artwork.image}
-                alt={artwork.title}
-                className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <h3 className="font-serif text-lg mb-1">{artwork.title}</h3>
-                  <p className="text-sm text-white/80">{artwork.medium}</p>
+              <div className="p-4 sm:p-6">
+                <div className="group relative overflow-hidden">
+                  <img
+                    src={artwork.image}
+                    alt={artwork.title}
+                    className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="mt-4 text-center">
+                  <h3 className="font-serif text-lg text-foreground">{artwork.title}</h3>
                 </div>
               </div>
-            </button>
+            </Card>
           ))}
         </div>
       </div>
