@@ -40,7 +40,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 md:py-32 bg-background">
+    <section id="services" className="py-20 md:py-32 bg-card">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2
