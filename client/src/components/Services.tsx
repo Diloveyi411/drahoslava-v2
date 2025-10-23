@@ -1,26 +1,26 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Users, User, Palette } from 'lucide-react';
+import { Eye, Hand, Monitor } from 'lucide-react';
 
 interface Service {
-  icon: typeof Users;
+  icon: typeof Eye;
   title: string;
   description: string;
 }
 
 const services: Service[] = [
   {
-    icon: Users,
+    icon: Eye,
     title: 'Soul — Inner Work',
     description: 'True change begins with awareness. Through guided 1-on-1 sessions, you\'ll learn to observe your inner world with gentleness — to recognize emotional patterns, release inner resistance, and return to your authentic rhythm. This space is for those who want to see clearly and live truthfully.',
   },
   {
-    icon: User,
+    icon: Hand,
     title: 'Body — Creative Practice',
     description: 'Art becomes a mirror when creation is guided by awareness. In my workshops, you\'ll explore meditative painting, floral sculpting, and other tactile forms that connect thought with touch. It\'s not about artistic skill; it\'s about letting your body speak what words cannot.',
   },
   {
-    icon: Palette,
+    icon: Monitor,
     title: 'Mind — Digital Space',
     description: `Our inner life now extends into the digital realm.
 Through experimental projects — an AI-based self-awareness app, interactive digital galleries, visual essays and creations— I explore how technology can help us understand ourselves more deeply.
