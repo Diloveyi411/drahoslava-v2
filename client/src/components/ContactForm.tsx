@@ -81,7 +81,7 @@ export default function ContactForm() {
             Get in Touch
           </h2>
           <p className="text-lg text-muted-foreground" data-testid="text-contact-subtitle">
-            Ready to begin your creative healing journey? Send me a message and let's connect.
+            If you'd like to connect about a project or session, I'd be glad to hear from you.
           </p>
         </div>
 
