@@ -50,7 +50,7 @@ export default function Services() {
             Three Expressions of the Self
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-services-subtitle">
-            Discover ways to connect with your creativity and inner self through art and psychology
+            Soul, body, and mind — unfolding through creation.
           </p>
         </div>
 
