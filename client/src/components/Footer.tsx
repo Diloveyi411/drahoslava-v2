@@ -19,7 +19,7 @@ export default function Footer() {
               Drahoslava Forgáčová
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Artist, Psychologist & Vibe-Coder. Combining creative expression with psychological insight for transformative healing experiences.
+              Psychologist, artist, and creator of experiences. Connectiong psychology, art, and technology to help you rediscover your true essence.
             </p>
           </div>
 
