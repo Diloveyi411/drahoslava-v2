@@ -20,7 +20,7 @@ const artworks: Artwork[] = [
   { id: 1, image: gallery1, title: 'Silent Garden', medium: 'Textured Mixed Media', year: '2024' },
   { id: 2, image: gallery2, title: 'Field of Presence', medium: 'Textured Mixed Media', year: '2024' },
   { id: 3, image: gallery3, title: 'Between Worlds', medium: 'Textured Mixed Media', year: '2025' },
-  { id: 4, image: gallery4, title: 'Pastel Dreams', medium: 'Textured Painting', year: '2025' },
+  { id: 4, image: gallery4, title: 'Soft Return', medium: 'Textured Mixed Media', year: '2025' },
 ];
 
 export default function Gallery() {
