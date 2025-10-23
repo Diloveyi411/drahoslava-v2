@@ -11,22 +11,22 @@ interface Service {
 const services: Service[] = [
   {
     icon: Users,
-    title: 'Painting Meditations',
+    title: 'Soul — Inner Work',
     description: 'Join guided painting sessions where creativity meets mindfulness. Experience the therapeutic power of art in a supportive group setting.',
   },
   {
     icon: User,
-    title: '1-on-1 Sessions',
+    title: 'Body — Creative Practice',
     description: 'Personal sessions combining psychology and art for deep self-understanding and self-actualization. Tailored to your unique journey.',
   },
   {
     icon: Palette,
-    title: 'Comics & Illustrations',
+    title: 'Mind — Digital Space',
     description: 'Explore stories and emotions through my comic work. Each piece tells a tale of human experience, growth, and connection.',
   },
   {
     icon: Calendar,
-    title: 'Workshops & Events',
+    title: 'Events',
     description: 'Participate in creative workshops and events that blend art, psychology, and community. Learn techniques while exploring your inner world.',
   },
 ];
