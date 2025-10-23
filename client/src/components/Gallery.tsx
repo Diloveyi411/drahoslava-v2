@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import gallery1 from '@assets/13b_1761189596670.jpg';
 import gallery2 from '@assets/Obraz 2_1761189596670.jpg';
 import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.png';
@@ -89,9 +88,6 @@ export default function Gallery() {
         <DialogContent className="max-w-6xl p-0 bg-black/95 border-0">
           {selectedIndex !== null && (
             <div className="relative">
-              <VisuallyHidden>
-                <DialogTitle>{artworks[selectedIndex].title}</DialogTitle>
-              </VisuallyHidden>
               <Button
                 size="icon"
                 variant="ghost"

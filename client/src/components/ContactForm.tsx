@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation } from '@tanstack/react-query';
+import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,12 +22,15 @@ import {
 } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, CheckCircle } from 'lucide-react';
-import { insertContactMessageSchema } from '@shared/schema';
-import { apiRequest } from '@/lib/queryClient';
 
-const contactFormSchema = insertContactMessageSchema;
+const contactFormSchema = z.object({
+  name: z.string().min(2, 'Name must be at least 2 characters'),
+  email: z.string().email('Please enter a valid email'),
+  subject: z.string().min(1, 'Please select a subject'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+});
 
-type ContactFormData = typeof contactFormSchema._type;
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -43,30 +46,15 @@ export default function ContactForm() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      return await apiRequest('POST', '/api/contact', data);
-    },
-    onSuccess: () => {
-      setIsSubmitted(true);
-      toast({
-        title: 'Message sent!',
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      form.reset();
-      setTimeout(() => setIsSubmitted(false), 5000);
-    },
-    onError: () => {
-      toast({
-        title: 'Error',
-        description: 'Failed to send message. Please try again.',
-        variant: 'destructive',
-      });
-    },
-  });
-
   const onSubmit = (data: ContactFormData) => {
-    mutation.mutate(data);
+    console.log('Contact form submitted:', data);
+    setIsSubmitted(true);
+    toast({
+      title: 'Message sent!',
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+    form.reset();
+    setTimeout(() => setIsSubmitted(false), 5000);
   };
 
   return (
@@ -183,10 +171,10 @@ export default function ContactForm() {
                 type="submit"
                 size="lg"
                 className="w-full"
-                disabled={mutation.isPending}
+                disabled={form.formState.isSubmitting}
                 data-testid="button-submit"
               >
-                {mutation.isPending ? 'Sending...' : 'Send Message'}
+                {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </Form>

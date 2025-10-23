@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation } from '@tanstack/react-query';
+import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Mail } from 'lucide-react';
-import { insertNewsletterSubscriptionSchema } from '@shared/schema';
-import { apiRequest } from '@/lib/queryClient';
 
-const newsletterSchema = insertNewsletterSubscriptionSchema;
+const newsletterSchema = z.object({
+  email: z.string().email('Please enter a valid email'),
+});
 
-type NewsletterFormData = typeof newsletterSchema._type;
+type NewsletterFormData = z.infer<typeof newsletterSchema>;
 
 export default function Newsletter() {
   const [isSubscribed, setIsSubscribed] = useState(false);
@@ -25,32 +25,14 @@ export default function Newsletter() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: NewsletterFormData) => {
-      return await apiRequest('POST', '/api/newsletter', data);
-    },
-    onSuccess: () => {
-      setIsSubscribed(true);
-      toast({
-        title: 'Subscribed!',
-        description: 'Thank you for joining our community.',
-      });
-      form.reset();
-    },
-    onError: (error: any) => {
-      const message = error.message?.includes('already subscribed') 
-        ? 'This email is already subscribed.'
-        : 'Failed to subscribe. Please try again.';
-      toast({
-        title: 'Error',
-        description: message,
-        variant: 'destructive',
-      });
-    },
-  });
-
   const onSubmit = (data: NewsletterFormData) => {
-    mutation.mutate(data);
+    console.log('Newsletter subscription:', data);
+    setIsSubscribed(true);
+    toast({
+      title: 'Subscribed!',
+      description: 'Thank you for joining our community.',
+    });
+    form.reset();
   };
 
   return (
@@ -92,8 +74,8 @@ export default function Newsletter() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={mutation.isPending} data-testid="button-subscribe">
-                {mutation.isPending ? 'Subscribing...' : 'Subscribe'}
+              <Button type="submit" data-testid="button-subscribe">
+                Subscribe
               </Button>
             </form>
           </Form>
