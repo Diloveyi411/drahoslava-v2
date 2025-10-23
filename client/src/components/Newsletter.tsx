@@ -61,7 +61,7 @@ export default function Newsletter() {
           className="font-serif text-3xl md:text-4xl font-light text-foreground mb-3"
           data-testid="text-newsletter-title"
         >
-          Stay Connected
+          Stay in Touch
         </h2>
         <p className="text-muted-foreground mb-8" data-testid="text-newsletter-description">
           Receive updates on new workshops, art releases, and insights on creative healing. No spam, just good vibes.
