@@ -104,12 +104,20 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 - All text uses Cormorant Garamond for a cohesive, artistic aesthetic
 
 ### Key Features
-1. **Gallery** - 4 textured floral artworks in 2-column grid with square aspect ratio, lightbox modal for detailed viewing
-2. **Contact Form** - Collects visitor inquiries with subject selection (Painting Meditations, 1-on-1 Session, Workshop, Commission, Other)
-3. **Newsletter** - Email subscription with duplicate prevention
-4. **Services** - Four simplified service cards (2x2 grid) with icons, descriptions, and CTAs (no bullet lists)
+1. **Services** - Four simplified service cards (2x2 grid) with icons, descriptions, and CTAs (no bullet lists) - positioned before Gallery
+2. **Gallery** - 4 textured floral artworks in 2-column grid with square aspect ratio, lightbox modal for detailed viewing
+3. **Contact Form** - Collects visitor inquiries with subject selection (Painting Meditations, 1-on-1 Session, Workshop, Commission, Other)
+4. **Newsletter** - Email subscription with duplicate prevention
 5. **Smooth Navigation** - Sticky header with anchor links to sections
 6. **About Section** - Portrait photo on left, bio text on right, with expertise highlight cards below
+
+### Page Order
+1. Hero
+2. About
+3. Services (moved above Gallery for better flow)
+4. Gallery
+5. Contact Form
+6. Newsletter
 
 ## Data Models
 
