@@ -27,7 +27,7 @@ export default function Hero() {
           style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2)' }}
           data-testid="text-hero-title"
         >
-          Art, Psychology & Vibes
+          Connecting psychology, art, and technology to help you rediscover your true essence.
         </h1>
         <p
           className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 font-light max-w-3xl mx-auto leading-relaxed"
