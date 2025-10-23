@@ -58,6 +58,15 @@ export default function About() {
           </div>
         </div>
 
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-foreground mb-4" data-testid="text-services-title">
+            Services
+          </h2>
+          <p className="text-lg md:text-xl text-foreground/70 font-light" data-testid="text-services-subtitle">
+            Three dimensions of self-understanding — soul, body, and mind.
+          </p>
+        </div>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {highlights.map((highlight, index) => (
             <Card
