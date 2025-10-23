@@ -11,6 +11,7 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 - **About Section**: Swapped layout - photo now on LEFT, text on RIGHT (50/50 split on desktop)
   - Photo made more prominent with portrait orientation (3:4 aspect ratio)
   - Updated text content to better reflect artistic practice
+  - Removed highlight cards section (Inner Work, Creative Practice, Digital Space)
 - **Gallery Section**: Redesigned for gallery wall aesthetic with framed artwork
   - Grid layout: Mobile (1 column), Tablet/Desktop (2 columns) - grid-cols-1 sm:grid-cols-2 md:grid-cols-2
   - Images now square (aspect-square) - 1:1 aspect ratio
@@ -109,7 +110,7 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 3. **Contact Form** - Collects visitor inquiries with subject selection (Painting Meditations, 1-on-1 Session, Workshop, Commission, Other)
 4. **Newsletter** - Email subscription with duplicate prevention
 5. **Smooth Navigation** - Sticky header with anchor links to sections
-6. **About Section** - Portrait photo on left, bio text on right, with expertise highlight cards below
+6. **About Section** - Portrait photo on left, bio text on right with philosophical content about self-awareness through art
 
 ### Page Order
 1. Hero
