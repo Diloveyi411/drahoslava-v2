@@ -22,7 +22,9 @@ const services: Service[] = [
   {
     icon: Palette,
     title: 'Mind — Digital Space',
-    description: 'Explore stories and emotions through my comic work. Each piece tells a tale of human experience, growth, and connection.',
+    description: `Our inner life now extends into the digital realm.
+Through experimental projects — an AI-based self-awareness app, interactive digital galleries, visual essays and creations— I explore how technology can help us understand ourselves more deeply.
+These are not tools of distraction, but instruments of reflection — art that thinks with you.`,
   },
 ];
 
