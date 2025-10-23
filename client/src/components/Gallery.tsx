@@ -88,9 +88,9 @@ export default function Gallery() {
       </div>
 
       <Dialog open={selectedIndex !== null} onOpenChange={closeLightbox}>
-        <DialogContent className="max-w-5xl p-8 bg-background/98 backdrop-blur-sm border-0">
+        <DialogContent className="max-w-5xl bg-background/98 backdrop-blur-sm border-0">
           {selectedIndex !== null && (
-            <div className="relative">
+            <div className="relative p-4 sm:p-8">
               <VisuallyHidden>
                 <DialogTitle>{artworks[selectedIndex].title}</DialogTitle>
               </VisuallyHidden>
@@ -98,24 +98,24 @@ export default function Gallery() {
                 size="icon"
                 variant="ghost"
                 onClick={closeLightbox}
-                className="absolute -top-2 -right-2 z-10"
+                className="absolute top-2 right-2 z-20"
                 data-testid="button-close-lightbox"
               >
                 <X className="h-5 w-5" />
               </Button>
 
-              <div className="relative flex items-center justify-center">
+              <div className="relative flex items-center justify-center gap-4">
                 <Button
                   size="icon"
                   variant="ghost"
                   onClick={goToPrevious}
-                  className="absolute left-0 z-10 -translate-x-14"
+                  className="flex-shrink-0"
                   data-testid="button-previous"
                 >
                   <ChevronLeft className="h-8 w-8" />
                 </Button>
 
-                <Card className="max-w-3xl shadow-lg">
+                <Card className="flex-1 max-w-3xl shadow-lg">
                   <div className="p-6 sm:p-8">
                     <img
                       src={artworks[selectedIndex].image}
@@ -138,7 +138,7 @@ export default function Gallery() {
                   size="icon"
                   variant="ghost"
                   onClick={goToNext}
-                  className="absolute right-0 z-10 translate-x-14"
+                  className="flex-shrink-0"
                   data-testid="button-next"
                 >
                   <ChevronRight className="h-8 w-8" />
