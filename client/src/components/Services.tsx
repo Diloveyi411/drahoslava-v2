@@ -12,11 +12,7 @@ const services: Service[] = [
   {
     icon: Users,
     title: 'Soul — Inner Work',
-    description: `The art of seeing yourself with honesty and care.
-
-True change begins with awareness.
-Through guided 1-on-1 sessions, you'll learn to observe your inner world with gentleness — to recognize emotional patterns, release inner resistance, and return to your authentic rhythm.
-This space is for those who want to see clearly and live truthfully.`,
+    description: 'True change begins with awareness. Through guided 1-on-1 sessions, you\'ll learn to observe your inner world with gentleness — to recognize emotional patterns, release inner resistance, and return to your authentic rhythm. This space is for those who want to see clearly and live truthfully.',
   },
   {
     icon: User,
