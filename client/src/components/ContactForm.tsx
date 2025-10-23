@@ -124,7 +124,7 @@ export default function ContactForm() {
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="your@email.com"
+                          placeholder="Your email address"
                           {...field}
                           data-testid="input-email"
                         />
