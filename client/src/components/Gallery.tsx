@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
-import gallery1 from '@assets/generated_images/Gallery_artwork_piece_one_faa7f153.png';
-import gallery2 from '@assets/generated_images/Gallery_artwork_piece_two_92685a03.png';
-import gallery3 from '@assets/generated_images/Gallery_artwork_piece_three_1a1cdfd3.png';
-import gallery4 from '@assets/generated_images/Gallery_artwork_piece_four_899cb46a.png';
+import gallery1 from '@assets/13b_1761189596670.jpg';
+import gallery2 from '@assets/Obraz 2_1761189596670.jpg';
+import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.png';
+import gallery4 from '@assets/Screenshot 2025-10-08 at 20.18.59_1761189596671.png';
 
 interface Artwork {
   id: number;
@@ -16,10 +16,10 @@ interface Artwork {
 }
 
 const artworks: Artwork[] = [
-  { id: 1, image: gallery1, title: 'Healing Blooms', medium: 'Textured Mixed Media', year: '2024' },
-  { id: 2, image: gallery2, title: 'Soft Transitions', medium: 'Textured Acrylic', year: '2024' },
-  { id: 3, image: gallery3, title: 'Inner Garden', medium: 'Mixed Media on Canvas', year: '2023' },
-  { id: 4, image: gallery4, title: 'Peaceful Flow', medium: 'Textured Painting', year: '2023' },
+  { id: 1, image: gallery1, title: 'Night Garden', medium: 'Textured Mixed Media', year: '2024' },
+  { id: 2, image: gallery2, title: 'Golden Meadow', medium: 'Textured Acrylic', year: '2024' },
+  { id: 3, image: gallery3, title: 'Sky & Field', medium: 'Mixed Media on Canvas', year: '2025' },
+  { id: 4, image: gallery4, title: 'Pastel Dreams', medium: 'Textured Painting', year: '2025' },
 ];
 
 export default function Gallery() {
