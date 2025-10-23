@@ -25,7 +25,15 @@ export default function About() {
     <section id="about" className="py-20 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
-          <div className="order-2 md:order-1">
+          <div className="order-1 md:order-1">
+            <img
+              src={profileImage}
+              alt="Drahoslava Forgacova"
+              className="w-full rounded-lg shadow-xl aspect-[3/4] object-cover"
+              data-testid="img-about-profile"
+            />
+          </div>
+          <div className="order-2 md:order-2">
             <h2
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6"
               data-testid="text-about-title"
@@ -34,23 +42,15 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-base md:text-lg text-foreground/80 leading-relaxed">
               <p data-testid="text-about-paragraph-1">
-                I believe in the transformative power of art as medicine. My practice merges psychological understanding with creative expression to help people discover new pathways to healing and self-discovery.
+                I create textured floral paintings that invite you into a world of soft colors and gentle emotions. Each piece is a meditation in itself, built layer by layer with intention and care.
               </p>
               <p data-testid="text-about-paragraph-2">
-                Through painting meditations, personalized sessions, and creative workshops, I guide individuals on journeys of introspection and growth. Each brushstroke, each color choice, becomes a conversation between the conscious and unconscious mind.
+                As a psychologist, I believe in the healing power of creativity. Through painting meditations and 1-on-1 sessions, I guide people on journeys of self-understanding and self-actualization, where art becomes a bridge to inner wisdom.
               </p>
               <p data-testid="text-about-paragraph-3">
-                My approach is grounded in professional psychology while celebrating the intuitive, creative spirit that lives within us all.
+                My work spans from textured canvases to comics, each medium offering a unique way to explore emotions, stories, and the beautiful complexity of being human.
               </p>
             </div>
-          </div>
-          <div className="order-1 md:order-2">
-            <img
-              src={profileImage}
-              alt="Drahoslava Forgacova"
-              className="w-full rounded-2xl shadow-lg"
-              data-testid="img-about-profile"
-            />
           </div>
         </div>
 
