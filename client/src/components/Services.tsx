@@ -47,7 +47,7 @@ export default function Services() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-services-title"
           >
-            Three Paths to Self-Understanding
+            Three Expressions of the Self
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-services-subtitle">
             Discover ways to connect with your creativity and inner self through art and psychology
