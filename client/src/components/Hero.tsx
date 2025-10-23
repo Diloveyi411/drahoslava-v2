@@ -16,10 +16,10 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: `url(${heroImage})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/50" />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <h1
@@ -32,25 +32,25 @@ export default function Hero() {
           className="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 font-light max-w-3xl mx-auto leading-relaxed"
           data-testid="text-hero-subtitle"
         >
-          Discover healing through creative expression. Where psychology meets artistry for transformative experiences.
+          Creating textured floral art and guiding journeys of self-understanding through painting meditations
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            onClick={() => scrollToSection('services')}
+            onClick={() => scrollToSection('gallery')}
             className="bg-primary/90 hover:bg-primary text-primary-foreground backdrop-blur-sm min-w-[200px]"
-            data-testid="button-book-session"
+            data-testid="button-view-gallery"
           >
-            Book a Session
+            View Gallery
           </Button>
           <Button
             size="lg"
             variant="outline"
-            onClick={() => scrollToSection('gallery')}
+            onClick={() => scrollToSection('services')}
             className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm min-w-[200px]"
-            data-testid="button-view-gallery"
+            data-testid="button-explore-services"
           >
-            View Gallery
+            Explore Services
           </Button>
         </div>
       </div>
