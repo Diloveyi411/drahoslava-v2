@@ -94,7 +94,7 @@ export default function Gallery() {
           <DialogOverlay className="bg-background/50 backdrop-blur-md" />
           <DialogPrimitive.Content
             className={cn(
-              "fixed left-[50%] top-[50%] z-50 grid w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] border-0 bg-transparent p-0 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-lg"
+              "fixed left-[50%] top-[50%] z-50 grid w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] border-none outline-none bg-transparent p-0 shadow-none duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 focus:outline-none focus-visible:outline-none"
             )}
           >
             {selectedIndex !== null && (
@@ -107,7 +107,7 @@ export default function Gallery() {
                   size="icon"
                   variant="default"
                   onClick={closeLightbox}
-                  className="absolute top-4 right-4 z-50 bg-background/90 hover:bg-background shadow-lg"
+                  className="absolute top-4 right-4 z-50 bg-background hover:bg-background/90 shadow-lg"
                   data-testid="button-close-lightbox"
                 >
                   <X className="h-5 w-5" />
@@ -125,7 +125,7 @@ export default function Gallery() {
                       <ChevronLeft className="h-8 w-8" />
                     </Button>
 
-                    <Card className="flex-1 max-w-3xl shadow-lg bg-background">
+                    <Card className="flex-1 max-w-3xl shadow-lg bg-background border-none">
                       <div className="p-6 sm:p-8">
                         <img
                           src={artworks[selectedIndex].image}
