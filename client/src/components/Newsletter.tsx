@@ -54,7 +54,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="py-20 bg-primary/5">
+    <section id="newsletter" className="py-20 bg-primary/5">
       <div className="max-w-2xl mx-auto px-6 lg:px-8 text-center">
         <Mail className="h-10 w-10 text-primary mx-auto mb-4" />
         <h2

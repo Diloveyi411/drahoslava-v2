@@ -27,6 +27,7 @@ export default function Navigation() {
     { label: 'Gallery', id: 'gallery' },
     { label: 'Services', id: 'services' },
     { label: 'Contact', id: 'contact' },
+    { label: 'Newsletter', id: 'newsletter' },
   ];
 
   return (
