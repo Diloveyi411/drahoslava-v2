@@ -68,7 +68,7 @@ export default function Newsletter() {
         </p>
 
         {isSubscribed ? (
-          <div className="p-6 bg-background rounded-lg" data-testid="message-subscribed">
+          <div className="p-6 bg-background rounded-lg glass-card" data-testid="message-subscribed">
             <p className="text-foreground font-medium">Thank you for subscribing! 🎨</p>
             <p className="text-sm text-muted-foreground mt-1">Check your inbox for a welcome message.</p>
           </div>

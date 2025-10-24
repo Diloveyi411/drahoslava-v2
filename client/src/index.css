@@ -2,92 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE */
+/* LIGHT MODE - Iridescent Pearl Aesthetic */
 :root {
-  --button-outline: rgba(0,0,0, .10);
-  --badge-outline: rgba(0,0,0, .05);
+  --button-outline: rgba(255,255,255, .40);
+  --badge-outline: rgba(255,255,255, .30);
 
   /* Automatic computation of border around primary / danger buttons */
   --opaque-button-border-intensity: -8; /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(0,0,0, .03);
-  --elevate-2: rgba(0,0,0, .08);
+  --elevate-1: rgba(0,0,0, .02);
+  --elevate-2: rgba(0,0,0, .05);
 
-  --background: 40 5% 97%;
+  /* Pearl base background */
+  --background: 0 4% 97%;
 
-  --foreground: 220 15% 20%;
+  /* Soft dark text */
+  --foreground: 225 15% 20%;
 
-  --border: 40 8% 88%;
+  /* Soft borders */
+  --border: 0 5% 92%;
 
-  --card: 40 6% 95%;
+  /* Card with glass effect - slightly elevated from background */
+  --card: 0 5% 96%;
 
-  --card-foreground: 220 15% 20%;
+  --card-foreground: 225 15% 20%;
 
-  --card-border: 40 8% 86%;
+  --card-border: 0 10% 90%;
 
-  --sidebar: 40 5% 93%;
+  --sidebar: 0 4% 95%;
 
-  --sidebar-foreground: 220 15% 22%;
+  --sidebar-foreground: 225 15% 22%;
 
-  --sidebar-border: 40 7% 84%;
+  --sidebar-border: 0 7% 88%;
 
-  --sidebar-primary: 175 35% 45%;
+  /* Dusty rose primary accent */
+  --sidebar-primary: 9 21% 72%;
 
-  --sidebar-primary-foreground: 175 5% 98%;
+  --sidebar-primary-foreground: 0 0% 100%;
 
-  --sidebar-accent: 40 12% 88%;
+  --sidebar-accent: 150 11% 90%;
 
-  --sidebar-accent-foreground: 220 15% 25%;
+  --sidebar-accent-foreground: 225 15% 25%;
 
-  --sidebar-ring: 175 35% 45%;
+  --sidebar-ring: 9 21% 72%;
 
-  --popover: 40 8% 91%;
+  --popover: 0 5% 96%;
 
-  --popover-foreground: 220 15% 22%;
+  --popover-foreground: 225 15% 22%;
 
-  --popover-border: 40 10% 82%;
+  --popover-border: 0 10% 88%;
 
-  --primary: 175 35% 45%;
+  /* Dusty rose primary */
+  --primary: 9 21% 72%;
 
-  --primary-foreground: 175 5% 98%;
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 40 10% 85%;
+  /* Light sage-gray secondary */
+  --secondary: 150 11% 87%;
 
-  --secondary-foreground: 220 15% 25%;
+  --secondary-foreground: 225 15% 25%;
 
-  --muted: 40 12% 89%;
+  --muted: 0 8% 90%;
 
-  --muted-foreground: 220 10% 50%;
+  --muted-foreground: 225 10% 50%;
 
-  --accent: 30 18% 87%;
+  /* Soft neutral accent */
+  --accent: 150 11% 89%;
 
-  --accent-foreground: 220 15% 28%;
+  --accent-foreground: 225 15% 28%;
 
   --destructive: 0 65% 48%;
 
   --destructive-foreground: 0 5% 98%;
 
-  --input: 40 12% 75%;
-  --ring: 175 35% 45%;
-  --chart-1: 175 35% 45%;
-  --chart-2: 340 60% 55%;
-  --chart-3: 30 45% 50%;
-  --chart-4: 220 20% 45%;
-  --chart-5: 280 30% 50%;
+  --input: 0 12% 85%;
+  --ring: 9 21% 72%;
+  --chart-1: 9 21% 72%;
+  --chart-2: 300 20% 75%;
+  --chart-3: 200 25% 75%;
+  --chart-4: 150 15% 70%;
+  --chart-5: 280 20% 75%;
 
   --font-sans: 'Cormorant Garamond', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-mono: 'Fira Mono', 'Courier New', monospace;
   --radius: .5rem; /* 8px */
-  --shadow-2xs: 0px 1px 2px 0px hsl(220 15% 20% / 0.05);
-  --shadow-xs: 0px 1px 2px 0px hsl(220 15% 20% / 0.06);
-  --shadow-sm: 0px 1px 3px 0px hsl(220 15% 20% / 0.08), 0px 1px 2px -1px hsl(220 15% 20% / 0.08);
-  --shadow: 0px 2px 4px 0px hsl(220 15% 20% / 0.08), 0px 1px 2px -1px hsl(220 15% 20% / 0.08);
-  --shadow-md: 0px 4px 6px 0px hsl(220 15% 20% / 0.09), 0px 2px 4px -1px hsl(220 15% 20% / 0.09);
-  --shadow-lg: 0px 10px 15px 0px hsl(220 15% 20% / 0.10), 0px 4px 6px -2px hsl(220 15% 20% / 0.10);
-  --shadow-xl: 0px 20px 25px 0px hsl(220 15% 20% / 0.12), 0px 8px 10px -6px hsl(220 15% 20% / 0.12);
-  --shadow-2xl: 0px 25px 50px 0px hsl(220 15% 20% / 0.15);
+  
+  /* Softer shadows for glass effect */
+  --shadow-2xs: 0px 1px 2px 0px rgba(43, 48, 59, 0.03);
+  --shadow-xs: 0px 1px 2px 0px rgba(43, 48, 59, 0.04);
+  --shadow-sm: 0px 1px 3px 0px rgba(43, 48, 59, 0.05), 0px 1px 2px -1px rgba(43, 48, 59, 0.05);
+  --shadow: 0px 2px 4px 0px rgba(43, 48, 59, 0.06), 0px 1px 2px -1px rgba(43, 48, 59, 0.06);
+  --shadow-md: 0px 4px 6px 0px rgba(43, 48, 59, 0.07), 0px 2px 4px -1px rgba(43, 48, 59, 0.07);
+  --shadow-lg: 0px 10px 15px 0px rgba(43, 48, 59, 0.08), 0px 4px 6px -2px rgba(43, 48, 59, 0.08);
+  --shadow-xl: 0px 20px 25px 0px rgba(43, 48, 59, 0.09), 0px 8px 10px -6px rgba(43, 48, 59, 0.09);
+  --shadow-2xl: 0px 25px 50px 0px rgba(43, 48, 59, 0.10);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 
@@ -150,15 +160,15 @@
 
   --sidebar-border: 220 7% 26%;
 
-  --sidebar-primary: 175 35% 45%;
+  --sidebar-primary: 9 21% 72%;
 
-  --sidebar-primary-foreground: 175 5% 98%;
+  --sidebar-primary-foreground: 0 0% 100%;
 
   --sidebar-accent: 220 8% 24%;
 
   --sidebar-accent-foreground: 40 10% 92%;
 
-  --sidebar-ring: 175 35% 55%;
+  --sidebar-ring: 9 21% 72%;
 
   --popover: 220 7% 20%;
 
@@ -166,9 +176,9 @@
 
   --popover-border: 220 8% 28%;
 
-  --primary: 175 35% 45%;
+  --primary: 9 21% 72%;
 
-  --primary-foreground: 175 5% 98%;
+  --primary-foreground: 0 0% 100%;
 
   --secondary: 220 8% 26%;
 
@@ -187,12 +197,12 @@
   --destructive-foreground: 0 5% 98%;
 
   --input: 220 12% 35%;
-  --ring: 175 35% 55%;
-  --chart-1: 175 40% 65%;
-  --chart-2: 340 65% 70%;
-  --chart-3: 30 50% 65%;
-  --chart-4: 220 25% 65%;
-  --chart-5: 280 35% 65%;
+  --ring: 9 21% 72%;
+  --chart-1: 9 25% 75%;
+  --chart-2: 300 25% 75%;
+  --chart-3: 200 30% 75%;
+  --chart-4: 150 20% 70%;
+  --chart-5: 280 25% 75%;
 
   --shadow-2xs: 0px 1px 2px 0px hsl(220 20% 5% / 0.30);
   --shadow-xs: 0px 1px 2px 0px hsl(220 20% 5% / 0.35);
@@ -239,6 +249,92 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Iridescent holographic background overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(176, 224, 230, 0.12) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(230, 220, 255, 0.15) 0%, transparent 50%),
+      linear-gradient(135deg, 
+        rgba(255, 182, 193, 0.08) 0%, 
+        rgba(230, 220, 255, 0.08) 25%,
+        rgba(176, 224, 230, 0.08) 50%,
+        rgba(255, 182, 193, 0.08) 75%,
+        rgba(230, 220, 255, 0.08) 100%
+      );
+    animation: iridescent-shift 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes iridescent-shift {
+    0% {
+      opacity: 0.6;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.6;
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Ensure content appears above the iridescent overlay */
+  #root {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Glass morphism effect for cards and forms */
+@layer components {
+  .glass-card {
+    background: rgba(248, 247, 247, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(43, 48, 59, 0.1);
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(201, 169, 166, 0.6);
+  }
+}
+
+/* Button hover animations with smooth lift */
+@layer utilities {
+  .btn-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px 0 rgba(43, 48, 59, 0.15);
+  }
+
+  .btn-lift:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px 0 rgba(43, 48, 59, 0.1);
   }
 }
 

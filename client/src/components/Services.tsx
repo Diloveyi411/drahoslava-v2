@@ -55,7 +55,7 @@ export default function Services() {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="p-8 flex flex-col hover-elevate active-elevate-2 transition-all"
+              className="p-8 flex flex-col hover-elevate active-elevate-2 transition-all glass-card"
               data-testid={`card-service-${index}`}
             >
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-6">

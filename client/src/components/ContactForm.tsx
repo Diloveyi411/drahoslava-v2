@@ -86,7 +86,7 @@ export default function ContactForm() {
         </div>
 
         {isSubmitted ? (
-          <div className="text-center p-12 bg-background rounded-2xl" data-testid="message-success">
+          <div className="text-center p-12 bg-background rounded-2xl glass-card" data-testid="message-success">
             <CheckCircle className="h-16 w-16 text-primary mx-auto mb-4" />
             <h3 className="font-serif text-2xl text-foreground mb-2">Thank You!</h3>
             <p className="text-muted-foreground">

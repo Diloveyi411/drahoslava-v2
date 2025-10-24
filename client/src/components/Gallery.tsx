@@ -68,7 +68,7 @@ export default function Gallery() {
           {artworks.map((artwork, index) => (
             <Card
               key={artwork.id}
-              className="overflow-visible hover-elevate active-elevate-2 transition-all shadow-md cursor-pointer"
+              className="overflow-visible hover-elevate active-elevate-2 transition-all shadow-md cursor-pointer glass-card"
               onClick={() => openLightbox(index)}
               data-testid={`button-artwork-${index}`}
             >
@@ -126,7 +126,7 @@ export default function Gallery() {
                       <ChevronLeft className="h-8 w-8" />
                     </Button>
 
-                    <Card className="flex-1 max-w-3xl shadow-lg bg-background border-none">
+                    <Card className="flex-1 max-w-3xl shadow-lg bg-background border-none glass-card">
                       <div className="p-6 sm:p-8">
                         <div className="relative">
                           <img

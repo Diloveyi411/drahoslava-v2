@@ -5,9 +5,53 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 
 **Brand Essence:** "Art as Medicine" - A fusion of psychology, creativity, and wellness.
 
-## Recent Changes (October 23, 2025)
+## Recent Changes (October 24, 2025)
 
-### Design Updates (V0 Prototype Implementation)
+### Iridescent Pearl Aesthetic Transformation
+Complete visual redesign to a soft, gender-neutral iridescent/pearl aesthetic inspired by holographic light reflections on smooth fabric:
+
+- **Color Palette Updated** (Light Mode):
+  - Background: #F8F7F7 (0 4% 97%) - Pearl base
+  - Text: #2B303B (225 15% 20%) - Soft dark
+  - Primary Accent: #C9A9A6 (9 21% 72%) - Dusty rose
+  - Secondary: #DDE2DF (150 11% 87%) - Light sage-gray
+  - Borders: rgba(255,255,255,0.4) - Soft, translucent
+
+- **Holographic Background Overlay**:
+  - Animated iridescent gradient using body::before
+  - Multi-layered radial gradients with pink, blue, and lilac tones
+  - Subtle 20s animation creating gentle light shifts
+  - Iridescent colors: rgba(255,182,193,0.15), rgba(176,224,230,0.12), rgba(230,220,255,0.15)
+  - Effect feels like white light reflecting on pearl fabric
+
+- **Glass Morphism Effects**:
+  - All cards use .glass-card class: backdrop-filter: blur(20px)
+  - Semi-transparent backgrounds (rgba(248,247,247,0.7))
+  - Soft white borders (rgba(255,255,255,0.4))
+  - Applied to: Service cards, Gallery cards, Contact/Newsletter success messages, Lightbox modal
+  - Maintains readability while adding depth
+
+- **Image Filters**:
+  - All images now have 20% milky white overlay (bg-white/20)
+  - Reduces saturation for cohesive pearl aesthetic
+  - Applied to: Gallery artworks, About profile photo, Lightbox images
+
+- **Button Enhancements**:
+  - Dusty rose primary color (#C9A9A6) with white text
+  - .btn-lift class for smooth hover animations
+  - translateY(-2px) on hover with enhanced shadow
+  - Rounded 8px (--radius: 0.5rem)
+
+- **Shadow System**:
+  - Softer, more subtle shadows using rgba(43,48,59,0.03-0.10)
+  - Reduced opacity for glass effect compatibility
+  - Multi-layered shadows for depth without harshness
+
+- **Typography** (unchanged):
+  - Cormorant Garamond for all text
+  - Fira Mono for monospace
+
+### Previous Design Updates (October 23, 2025)
 - **About Section**: Swapped layout - photo now on LEFT, text on RIGHT (50/50 split on desktop)
   - Photo made more prominent with portrait orientation (3:4 aspect ratio)
   - Updated text content to better reflect artistic practice
@@ -91,13 +135,18 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 
 ## Design System
 
-### Colors (Light Mode)
-- **Primary:** Teal (175 35% 45%) - Calming, professional
-- **Secondary:** Soft rose (340 60% 70%) - Warm, creative (used in charts)
-- **Accent:** Earth tone (30 45% 60%) - Grounding
-- **Background:** Warm off-white (40 20% 97%)
-- **Text Primary:** Soft black (220 15% 20%)
-- **Text Secondary:** Muted gray (220 10% 50%)
+### Colors (Light Mode) - Iridescent Pearl Aesthetic
+- **Background:** #F8F7F7 (0 4% 97%) - Pearl base with holographic overlay
+- **Foreground Text:** #2B303B (225 15% 20%) - Soft dark
+- **Primary Accent:** #C9A9A6 (9 21% 72%) - Dusty rose
+- **Secondary:** #DDE2DF (150 11% 87%) - Light sage-gray
+- **Muted Text:** (225 10% 50%) - Medium gray
+- **Card Background:** (0 5% 96%) - Slightly elevated from base
+- **Borders:** rgba(255,255,255,0.4) - Soft translucent white
+- **Iridescent Overlays:** 
+  - Pink: rgba(255,182,193,0.15)
+  - Blue: rgba(176,224,230,0.12)
+  - Lilac: rgba(230,220,255,0.15)
 
 ### Typography
 - **Primary Font:** Cormorant Garamond (serif) - Elegant, refined typography throughout
@@ -105,12 +154,14 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 - All text uses Cormorant Garamond for a cohesive, artistic aesthetic
 
 ### Key Features
-1. **Services** - Four simplified service cards (2x2 grid) with icons, descriptions, and CTAs (no bullet lists) - positioned before Gallery
-2. **Gallery** - 4 textured floral artworks in 2-column grid with square aspect ratio, lightbox modal for detailed viewing
-3. **Contact Form** - Collects visitor inquiries with subject selection (Painting Meditations, 1-on-1 Session, Workshop, Commission, Other)
-4. **Newsletter** - Email subscription with duplicate prevention
-5. **Smooth Navigation** - Sticky header with anchor links to sections
-6. **About Section** - Portrait photo on left, bio text on right with philosophical content about self-awareness through art
+1. **Iridescent Background** - Animated holographic gradient overlay creating soft light reflections (20s animation loop)
+2. **Glass Morphism** - All cards use backdrop-filter: blur(20px) with semi-transparent backgrounds
+3. **Services** - Three service cards (Soul/Body/Mind) with Eye/Hand/Monitor icons, glass effect
+4. **Gallery** - 4 textured floral artworks in 2-column grid with glass frames, 20% milky overlay, lightbox modal
+5. **Contact Form** - Subject selection with glass morphism effects on success state
+6. **Newsletter** - Email subscription with glass effect success message
+7. **Smooth Navigation** - Sticky header with anchor links to sections
+8. **About Section** - Portrait photo (20% milky overlay) on left, bio text on right
 
 ### Page Order
 1. Hero
@@ -134,7 +185,11 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 - Frontend and backend served from same port via Vite integration
 
 ## User Preferences
-- Clean, minimal design with focus on artwork
+- Soft iridescent/pearl aesthetic - gender-neutral, calm, technological-organic
+- Glass morphism effects with backdrop blur
+- Holographic light reflections creating sense of depth
+- Minimal design with focus on artwork
 - Professional yet artistic aesthetic
-- Warm color palette reflecting healing/wellness theme
+- Feels like "white light reflecting on smooth fabric"
 - Accessible and responsive across all devices
+- No sharp contrasts or saturated colors
