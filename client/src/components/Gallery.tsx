@@ -79,7 +79,7 @@ export default function Gallery() {
                     alt={artwork.title}
                     className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-white/10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-white/20 pointer-events-none" />
                 </div>
                 <div className="mt-4 text-center">
                   <h3 className="font-serif text-lg text-foreground">{artwork.title}</h3>
@@ -135,7 +135,7 @@ export default function Gallery() {
                             className="w-full max-h-[60vh] object-contain mx-auto"
                             data-testid="img-lightbox-artwork"
                           />
-                          <div className="absolute inset-0 bg-white/10 pointer-events-none" />
+                          <div className="absolute inset-0 bg-white/20 pointer-events-none" />
                         </div>
                         <div className="text-center mt-6">
                           <h3 className="font-serif text-2xl text-foreground mb-2" data-testid="text-lightbox-title">
