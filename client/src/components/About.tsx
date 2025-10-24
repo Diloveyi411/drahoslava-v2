@@ -12,7 +12,7 @@ export default function About() {
               className="w-full rounded-lg shadow-xl aspect-[3/4] object-cover"
               data-testid="img-about-profile"
             />
-            <div className="absolute inset-0 bg-white/10 rounded-lg pointer-events-none" />
+            <div className="absolute inset-0 bg-white/20 rounded-lg pointer-events-none" />
           </div>
           <div className="order-2 md:order-2">
             <h2
