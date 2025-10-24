@@ -79,6 +79,7 @@ export default function Gallery() {
                     alt={artwork.title}
                     className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  <div className="absolute inset-0 bg-white/10 pointer-events-none" />
                 </div>
                 <div className="mt-4 text-center">
                   <h3 className="font-serif text-lg text-foreground">{artwork.title}</h3>
@@ -127,12 +128,15 @@ export default function Gallery() {
 
                     <Card className="flex-1 max-w-3xl shadow-lg bg-background border-none">
                       <div className="p-6 sm:p-8">
-                        <img
-                          src={artworks[selectedIndex].image}
-                          alt={artworks[selectedIndex].title}
-                          className="w-full max-h-[60vh] object-contain mx-auto"
-                          data-testid="img-lightbox-artwork"
-                        />
+                        <div className="relative">
+                          <img
+                            src={artworks[selectedIndex].image}
+                            alt={artworks[selectedIndex].title}
+                            className="w-full max-h-[60vh] object-contain mx-auto"
+                            data-testid="img-lightbox-artwork"
+                          />
+                          <div className="absolute inset-0 bg-white/10 pointer-events-none" />
+                        </div>
                         <div className="text-center mt-6">
                           <h3 className="font-serif text-2xl text-foreground mb-2" data-testid="text-lightbox-title">
                             {artworks[selectedIndex].title}
