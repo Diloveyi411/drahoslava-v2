@@ -5,49 +5,9 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 
 **Brand Essence:** "Art as Medicine" - A fusion of psychology, creativity, and wellness.
 
-## Recent Changes (October 24, 2025)
+## Recent Changes (October 23, 2025)
 
-### Pearlescent/Iridescent Holographic Design System
-- **Global Overlay**: Implemented animated iridescent overlay with subtle rainbow reflections
-  - Multi-layered radial gradients (pink, blue, lilac) creating holographic effect
-  - Smooth 25-second animation cycle with `iridescent-flow` keyframe
-  - Fixed position overlay using `body::before` with `mix-blend-mode: screen`
-  - Soft backdrop blur for enhanced depth
-- **Color Palette**: New pearlescent brand variables in `:root`
-  - `--bg-pearl`: #F8F7F7 (pearl white background)
-  - `--bg-muted-pearl`: #EDEAE8 (warm grey haze)
-  - `--accent-dusty-rose`: #C9A9A6 (dusty rose for CTAs)
-  - `--accent-pressed`: #B6938F (pressed state)
-  - `--accent-sage`: #BFD0C5 (cool balance accent)
-  - Iridescent light alphas: pink (0.15), blue (0.12), lilac (0.15), gold (0.10)
-- **Glass Cards**: Applied glassmorphism to all card components
-  - `--card-bg-glass`: rgba(255,255,255,0.55) with 20px backdrop blur
-  - `--card-border-glass`: rgba(255,255,255,0.40) for subtle borders
-  - Soft shadow: 0 4px 20px rgba(0,0,0,0.03)
-- **CTA Buttons**: Unified dusty rose style for primary actions
-  - Background: dusty rose (#C9A9A6) with subtle lift on hover
-  - Box shadow: 0 2px 10px rgba(201,169,166,0.20)
-  - Hover state: transforms translateY(-1px) with enhanced shadow
-  - 0.35s ease transitions
-- **Forms & Inputs**: Glass effect with enhanced focus states
-  - Background: rgba(255,255,255,0.7) with 10px backdrop blur
-  - Focus ring: dusty rose with 3px rgba(201,169,166,0.25) shadow
-  - Smooth border transitions
-- **Navigation**: Glass header with backdrop blur
-  - Transparent background with glassmorphism effect
-  - Milky border-bottom for subtle separation
-- **Image Filters**: Increased milky overlay to 20% opacity (bg-white/20)
-  - Applied consistently across Gallery, About, and Lightbox modal
-  - Creates cohesive aesthetic with pearlescent theme
-- **Typography**: Enhanced line heights for readability
-  - Body text: 1.7 line-height
-  - Headings: 1.15 line-height
-- **Implementation**: Pure CSS in `client/src/index.css` with no external libraries
-  - All variables defined in `:root` for easy customization
-  - Webkit prefixes for Safari/iOS compatibility
-  - Layered z-index structure for proper stacking
-
-### Design Updates (October 23, 2025)
+### Design Updates (V0 Prototype Implementation)
 - **About Section**: Swapped layout - photo now on LEFT, text on RIGHT (50/50 split on desktop)
   - Photo made more prominent with portrait orientation (3:4 aspect ratio)
   - Updated text content to better reflect artistic practice
