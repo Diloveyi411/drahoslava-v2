@@ -106,12 +106,11 @@ export default function Gallery() {
                 
                 <Button
                   size="icon"
-                  variant="default"
                   onClick={closeLightbox}
-                  className="absolute top-4 right-4 z-50 bg-background hover:bg-background/90 shadow-lg !block"
+                  className="fixed top-6 right-6 z-[100] bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl rounded-full w-12 h-12 !flex items-center justify-center"
                   data-testid="button-close-lightbox"
                 >
-                  <X className="h-5 w-5" />
+                  <X className="h-6 w-6" />
                 </Button>
 
                 <div className="p-4 sm:p-8">
