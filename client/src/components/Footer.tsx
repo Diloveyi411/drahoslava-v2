@@ -51,10 +51,6 @@ export default function Footer() {
                 <span data-testid="text-footer-email">info@drahoslava.com</span>
               </li>
               <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span data-testid="text-footer-location">Bratislava, Slovakia</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
                 <SiInstagram className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <a 
                   href="https://instagram.com/drahoslavacom" 
@@ -77,6 +73,10 @@ export default function Footer() {
                 >
                   facebook.com/Drahoslavaa
                 </a>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <span data-testid="text-footer-location">Bratislava, Slovakia</span>
               </li>
             </ul>
           </div>
