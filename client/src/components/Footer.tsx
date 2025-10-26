@@ -1,5 +1,5 @@
 import { Mail, MapPin } from 'lucide-react';
-import { SiInstagram } from 'react-icons/si';
+import { SiInstagram, SiFacebook } from 'react-icons/si';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -64,6 +64,18 @@ export default function Footer() {
                   data-testid="link-footer-instagram"
                 >
                   @drahoslavacom
+                </a>
+              </li>
+              <li className="flex items-start gap-3 text-sm text-muted-foreground">
+                <SiFacebook className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <a 
+                  href="https://www.facebook.com/Drahoslavaa" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground transition-colors"
+                  data-testid="link-footer-facebook"
+                >
+                  facebook.com/Drahoslavaa
                 </a>
               </li>
             </ul>
