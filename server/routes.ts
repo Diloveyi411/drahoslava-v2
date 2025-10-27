@@ -54,7 +54,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(article);
     } catch (error) {
       console.error('Error fetching article:', error);
-      res.status(500).json({ error: "Failed to fetch article" });
+      const message = error instanceof Error ? error.message : "Failed to fetch article";
+      res.status(502).json({ error: message });
     }
   });
 

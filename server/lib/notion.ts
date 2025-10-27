@@ -125,17 +125,13 @@ export async function getArticles(): Promise<NotionArticle[]> {
 }
 
 export async function getArticleBySlug(slug: string): Promise<NotionArticle | null> {
-  try {
-    // Since slugs can be auto-generated from titles, we need to fetch all articles
-    // and filter by the generated slug in our code
-    const allArticles = await getArticles();
-    const article = allArticles.find(a => a.slug === slug);
-    
-    return article || null;
-  } catch (error) {
-    console.error('Error fetching article by slug from Notion:', error);
-    return null;
-  }
+  // Since slugs can be auto-generated from titles, we need to fetch all articles
+  // and filter by the generated slug in our code
+  // Note: This will throw on API failures, allowing the route to return 502
+  const allArticles = await getArticles();
+  const article = allArticles.find(a => a.slug === slug);
+  
+  return article || null;
 }
 
 export async function getArticlesByCategory(category: string): Promise<NotionArticle[]> {
