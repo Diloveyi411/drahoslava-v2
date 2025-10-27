@@ -7,11 +7,25 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 
 ## Recent Changes (October 27, 2025)
 
-### Newsletter Page with Notion Integration ✅ WORKING
-Complete Newsletter/Blog functionality with Notion CMS integration:
+### Newsletter Page with Notion Integration ✅ FULLY WORKING
+Complete Newsletter/Blog functionality with Notion CMS integration and EmailJS welcome emails:
+
+- **Newsletter Signup with EmailJS** (`/` homepage and `/newsletter` page):
+  - ✅ **Email Confirmation Working**: Subscribers receive welcome emails via EmailJS
+  - Database saves subscription (POST /api/newsletter)
+  - EmailJS sends welcome email after successful save
+  - Environment variables required:
+    - VITE_EMAILJS_SERVICE_ID: `service_tiu5zp8`
+    - VITE_EMAILJS_PUBLIC_KEY: Your EmailJS public key
+    - VITE_EMAILJS_TEMPLATE_SIGNUP: `template_casfyh5` (Newsletter signup template)
+  - Template configuration in EmailJS dashboard:
+    - "To Email" field set to: `{{user_email}}`
+    - Template receives: `to_email` and `user_email` parameters
+  - Graceful error handling: subscription success shown even if email fails
+  - Form resets and shows success message after submission
 
 - **Newsletter Page** (`/newsletter`):
-  - Email signup form with EmailJS integration for confirmation emails
+  - Email signup form (same EmailJS integration as homepage)
   - Category filtering system (All, INNER BLOOM, CREATIVE CONSCIOUSNESS, TECH & SPIRIT, WORKSHOPS & EXPERIENCES, THE SOUL'S NOTE)
   - Responsive article grid (1 column mobile, 2 tablet, 3 desktop)
   - Glass card styling with 20% milky overlay on images
