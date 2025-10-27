@@ -36,8 +36,9 @@ function extractImageUrl(files: any[]): string | null {
 
 export async function getArticles(): Promise<NotionArticle[]> {
   try {
-    const response = await (notion.databases as any).query({
-      database_id: databaseId,
+    console.log('Fetching articles from Notion database:', databaseId);
+    const response = await notion.dataSources.query({
+      data_source_id: databaseId,
       filter: {
         property: 'Published',
         checkbox: {
@@ -52,9 +53,11 @@ export async function getArticles(): Promise<NotionArticle[]> {
       ],
     });
 
-    return response.results.map((page: any) => {
+    console.log(`Found ${response.results.length} published articles`);
+    
+    const articles = response.results.map((page: any) => {
       const properties = page.properties;
-      return {
+      const article = {
         id: page.id,
         title: extractPlainText(properties.Title?.title || []),
         category: properties.Category?.select?.name || '',
@@ -65,17 +68,24 @@ export async function getArticles(): Promise<NotionArticle[]> {
         date: properties.Date?.date?.start || '',
         slug: extractPlainText(properties.Slug?.rich_text || []),
       };
+      console.log('Article:', article.title, '| Slug:', article.slug, '| Category:', article.category);
+      return article;
     });
+    
+    return articles;
   } catch (error) {
     console.error('Error fetching articles from Notion:', error);
+    if (error instanceof Error) {
+      console.error('Error details:', error.message);
+    }
     return [];
   }
 }
 
 export async function getArticleBySlug(slug: string): Promise<NotionArticle | null> {
   try {
-    const response = await (notion.databases as any).query({
-      database_id: databaseId,
+    const response = await notion.dataSources.query({
+      data_source_id: databaseId,
       filter: {
         and: [
           {
@@ -118,8 +128,8 @@ export async function getArticleBySlug(slug: string): Promise<NotionArticle | nu
 
 export async function getArticlesByCategory(category: string): Promise<NotionArticle[]> {
   try {
-    const response = await (notion.databases as any).query({
-      database_id: databaseId,
+    const response = await notion.dataSources.query({
+      data_source_id: databaseId,
       filter: {
         and: [
           {
