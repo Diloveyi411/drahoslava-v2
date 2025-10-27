@@ -7,6 +7,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import NotFound from '@/pages/not-found';
 import servicesData from '@/data/services.json';
+import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
 
 const iconMap = {
   Eye,
@@ -87,22 +88,64 @@ export default function ServiceDetail() {
         {/* Content Sections */}
         <section className="py-16 md:py-24 bg-card">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-16">
-            {service.content.map((section, index) => (
-              <Card
-                key={index}
-                className="p-8 md:p-12 glass-card"
-                data-testid={`card-content-section-${index}`}
-              >
-                <h2 className="font-serif text-3xl font-light text-foreground mb-6">
-                  {section.heading}
-                </h2>
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line font-light">
-                    {section.text}
-                  </p>
-                </div>
-              </Card>
-            ))}
+            {service.content.map((section, index) => {
+              // First section of inner-work gets image split layout
+              const isFirstInnerWorkSection = index === 0 && service.slug === 'inner-work';
+              
+              if (isFirstInnerWorkSection) {
+                return (
+                  <Card
+                    key={index}
+                    className="p-8 md:p-12 glass-card overflow-hidden"
+                    data-testid={`card-content-section-${index}`}
+                  >
+                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                      {/* Image Column */}
+                      <div className="relative aspect-square rounded-md overflow-hidden order-2 md:order-1">
+                        <img
+                          src={innerWorkImage}
+                          alt="Textured floral artwork"
+                          className="w-full h-full object-cover"
+                          data-testid="img-inner-work-section"
+                        />
+                        {/* Milky overlay - consistent with gallery images */}
+                        <div className="absolute inset-0 bg-white/20 pointer-events-none" />
+                      </div>
+                      
+                      {/* Text Column */}
+                      <div className="order-1 md:order-2">
+                        <h2 className="font-serif text-3xl font-light text-foreground mb-6">
+                          {section.heading}
+                        </h2>
+                        <div className="prose prose-lg max-w-none">
+                          <p className="text-muted-foreground leading-relaxed whitespace-pre-line font-light">
+                            {section.text}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                );
+              }
+              
+              // All other sections remain as before
+              return (
+                <Card
+                  key={index}
+                  className="p-8 md:p-12 glass-card"
+                  data-testid={`card-content-section-${index}`}
+                >
+                  <h2 className="font-serif text-3xl font-light text-foreground mb-6">
+                    {section.heading}
+                  </h2>
+                  <div className="prose prose-lg max-w-none">
+                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line font-light">
+                      {section.text}
+                    </p>
+                  </div>
+                </Card>
+              );
+            })}
           </div>
         </section>
 

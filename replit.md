@@ -26,7 +26,7 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
 - **Shadow System**: Softer, multi-layered shadows complement the glass effects without harshness.
 
 ### Technical Implementations
-- **Dynamic Service Detail Pages**: Each service (`/services/:slug`) has a dedicated page with a hero section, full description, glass card content sections, and navigation. Content is sourced from `client/src/data/services.json`.
+- **Dynamic Service Detail Pages**: Each service (`/services/:slug`) has a dedicated page with a hero section, full description, glass card content sections, and navigation. Content is sourced from `client/src/data/services.json`. The first content section of the inner-work service features a split layout with an image (Dadi-art-94_1761189715147.jpg) on the left and text on the right (desktop), stacking on mobile with text above image. The image has a square aspect ratio with a 20% milky overlay consistent with the gallery aesthetic.
 - **Newsletter & Blog System**:
     - **Notion Integration**: Articles are fetched from a Notion database via a custom backend API using native fetch. Slugs are auto-generated if not provided in Notion.
     - **Markdown Support**: Article detail pages (`/newsletter/:slug`) render rich-text Notion content using `react-markdown` with `remark-gfm`, styled to match the iridescent pearl aesthetic.
