@@ -37,20 +37,26 @@ function extractImageUrl(files: any[]): string | null {
 export async function getArticles(): Promise<NotionArticle[]> {
   try {
     console.log('Fetching articles from Notion database:', databaseId);
-    const response = await notion.dataSources.query({
-      data_source_id: databaseId,
-      filter: {
-        property: 'Published',
-        checkbox: {
-          equals: true,
+    console.log('Using API key (first 10 chars):', process.env.NOTION_API_KEY?.substring(0, 10));
+    
+    // Use the custom request method to bypass SDK version issues
+    const response: any = await notion.request({
+      path: `databases/${databaseId}/query`,
+      method: 'POST',
+      body: {
+        filter: {
+          property: 'Published',
+          checkbox: {
+            equals: true,
+          },
         },
+        sorts: [
+          {
+            property: 'Date',
+            direction: 'descending',
+          },
+        ],
       },
-      sorts: [
-        {
-          property: 'Date',
-          direction: 'descending',
-        },
-      ],
     });
 
     console.log(`Found ${response.results.length} published articles`);
