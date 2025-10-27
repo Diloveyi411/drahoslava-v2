@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import NotFound from '@/pages/not-found';
 import servicesData from '@/data/services.json';
 import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
-import whoThisIsForImage from '@assets/Dadi-art-80_1761189747514.jpg';
+import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
 
 const iconMap = {
   Eye,
