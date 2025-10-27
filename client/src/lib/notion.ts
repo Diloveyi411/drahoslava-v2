@@ -36,7 +36,7 @@ function extractImageUrl(files: any[]): string | null {
 
 export async function getArticles(): Promise<NotionArticle[]> {
   try {
-    const response = await notion.databases.query({
+    const response = await (notion.databases as any).query({
       database_id: databaseId,
       filter: {
         property: 'Published',
@@ -74,7 +74,7 @@ export async function getArticles(): Promise<NotionArticle[]> {
 
 export async function getArticleBySlug(slug: string): Promise<NotionArticle | null> {
   try {
-    const response = await notion.databases.query({
+    const response = await (notion.databases as any).query({
       database_id: databaseId,
       filter: {
         and: [
@@ -118,7 +118,7 @@ export async function getArticleBySlug(slug: string): Promise<NotionArticle | nu
 
 export async function getArticlesByCategory(category: string): Promise<NotionArticle[]> {
   try {
-    const response = await notion.databases.query({
+    const response = await (notion.databases as any).query({
       database_id: databaseId,
       filter: {
         and: [
