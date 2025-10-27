@@ -10,6 +10,7 @@ import servicesData from '@/data/services.json';
 import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
 import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
 import creativePracticeImage from '@assets/Dadi-art-160_1761580604999.jpg';
+import creativePracticeForYouImage from '@assets/Dadi-art-154_1761580650082.jpg';
 
 const iconMap = {
   Eye,
@@ -124,10 +125,12 @@ export default function ServiceDetail() {
         <section className="py-16 md:py-24 bg-card">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-16">
             {service.content.map((section, index) => {
-              // "Who This Is For" section of inner-work gets image split layout
-              const isWhoThisIsForSection = index === 2 && service.slug === 'inner-work';
+              // "For You, If You" section gets image split layout
+              const isForYouSection = index === 2 && (service.slug === 'inner-work' || service.slug === 'creative-practice');
               
-              if (isWhoThisIsForSection) {
+              if (isForYouSection) {
+                const sectionImage = service.slug === 'inner-work' ? whoThisIsForImage : creativePracticeForYouImage;
+                
                 return (
                   <Card
                     key={index}
@@ -150,10 +153,10 @@ export default function ServiceDetail() {
                       {/* Image Column */}
                       <div className="relative aspect-square rounded-md overflow-hidden order-2 md:order-2">
                         <img
-                          src={whoThisIsForImage}
+                          src={sectionImage}
                           alt="Textured floral artwork"
                           className="w-full h-full object-cover"
-                          data-testid="img-who-this-is-for-section"
+                          data-testid={`img-for-you-section-${service.slug}`}
                         />
                         {/* Milky overlay - consistent with gallery images */}
                         <div className="absolute inset-0 bg-white/20 pointer-events-none" />
