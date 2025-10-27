@@ -1,0 +1,167 @@
+Potrebujem aby si vytvoril Newsletter page s Notion integráciou.
+
+### Čo má byť:
+
+**1. Newsletter Page (`/newsletter`)**
+- Header s ikonkou (Mail icon)
+- Nadpis: "Stay in Touch" 
+- Popis: "A thoughtful newsletter on art, psychology, and digital creation."
+- **Newsletter Signup Form:**
+  - Email input
+  - Subscribe button
+  - Success/Error message po submitnutí
+- Spacing a dizajn rovnaký ako ostatné stránky
+
+**2. Newsletter Articles Section**
+- **Card View** - články zobrazené ako karty (ako galéria)
+- Každá karta má:
+  - Featured Image
+  - Title
+  - Category
+  - Description (krátky popis)
+  - "Read More" button
+- **Filtrovanie podľa kategórií:**
+  - INNER BLOOM
+  - CREATIVE CONSCIOUSNESS
+  - TECH & SPIRIT
+  - WORKSHOPS & EXPERIENCES
+  - THE SOUL'S NOTE
+- **Filter buttons** - na filtrovaní článkov
+- **Default view:** Všetky články
+
+**3. Article Detail Page (`/newsletter/[slug]`)**
+- Full article content z Notionu
+- Obrázok
+- Title + Category
+- Full Content
+- Publication Date
+- Link späť na /newsletter
+- Featured image na vrchu
+
+**4. Backend Integration - NOTION:**
+
+- Inštaluj: `npm install @notionhq/client`
+- Vytvor `.env` file s:
+  ```
+  NOTION_API_KEY=tvoj_api_key
+  NOTION_DATABASE_ID=tvoj_database_id
+  ```
+- Vytvor helper file: `lib/notion.ts` (alebo `utils/notion.ts`)
+- Funkcionalita:
+  - `getArticles()` - vracia všetky články z Notionu
+  - `getArticleBySlug(slug)` - vracia jednotný článok
+  - `getArticlesByCategory(category)` - vracia články podľa kategórie
+
+**5. EmailJS Integration:**
+
+- Inštaluj: `npm install @emailjs/browser`
+- Ini EmailJS v komponente:
+  ```javascript
+  import emailjs from '@emailjs/browser'
+  emailjs.init('PUBLIC_KEY')
+  ```
+- Keď sa užívateľ prihláși na newsletter:
+  - Ulož email do nejakej formy (zatiaľ len frontend - localStorage alebo state)
+  - Pošli confirmation email cez EmailJS template: `newsletter_signup`
+  - Show success message
+
+**6. Design & Layout:**
+
+- Header s Mail ikonkou (lucide-react)
+- Rovnaká farba a štýl ako na main page
+- Responsive grid na gallery view
+- Card design ako vidím na ostatných stránkach
+- Zaoblené rohy (rounded-lg)
+- Smooth transitions
+
+### Notion Database Structure:
+
+Očakávam tieto fields v Notione:
+- `Title` (Title field)
+- `Category` (Select: INNER BLOOM, CREATIVE CONSCIOUSNESS, TECH & SPIRIT, WORKSHOPS & EXPERIENCES, THE SOUL'S NOTE)
+- `Description` (Rich text)
+- `Content` (Rich text)
+- `Featured Image` (Files & media)
+- `Published` (Checkbox)
+- `Date` (Date)
+- `Slug` (Text - napr: "my-first-article")
+
+### File Structure:
+
+```
+app/
+├── newsletter/
+│   ├── page.tsx (main newsletter page)
+│   └── [slug]/
+│       └── page.tsx (detail article page)
+lib/
+├── notion.ts (Notion API helpers)
+components/
+├── newsletter-signup-form.tsx
+├── newsletter-grid.tsx (articles card view)
+├── newsletter-filters.tsx (category filters)
+```
+
+### Funkcionalita - Detaily:
+
+**Newsletter Form:**
+- Validácia emailu
+- Disable submit button počas loadingu
+- Success message: "Welcome! Check your email for confirmation"
+- Error message ak sa niečo pokazí
+- Po submit - clear field
+
+**Articles Grid:**
+- Responsive: 
+  - Desktop: 3 columns
+  - Tablet: 2 columns
+  - Mobile: 1 column
+- Hover effect na kartách
+- Click na kartu → prejde na `/newsletter/[slug]`
+
+**Filters:**
+- "All" button (resetuj filter)
+- Buttons pre každú kategóriu
+- Active state na selected filter
+- Smooth transition pri zmene filtru
+
+**Article Detail:**
+- Breadcrumb alebo "Back" button
+- Full markdown support pre Content
+- Image na vrchu (full width)
+- Meta info (Date, Category)
+- Related articles (iné články z tej istej kategórie)
+
+---
+
+## Zhrnutie - Čo potrebujem:
+
+1. ✅ Notion API Key a Database ID (budú v .env)
+2. ✅ EmailJS Public Key, Service ID, Template IDs (budú v .env alebo hardcoded)
+3. ✅ Všetky komponenty a stránky vytvorené
+4. ✅ Notion articles integrácia - pull articles z Notionu
+5. ✅ Email notifikácia pri signup
+6. ✅ Full responsive design
+
+Ďakujem!
+
+---
+
+## Technické Info:
+
+- Verzia Next.js: 16.0.0
+- React: 19.2.0
+- Tailwind CSS
+- Notion API v1 (2022-06-28)
+- EmailJS pre email notifikácie
+
+---
+
+## Aktuálny Dizajn:
+
+Skopíruj dizajn z existujúcich sekcií:
+- Farby - rovnaké ako na stránke
+- Typography - rovnaký font (light weight)
+- Spacing - rovnaký ako "Services" alebo "Gallery" sekcia
+- Buttons - rovnaký štýl ako "Get in Touch" page
+- Navigation a Footer - rovnaké ako všade
