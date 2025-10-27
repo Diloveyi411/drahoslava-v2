@@ -37,8 +37,8 @@ function extractImageUrl(files: any[]): string | null {
 export async function getArticles(): Promise<NotionArticle[]> {
   try {
     console.log('Fetching articles from Notion database:', databaseId);
-    const response = await notion.databases.query({
-      database_id: databaseId,
+    const response = await notion.dataSources.query({
+      data_source_id: databaseId,
       filter: {
         property: 'Published',
         checkbox: {
@@ -84,8 +84,8 @@ export async function getArticles(): Promise<NotionArticle[]> {
 
 export async function getArticleBySlug(slug: string): Promise<NotionArticle | null> {
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
+    const response = await notion.dataSources.query({
+      data_source_id: databaseId,
       filter: {
         and: [
           {
@@ -128,8 +128,8 @@ export async function getArticleBySlug(slug: string): Promise<NotionArticle | nu
 
 export async function getArticlesByCategory(category: string): Promise<NotionArticle[]> {
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
+    const response = await notion.dataSources.query({
+      data_source_id: databaseId,
       filter: {
         and: [
           {
