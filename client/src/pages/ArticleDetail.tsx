@@ -60,7 +60,7 @@ export default function ArticleDetail() {
           <Link href="/newsletter">
             <Button className="btn-lift" data-testid="button-back-to-newsletter">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Newsletter
+              Back to Blog
             </Button>
           </Link>
         </div>
@@ -78,7 +78,7 @@ export default function ArticleDetail() {
         <Link href="/newsletter">
           <Button variant="ghost" className="mb-8 btn-lift" data-testid="button-back">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Newsletter
+            Back to Blog
           </Button>
         </Link>
 
