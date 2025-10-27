@@ -10,7 +10,7 @@ import servicesData from '@/data/services.json';
 import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
 import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
 import creativePracticeImage from '@assets/Dadi-art-162_1761580803599.jpg';
-import creativePracticeForYouImage from '@assets/Dadi-art-154_1761580650082.jpg';
+import creativePracticeForYouImage from '@assets/Dadi-art-156 (1)_1761580882796.jpg';
 
 const iconMap = {
   Eye,
