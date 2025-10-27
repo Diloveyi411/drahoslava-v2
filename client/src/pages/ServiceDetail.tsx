@@ -134,20 +134,8 @@ export default function ServiceDetail() {
                     data-testid={`card-content-section-${index}`}
                   >
                     <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                      {/* Image Column */}
-                      <div className="relative aspect-square rounded-md overflow-hidden order-2 md:order-1">
-                        <img
-                          src={whoThisIsForImage}
-                          alt="Textured floral artwork"
-                          className="w-full h-full object-cover"
-                          data-testid="img-who-this-is-for-section"
-                        />
-                        {/* Milky overlay - consistent with gallery images */}
-                        <div className="absolute inset-0 bg-white/20 pointer-events-none" />
-                      </div>
-                      
                       {/* Text Column */}
-                      <div className="order-1 md:order-2">
+                      <div className="order-1 md:order-1">
                         <h2 className="font-serif text-3xl font-light text-foreground mb-6">
                           {section.heading}
                         </h2>
@@ -156,6 +144,18 @@ export default function ServiceDetail() {
                             {section.text}
                           </p>
                         </div>
+                      </div>
+                      
+                      {/* Image Column */}
+                      <div className="relative aspect-square rounded-md overflow-hidden order-2 md:order-2">
+                        <img
+                          src={whoThisIsForImage}
+                          alt="Textured floral artwork"
+                          className="w-full h-full object-cover"
+                          data-testid="img-who-this-is-for-section"
+                        />
+                        {/* Milky overlay - consistent with gallery images */}
+                        <div className="absolute inset-0 bg-white/20 pointer-events-none" />
                       </div>
                     </div>
                   </Card>
