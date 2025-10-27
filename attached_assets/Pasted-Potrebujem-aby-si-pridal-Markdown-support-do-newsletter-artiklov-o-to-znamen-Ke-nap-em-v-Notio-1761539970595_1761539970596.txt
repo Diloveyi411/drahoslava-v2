@@ -1,0 +1,124 @@
+Potrebujem aby si pridal Markdown support do newsletter artiklov.
+Čo to znamená:
+Keď napíšem v Notione článok s formatovaním (nadpisy, zoznamy, quotes, tučný text, atď.), má sa to pekne zobraziť na webe.
+Inštalácia:
+bashnpm install react-markdown remark-gfm
+Zmeny v Kóde:
+1. Article Detail Page (app/newsletter/[slug]/page.tsx)
+Pridaj import:
+typescriptimport ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+Kde teraz zobrazuješ article.content ako plný text, zmeň na:
+typescript<ReactMarkdown 
+  remarkPlugins={[remarkGfm]}
+  className="prose prose-lg max-w-none"
+>
+  {article.content}
+</ReactMarkdown>
+2. Styling (ak potrebuješ)
+Pridaj do Tailwind CSS (v globals.css alebo tailwind.config):
+css.prose {
+  max-width: 100%;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 300;
+  color: foreground;
+}
+
+.prose p {
+  line-height: 1.8;
+  margin-bottom: 1em;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+.prose blockquote {
+  border-left: 4px solid primary;
+  padding-left: 1em;
+  margin-left: 0;
+  color: muted-foreground;
+  font-style: italic;
+}
+
+.prose code {
+  background-color: muted;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-family: monospace;
+}
+
+.prose pre {
+  background-color: muted;
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+}
+
+.prose a {
+  color: primary;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: primary;
+  opacity: 0.8;
+}
+Ako to použiť v Notione:
+Keď napíšeš článok v Notione, v "Content" poli môžeš používať Markdown syntax:
+markdown# Nadpis 1 (Veľký nadpis)
+
+## Nadpis 2 (Stredný nadpis)
+
+### Nadpis 3 (Malý nadpis)
+
+To je **tučný text** a to je *kurzíva*.
+
+- Prvá položka
+- Druhá položka
+- Tretia položka
+
+1. Prvá položka
+2. Druhá položka
+3. Tretia položka
+
+> To je citát alebo zdôraznený text
+
+[Link text](https://example.com)
+
+`inline code`
+Čo sa zobrazí na webe:
+
+✅ Nadpisy s správnym formátom
+✅ Tučný a kurzívny text
+✅ Odrážky a čísla
+✅ Quotes/citáty s pekným styling
+✅ Odstavce s lepšou čitateľnosťou
+✅ Listy sú čitateľné aj keď sú dlhšie
+
+Design:
+
+Zachovaj rovnaký font a farby ako na stránke
+Spacing medzi sekciami - viac vzduchu
+Line-height - aby bolo ľahko čitať
+Responsive - funguje na mobile/tablet
+
+Detaily:
+
+react-markdown - renderuje Markdown
+remark-gfm - podporuje GitHub Flavored Markdown (tables, strikethrough, atď.)
+Tailwind prose classes - pekný default styling
+
+Vďaka!
+
+Technické Info:
+
+Package: react-markdown
+Plugin: remark-gfm
+Styling: Tailwind prose utility classes
+Browser support: Všetky moderné browsery
