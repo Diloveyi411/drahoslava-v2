@@ -9,6 +9,7 @@ import NotFound from '@/pages/not-found';
 import servicesData from '@/data/services.json';
 import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
 import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
+import creativePracticeImage from '@assets/Dadi-art-160_1761580604999.jpg';
 
 const iconMap = {
   Eye,
@@ -88,15 +89,15 @@ export default function ServiceDetail() {
         {/* Full Description Section */}
         <section className="py-16 md:py-24 bg-background">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            {service.slug === 'inner-work' ? (
+            {(service.slug === 'inner-work' || service.slug === 'creative-practice') ? (
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Image Column */}
                 <div className="relative aspect-square rounded-md overflow-hidden order-2 md:order-1">
                   <img
-                    src={innerWorkImage}
+                    src={service.slug === 'inner-work' ? innerWorkImage : creativePracticeImage}
                     alt="Textured floral artwork"
                     className="w-full h-full object-cover"
-                    data-testid="img-inner-work-section"
+                    data-testid={`img-${service.slug}-section`}
                   />
                   {/* Milky overlay - consistent with gallery images */}
                   <div className="absolute inset-0 bg-white/20 pointer-events-none" />
