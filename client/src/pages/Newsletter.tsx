@@ -78,43 +78,6 @@ export default function Newsletter() {
       <div className="min-h-screen pt-16 lg:pt-20">
         <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-              <Mail className="h-8 w-8 text-primary" />
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-light text-foreground mb-4">
-              Stay in Touch
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A thoughtful newsletter on art, psychology, and digital creation.
-            </p>
-          </div>
-
-          <Card className="glass-card max-w-xl mx-auto mb-20 p-8">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  disabled={isSubmitting}
-                  className="w-full"
-                  data-testid="input-newsletter-email"
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full btn-lift"
-                disabled={isSubmitting}
-                data-testid="button-newsletter-subscribe"
-              >
-                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
-              </Button>
-            </form>
-          </Card>
-
           <div className="mb-12">
             <div className="flex flex-wrap gap-3 justify-center">
               {CATEGORIES.map((category) => (
@@ -132,7 +95,7 @@ export default function Newsletter() {
           </div>
 
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
               {[1, 2, 3].map((i) => (
                 <Card key={i} className="glass-card animate-pulse">
                   <div className="aspect-video bg-muted" />
@@ -145,13 +108,13 @@ export default function Newsletter() {
               ))}
             </div>
           ) : filteredArticles.length === 0 ? (
-            <div className="text-center py-12">
+            <div className="text-center py-12 mb-20">
               <p className="text-muted-foreground" data-testid="text-no-articles">
                 No articles found in this category.
               </p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
               {filteredArticles.map((article) => (
                 <Link
                   key={article.id}
@@ -194,6 +157,43 @@ export default function Newsletter() {
               ))}
             </div>
           )}
+
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
+              <Mail className="h-8 w-8 text-primary" />
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-light text-foreground mb-4">
+              Stay in Touch
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A thoughtful newsletter on art, psychology, and digital creation.
+            </p>
+          </div>
+
+          <Card className="glass-card max-w-xl mx-auto p-8">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isSubmitting}
+                  className="w-full"
+                  data-testid="input-newsletter-email"
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full btn-lift"
+                disabled={isSubmitting}
+                data-testid="button-newsletter-subscribe"
+              >
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+              </Button>
+            </form>
+          </Card>
         </div>
       </section>
       </div>
