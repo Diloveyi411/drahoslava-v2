@@ -26,6 +26,16 @@ export default function ServiceDetail() {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  const handleContactClick = () => {
+    setLocation('/');
+    setTimeout(() => {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   if (!service) {
     return <NotFound />;
   }
@@ -158,15 +168,14 @@ export default function ServiceDetail() {
             <p className="text-muted-foreground mb-8 text-lg">
               Let's explore this journey together. Reach out to book a session or ask any questions.
             </p>
-            <Link href="/#contact">
-              <Button
-                size="lg"
-                className="btn-lift"
-                data-testid="button-book-now"
-              >
-                Get in Touch
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="btn-lift"
+              onClick={handleContactClick}
+              data-testid="button-book-now"
+            >
+              Get in Touch
+            </Button>
           </div>
         </section>
       </div>
