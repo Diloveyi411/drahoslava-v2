@@ -7,7 +7,6 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import NotFound from '@/pages/not-found';
 import servicesData from '@/data/services.json';
-import heroImage from '@assets/Dadi-art-94_1761560442212.jpg';
 
 const iconMap = {
   Eye,
@@ -37,25 +36,16 @@ export default function ServiceDetail() {
       <Navigation />
       <div className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 overflow-hidden">
-          {/* Hero Image */}
-          <div className="absolute inset-0">
-            <img
-              src={heroImage}
-              alt={service.title}
-              className="w-full h-full object-cover"
-            />
-            {/* 20% Milky White Overlay */}
-            <div className="absolute inset-0 bg-white/20 pointer-events-none" />
-            {/* Dark gradient for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 animate-pulse" style={{ animationDuration: '8s' }} />
           </div>
           
           <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <Link href="/#services">
               <Button
-                variant="outline"
-                className="mb-8 hover-elevate bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
+                variant="ghost"
+                className="mb-8 hover-elevate"
                 data-testid="button-back-to-services"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
@@ -63,19 +53,19 @@ export default function ServiceDetail() {
               </Button>
             </Link>
 
-            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm mb-6 mx-auto">
-              <IconComponent className="h-8 w-8 text-white" />
+            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6 mx-auto">
+              <IconComponent className="h-8 w-8 text-primary" />
             </div>
 
             <h1
-              className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-6"
               data-testid="text-service-title"
             >
               {service.title}
             </h1>
 
             <p
-              className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed"
+              className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
               data-testid="text-service-hero-description"
             >
               {service.heroDescription}
