@@ -37,7 +37,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(articles);
     } catch (error) {
       console.error('Error fetching articles:', error);
-      res.status(500).json({ error: "Failed to fetch articles" });
+      const message = error instanceof Error ? error.message : "Failed to fetch articles";
+      res.status(502).json({ error: message });
     }
   });
 
@@ -64,7 +65,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(articles);
     } catch (error) {
       console.error('Error fetching articles by category:', error);
-      res.status(500).json({ error: "Failed to fetch articles" });
+      const message = error instanceof Error ? error.message : "Failed to fetch articles";
+      res.status(502).json({ error: message });
     }
   });
 

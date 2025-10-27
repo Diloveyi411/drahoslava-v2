@@ -7,8 +7,8 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 
 ## Recent Changes (October 27, 2025)
 
-### Newsletter Page with Notion Integration
-Added complete Newsletter/Blog functionality:
+### Newsletter Page with Notion Integration ✅ WORKING
+Complete Newsletter/Blog functionality with Notion CMS integration:
 
 - **Newsletter Page** (`/newsletter`):
   - Email signup form with EmailJS integration for confirmation emails
@@ -24,11 +24,21 @@ Added complete Newsletter/Blog functionality:
   - Back navigation to newsletter page
   - Glass morphism styling consistent with site design
 
-- **Backend Integration**:
-  - Notion API integrated securely on backend (server/lib/notion.ts)
-  - API routes: GET /api/newsletter/articles, GET /api/newsletter/articles/:slug
-  - Environment variables: NOTION_API_KEY, NOTION_DATABASE_ID (backend only)
-  - VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_SIGNUP (frontend)
+- **Backend Integration** (server/lib/notion.ts):
+  - **Uses native fetch API** to call Notion REST API directly (bypassed SDK v5.3.0 compatibility issues)
+  - API routes: 
+    - GET /api/newsletter/articles - Fetch all published articles
+    - GET /api/newsletter/articles/:slug - Fetch single article by slug
+  - **Automatic slug generation**: If Notion "Slug" field is empty, auto-generates from title
+  - Environment variables: 
+    - NOTION_API_KEY (ntn_ prefix format) - Backend only
+    - NOTION_DATABASE_ID (UUID format with dashes) - Backend only
+    - VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_SIGNUP - Frontend
+
+- **Notion Database Requirements**:
+  - Database must be shared with "Drahoslava Newsletter" integration via "Add connections"
+  - Required fields: Title (title), Slug (rich_text), Category (select), Description (rich_text), Content (rich_text), Featured Image (files), Published (checkbox), Date (date)
+  - Only articles with Published=true are displayed
 
 - **Navigation Updates**:
   - Added "Blog" link in main navigation that routes to /newsletter
