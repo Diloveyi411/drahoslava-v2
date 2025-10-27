@@ -1,24 +1,24 @@
 import { useQuery } from '@tanstack/react-query';
 import { useRoute, Link } from 'wouter';
 import { ArrowLeft, Calendar } from 'lucide-react';
-import { getArticleBySlug, getArticlesByCategory, type NotionArticle } from '@/lib/notion';
+import type { NotionArticle } from '@/lib/notionTypes';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { format } from 'date-fns';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export default function ArticleDetail() {
   const [, params] = useRoute('/newsletter/:slug');
   const slug = params?.slug || '';
 
   const { data: article, isLoading } = useQuery<NotionArticle | null>({
-    queryKey: ['/api/newsletter/article', slug],
-    queryFn: () => getArticleBySlug(slug),
+    queryKey: ['/api/newsletter/articles', slug],
     enabled: !!slug,
   });
 
   const { data: relatedArticles = [] } = useQuery<NotionArticle[]>({
-    queryKey: ['/api/newsletter/related', article?.category],
-    queryFn: () => getArticlesByCategory(article?.category || ''),
+    queryKey: ['/api/newsletter/articles/category', article?.category],
     enabled: !!article?.category,
   });
 
@@ -26,7 +26,9 @@ export default function ArticleDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <>
+        <Navigation />
+        <div className="min-h-screen pt-16 lg:pt-20 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="animate-pulse space-y-6">
             <div className="h-8 bg-muted rounded w-32" />
@@ -39,13 +41,17 @@ export default function ArticleDetail() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   if (!article) {
     return (
-      <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+      <>
+        <Navigation />
+        <div className="min-h-screen pt-16 lg:pt-20 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl font-light text-foreground mb-4">Article Not Found</h1>
           <p className="text-muted-foreground mb-8">
@@ -58,12 +64,16 @@ export default function ArticleDetail() {
             </Button>
           </Link>
         </div>
-      </div>
+        </div>
+        <Footer />
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navigation />
+      <div className="min-h-screen pt-16 lg:pt-20 py-12 px-4 sm:px-6 lg:px-8">
       <article className="max-w-4xl mx-auto">
         <Link href="/newsletter">
           <Button variant="ghost" className="mb-8 btn-lift" data-testid="button-back">
@@ -151,6 +161,8 @@ export default function ArticleDetail() {
           </div>
         )}
       </article>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

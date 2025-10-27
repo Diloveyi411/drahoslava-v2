@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Mail } from 'lucide-react';
-import { getArticles, type NotionArticle } from '@/lib/notion';
+import type { NotionArticle } from '@/lib/notionTypes';
 import emailjs from '@emailjs/browser';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'wouter';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const CATEGORIES = [
   'All',
@@ -26,7 +28,6 @@ export default function Newsletter() {
 
   const { data: articles = [], isLoading } = useQuery<NotionArticle[]>({
     queryKey: ['/api/newsletter/articles'],
-    queryFn: getArticles,
   });
 
   const filteredArticles =
@@ -72,8 +73,10 @@ export default function Newsletter() {
   };
 
   return (
-    <div className="min-h-screen">
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <>
+      <Navigation />
+      <div className="min-h-screen pt-16 lg:pt-20">
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
@@ -193,6 +196,8 @@ export default function Newsletter() {
           )}
         </div>
       </section>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

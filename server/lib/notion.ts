@@ -1,10 +1,10 @@
 import { Client } from '@notionhq/client';
 
 const notion = new Client({
-  auth: import.meta.env.VITE_NOTION_API_KEY,
+  auth: process.env.NOTION_API_KEY,
 });
 
-const databaseId = import.meta.env.VITE_NOTION_DATABASE_ID;
+const databaseId = process.env.NOTION_DATABASE_ID || '';
 
 export interface NotionArticle {
   id: string;

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLocation } from 'wouter';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +16,23 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigation = (id: string) => {
+    if (id === 'newsletter') {
+      setLocation('/newsletter');
       setIsMobileMenuOpen(false);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsMobileMenuOpen(false);
+      } else {
+        setLocation('/');
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        setIsMobileMenuOpen(false);
+      }
     }
   };
 
@@ -39,7 +53,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <button
-            onClick={() => scrollToSection('hero')}
+            onClick={() => handleNavigation('hero')}
             className="font-serif text-xl lg:text-2xl font-light text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors"
             data-testid="link-logo"
           >
@@ -51,14 +65,14 @@ export default function Navigation() {
               <Button
                 key={link.id}
                 variant="ghost"
-                onClick={() => scrollToSection(link.id)}
+                onClick={() => handleNavigation(link.id)}
                 data-testid={`link-${link.id}`}
               >
                 {link.label}
               </Button>
             ))}
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigation('contact')}
               data-testid="button-contact-cta"
             >
               Get in Touch
@@ -84,7 +98,7 @@ export default function Navigation() {
               <Button
                 key={link.id}
                 variant="ghost"
-                onClick={() => scrollToSection(link.id)}
+                onClick={() => handleNavigation(link.id)}
                 className="w-full justify-start"
                 data-testid={`mobile-link-${link.id}`}
               >
@@ -92,7 +106,7 @@ export default function Navigation() {
               </Button>
             ))}
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavigation('contact')}
               className="w-full"
               data-testid="mobile-button-contact"
             >
