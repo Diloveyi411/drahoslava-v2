@@ -158,14 +158,14 @@ export default function Newsletter() {
             </div>
           )}
 
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-              <Mail className="h-8 w-8 text-primary" />
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+              <Mail className="h-6 w-6 text-primary" />
             </div>
-            <h1 className="text-4xl sm:text-5xl font-light text-foreground mb-4">
+            <h2 className="text-2xl sm:text-3xl font-light text-foreground mb-2">
               Stay in Touch
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            </h2>
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
               A thoughtful newsletter on art, psychology, and digital creation.
             </p>
           </div>
