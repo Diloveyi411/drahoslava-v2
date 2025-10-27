@@ -9,6 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Mail } from 'lucide-react';
 import { insertNewsletterSubscriptionSchema } from '@shared/schema';
 import { apiRequest } from '@/lib/queryClient';
+import emailjs from '@emailjs/browser';
 
 const newsletterSchema = insertNewsletterSubscriptionSchema;
 
@@ -29,11 +30,35 @@ export default function Newsletter() {
     mutationFn: async (data: NewsletterFormData) => {
       return await apiRequest('POST', '/api/newsletter', data);
     },
-    onSuccess: () => {
+    onSuccess: async (_, variables) => {
       setIsSubscribed(true);
+      
+      // Send welcome email via EmailJS
+      try {
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_SIGNUP;
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (serviceId && templateId && publicKey) {
+          emailjs.init(publicKey);
+          
+          await emailjs.send(
+            serviceId,
+            templateId,
+            {
+              to_email: variables.email,
+              user_email: variables.email,
+            }
+          );
+        }
+      } catch (emailError) {
+        console.error('Error sending welcome email:', emailError);
+        // Don't show error to user since subscription was successful
+      }
+
       toast({
         title: 'Subscribed!',
-        description: 'Thank you for joining our community.',
+        description: 'Thank you for joining our community. Check your inbox for a welcome message.',
       });
       form.reset();
     },
