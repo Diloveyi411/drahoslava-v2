@@ -39,20 +39,41 @@ export default function Newsletter() {
         const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_SIGNUP;
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+        console.log('EmailJS Config Check:', {
+          hasServiceId: !!serviceId,
+          hasTemplateId: !!templateId,
+          hasPublicKey: !!publicKey,
+          serviceId: serviceId?.substring(0, 10) + '...',
+          templateId: templateId?.substring(0, 10) + '...',
+        });
+
         if (serviceId && templateId && publicKey) {
           emailjs.init(publicKey);
           
-          await emailjs.send(
+          const templateParams = {
+            to_email: variables.email,
+            user_email: variables.email,
+          };
+          
+          console.log('Sending email with params:', { to_email: variables.email });
+          
+          const response = await emailjs.send(
             serviceId,
             templateId,
-            {
-              to_email: variables.email,
-              user_email: variables.email,
-            }
+            templateParams
           );
+          
+          console.log('EmailJS Success:', response);
+        } else {
+          console.error('Missing EmailJS configuration');
         }
-      } catch (emailError) {
+      } catch (emailError: any) {
         console.error('Error sending welcome email:', emailError);
+        console.error('EmailJS Error Details:', {
+          status: emailError.status,
+          text: emailError.text,
+          message: emailError.message,
+        });
         // Don't show error to user since subscription was successful
       }
 
