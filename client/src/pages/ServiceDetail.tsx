@@ -9,7 +9,7 @@ import NotFound from '@/pages/not-found';
 import servicesData from '@/data/services.json';
 import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
 import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
-import creativePracticeImage from '@assets/Dadi-art-160_1761580604999.jpg';
+import creativePracticeImage from '@assets/Dadi-art-162_1761580803599.jpg';
 import creativePracticeForYouImage from '@assets/Dadi-art-154_1761580650082.jpg';
 
 const iconMap = {
