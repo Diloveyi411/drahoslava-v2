@@ -1,11 +1,13 @@
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Eye, Hand, Monitor } from 'lucide-react';
+import { Link } from 'wouter';
 
 interface Service {
   icon: typeof Eye;
   title: string;
   description: string;
+  slug: string;
 }
 
 const services: Service[] = [
@@ -13,11 +15,13 @@ const services: Service[] = [
     icon: Eye,
     title: 'Soul — Inner Work',
     description: 'True change begins with awareness. Through guided 1-on-1 sessions, you\'ll learn to observe your inner world with gentleness — to recognize emotional patterns, release inner resistance, and return to your authentic rhythm. This space is for those who want to see clearly and live truthfully.',
+    slug: 'inner-work',
   },
   {
     icon: Hand,
     title: 'Body — Creative Practice',
     description: 'Art becomes a mirror when creation is guided by awareness. In my workshops, you\'ll explore meditative painting, floral sculpting, and other tactile forms that connect thought with touch. It\'s not about artistic skill; it\'s about letting your body speak what words cannot.',
+    slug: 'creative-practice',
   },
   {
     icon: Monitor,
@@ -25,16 +29,11 @@ const services: Service[] = [
     description: `Our inner life now extends into the digital realm.
 Through experimental projects — an AI-based self-awareness app, interactive digital galleries, visual essays and creations— I explore how technology can help us understand ourselves more deeply.
 These are not tools of distraction, but instruments of reflection — art that thinks with you.`,
+    slug: 'digital-space',
   },
 ];
 
 export default function Services() {
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="services" className="py-20 md:py-32 bg-card">
@@ -67,14 +66,15 @@ export default function Services() {
               <p className="text-muted-foreground mb-8 leading-relaxed flex-1">
                 {service.description}
               </p>
-              <Button
-                variant="outline"
-                onClick={scrollToContact}
-                className="w-full mt-auto"
-                data-testid={`button-learn-more-${index}`}
-              >
-                Learn More
-              </Button>
+              <Link href={`/services/${service.slug}`}>
+                <Button
+                  variant="outline"
+                  className="w-full mt-auto"
+                  data-testid={`button-learn-more-${index}`}
+                >
+                  Learn More
+                </Button>
+              </Link>
             </Card>
           ))}
         </div>

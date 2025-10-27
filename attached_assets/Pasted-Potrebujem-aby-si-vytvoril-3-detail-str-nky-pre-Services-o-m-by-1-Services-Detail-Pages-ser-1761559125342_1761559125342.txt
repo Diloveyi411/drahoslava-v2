@@ -1,0 +1,160 @@
+Potrebujem aby si vytvoril 3 detail stránky pre Services.
+Čo má byť:
+1. Services Detail Pages:
+
+/services/inner-work
+/services/creative-practice
+/services/digital-space
+
+2. Každá stránka má:
+Hero Section:
+
+Featured image (full width alebo big)
+Nadpis: "Soul — Inner Work" (atď.)
+Ikona (lucide-react, rovnaká ako na main Services sekcii)
+Krátky popis (1-2 vety)
+
+Content Section:
+
+Dlhý text/obsah služby
+Struktura: intro, detaily, výhody, atď.
+Spacing a layout rovnaký ako ostatné stránky
+
+Action Section:
+
+"Book Now" button (link na /contact alebo /get-in-touch)
+Rovnaký štýl ako ostatné buttony
+
+Navigation:
+
+Back button (späť na /services)
+Navigation bar (rovnaká ako všade)
+Footer (rovnaký ako všade)
+
+3. Data Structure - JSON súbor:
+Vytvor data/services.json:
+json{
+  "services": [
+    {
+      "slug": "inner-work",
+      "title": "Soul — Inner Work",
+      "icon": "brain",
+      "shortDescription": "Psychologické konzultácie a individuálne sebapoznanie",
+      "fullDescription": "Dlhý úvodný text na detail stránke - 2-3 paragrafy",
+      "content": "Kompletný obsah stránky - všetko čo chceš aby užívateľ videl",
+      "image": "url-na-featured-image",
+      "color": "primary" // alebo secondar/accent
+    },
+    {
+      "slug": "creative-practice",
+      "title": "Body — Creative Practice",
+      "icon": "palette",
+      "shortDescription": "Meditačné maľovanie, 3D workshopy a umelecká tvorba",
+      "fullDescription": "...",
+      "content": "...",
+      "image": "url-na-featured-image",
+      "color": "primary"
+    },
+    {
+      "slug": "digital-space",
+      "title": "Mind — Digital Space",
+      "icon": "monitor",
+      "shortDescription": "Digitálna galéria, online komiks a technológia",
+      "fullDescription": "...",
+      "content": "...",
+      "image": "url-na-featured-image",
+      "color": "primary"
+    }
+  ]
+}
+4. Dynamic Routes:
+Vytvor app/services/[slug]/page.tsx:
+
+Pull data z services.json podľa [slug]
+Ak slug neexistuje → 404 page
+Metadata (SEO) - z JSON dát
+
+5. File Structure:
+app/
+├── services/
+│   ├── page.tsx (main services - existujúca stránka)
+│   └── [slug]/
+│       └── page.tsx (detail stránka - NEW)
+data/
+├── services.json (NEW - všetky texty tu)
+components/
+├── service-detail-hero.tsx (NEW)
+├── service-detail-content.tsx (NEW)
+6. Design & Layout:
+Hero Section:
+
+Image na vrchu (full width, landscape aspect ratio)
+Gradient overlay (rovnaký ako Hero na main page)
+Text na image: title, icon, short description
+Reversed text color (white/light)
+
+Content Section:
+
+Container (max-w-4xl, centered)
+Padding: rovnaký ako ostatné stránky (py-16 md:py-24)
+Typography: rovnaká ako ostatné stránky
+Line height: comfortable reading
+
+Action Section:
+
+"Book Now" button - link na /contact
+Button style: rovnaký ako "Get in Touch" page
+Padding: py-12
+
+Back Button:
+
+Na vrchu - "← Back to Services"
+Link na /services
+
+7. Responsive:
+
+Desktop: full layout
+Tablet: adjusted spacing
+Mobile: stack layout, adjusted image size
+
+8. Integration s main Services page:
+Keď klikneš na "Learn More" button na main /services page:
+
+Prejde na /services/[slug]
+Naloadeť detail stránku s rovnakým dizajnom
+
+
+Zhrnutie - Čo potrebujem:
+
+✅ 3 dynamic detail stránky (/services/[slug])
+✅ data/services.json - všetok obsah
+✅ Hero section s obrázkom
+✅ Content section s textom
+✅ "Book Now" button → /contact
+✅ Back button → /services
+✅ Responsive design
+✅ Rovnaký design ako ostatné stránky
+
+
+Technické Info:
+
+Next.js 16.0.0 (app router)
+TypeScript
+Tailwind CSS
+lucide-react (ikony)
+JSON import
+
+
+Obsah - Sample texty (ty si ich neskôr zmeníš v JSON):
+Inner Work:
+Title: Soul — Inner Work
+Icon: brain
+Description: Psychologické konzultácie a individuálne sebapoznanie cez 1-on-1 sessions a aplikáciu Vibecodam
+Creative Practice:
+Title: Body — Creative Practice
+Icon: palette
+Description: Meditačné maľovanie, 3D workshopy s air dry clay a tvorba textúrovaných kvetových obrazov
+Digital Space:
+Title: Mind — Digital Space
+Icon: monitor
+Description: Interaktívna digitálna galéria, online komiks s AI a aplikácia na sebapoznanie
