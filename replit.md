@@ -5,7 +5,36 @@ This is a portfolio website for Drahoslava Forgacova, combining her work as a ps
 
 **Brand Essence:** "Art as Medicine" - A fusion of psychology, creativity, and wellness.
 
-## Recent Changes (October 24, 2025)
+## Recent Changes (October 27, 2025)
+
+### Newsletter Page with Notion Integration
+Added complete Newsletter/Blog functionality:
+
+- **Newsletter Page** (`/newsletter`):
+  - Email signup form with EmailJS integration for confirmation emails
+  - Category filtering system (All, INNER BLOOM, CREATIVE CONSCIOUSNESS, TECH & SPIRIT, WORKSHOPS & EXPERIENCES, THE SOUL'S NOTE)
+  - Responsive article grid (1 column mobile, 2 tablet, 3 desktop)
+  - Glass card styling with 20% milky overlay on images
+  - Articles fetched from Notion database via backend API
+
+- **Article Detail Page** (`/newsletter/:slug`):
+  - Full article content display with featured image
+  - Publication date and category metadata
+  - Related articles section (same category)
+  - Back navigation to newsletter page
+  - Glass morphism styling consistent with site design
+
+- **Backend Integration**:
+  - Notion API integrated securely on backend (server/lib/notion.ts)
+  - API routes: GET /api/newsletter/articles, GET /api/newsletter/articles/:slug
+  - Environment variables: NOTION_API_KEY, NOTION_DATABASE_ID (backend only)
+  - VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_SIGNUP (frontend)
+
+- **Navigation Updates**:
+  - Added "Blog" link in main navigation that routes to /newsletter
+  - Dynamic navigation handling for both scroll anchors and route changes
+
+### Previous Changes (October 24, 2025)
 
 ### Iridescent Pearl Aesthetic Transformation
 Complete visual redesign to a soft, gender-neutral iridescent/pearl aesthetic inspired by holographic light reflections on smooth fabric:
