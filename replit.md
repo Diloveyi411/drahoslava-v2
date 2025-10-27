@@ -18,10 +18,15 @@ Complete Newsletter/Blog functionality with Notion CMS integration:
   - Articles fetched from Notion database via backend API
 
 - **Article Detail Page** (`/newsletter/:slug`):
+  - **Markdown Support**: Full rich-text formatting using react-markdown with remark-gfm
+    - Supports headings (H1-H6), bold, italic, lists, blockquotes, code blocks, links, tables
+    - Custom prose styling matching iridescent pearl aesthetic
+    - Lightweight font (300), elegant typography with Cormorant Garamond
+    - Dusty rose primary color for links and blockquote borders
   - Full article content display with featured image
   - Publication date and category metadata
   - Related articles section (same category)
-  - Back navigation to newsletter page
+  - "Back to Blog" navigation button
   - Glass morphism styling consistent with site design
 
 - **Backend Integration** (server/lib/notion.ts):

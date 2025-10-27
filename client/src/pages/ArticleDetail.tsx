@@ -7,6 +7,8 @@ import { Card } from '@/components/ui/card';
 import { format } from 'date-fns';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default function ArticleDetail() {
   const [, params] = useRoute('/newsletter/:slug');
@@ -118,8 +120,12 @@ export default function ArticleDetail() {
             <p className="text-lg text-muted-foreground mb-6 italic">
               {article.description}
             </p>
-            <div className="text-foreground whitespace-pre-wrap leading-relaxed" data-testid="text-article-content">
-              {article.content}
+            <div data-testid="text-article-content">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+              >
+                {article.content}
+              </ReactMarkdown>
             </div>
           </div>
         </Card>
