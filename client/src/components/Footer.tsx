@@ -1,14 +1,35 @@
 import { Mail } from 'lucide-react';
 import { SiInstagram, SiFacebook, SiTiktok, SiYoutube } from 'react-icons/si';
+import { useToast } from '@/hooks/use-toast';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { toast } = useToast();
+
+  const handleEmailClick = async () => {
+    const email = 'info@drahoslava.com';
+    
+    try {
+      await navigator.clipboard.writeText(email);
+      toast({
+        title: 'Email copied!',
+        description: email,
+        className: 'glass-card',
+      });
+    } catch (err) {
+      toast({
+        title: 'Email address',
+        description: email,
+        className: 'glass-card',
+      });
+    }
+  };
 
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid md:grid-cols-2 gap-12 mb-8">
-          <div>
+        <div className="mb-8">
+          <div className="text-center">
             <h3 className="font-serif text-2xl font-light text-foreground mb-4" data-testid="text-footer-brand">
               Drahoslava Forgáčová
             </h3>
@@ -18,18 +39,18 @@ export default function Footer() {
               Exploring the self through awareness, art, and technology.
             </p>
           </div>
-
-          <div className="text-right">
-            <h4 className="font-medium text-foreground mb-4">Contact</h4>
-            <div className="flex items-center justify-end gap-3 text-sm text-muted-foreground">
-              <span data-testid="text-footer-email">info@drahoslava.com</span>
-              <Mail className="h-4 w-4 flex-shrink-0" />
-            </div>
-          </div>
         </div>
 
-        {/* Social Media Icons - Centered */}
+        {/* Social Media Icons + Email - Centered */}
         <div className="flex justify-center items-center gap-6 mb-8">
+          <button
+            onClick={handleEmailClick}
+            className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+            aria-label="Email"
+            data-testid="button-footer-email"
+          >
+            <Mail className="h-6 w-6" />
+          </button>
           <a
             href="https://instagram.com/drahoslavacom"
             target="_blank"
