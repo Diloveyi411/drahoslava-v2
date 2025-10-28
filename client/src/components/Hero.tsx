@@ -33,7 +33,7 @@ export default function Hero() {
           <Button
             size="lg"
             onClick={() => scrollToSection('gallery')}
-            className="bg-primary/90 hover:bg-primary text-primary-foreground backdrop-blur-sm min-w-[200px]"
+            className="bg-primary/90 text-primary-foreground backdrop-blur-sm min-w-[200px] btn-lift"
             data-testid="button-view-gallery"
           >
             View Gallery
@@ -42,7 +42,7 @@ export default function Hero() {
             size="lg"
             variant="outline"
             onClick={() => scrollToSection('services')}
-            className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-sm min-w-[200px]"
+            className="bg-white/10 text-white border-white/30 backdrop-blur-sm min-w-[200px] btn-lift"
             data-testid="button-explore-services"
           >
             Explore Services
