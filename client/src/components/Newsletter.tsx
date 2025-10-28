@@ -52,8 +52,7 @@ export default function Newsletter() {
           );
         }
       } catch (emailError) {
-        console.error('Error sending welcome email:', emailError);
-        // Don't show error to user since subscription was successful
+        // Silently fail - don't show error to user since subscription was successful
       }
 
       toast({

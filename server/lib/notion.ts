@@ -58,7 +58,6 @@ function extractImageUrl(files: any[]): string | null {
 
 export async function getArticles(): Promise<NotionArticle[]> {
   try {
-    console.log('Fetching articles from Notion database:', databaseId);
     
     // Use native fetch to call Notion API directly
     const response = await fetch(`https://api.notion.com/v1/databases/${databaseId}/query`, {
@@ -90,8 +89,6 @@ export async function getArticles(): Promise<NotionArticle[]> {
     }
     
     const data: any = await response.json();
-
-    console.log(`Found ${data.results?.length || 0} published articles`);
     
     const articles = data.results.map((page: any) => {
       const properties = page.properties;
@@ -110,7 +107,6 @@ export async function getArticles(): Promise<NotionArticle[]> {
         date: properties.Date?.date?.start || '',
         slug: slugFromNotion || generateSlugFromTitle(title, page.id), // Fallback to generated slug with page ID for uniqueness
       };
-      console.log('Article:', article.title, '| Slug:', article.slug, '| Category:', article.category);
       return article;
     });
     

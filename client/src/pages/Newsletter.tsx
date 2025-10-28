@@ -61,7 +61,6 @@ export default function Newsletter() {
 
       setEmail('');
     } catch (error) {
-      console.error('Error sending email:', error);
       toast({
         title: 'Error',
         description: 'Something went wrong. Please try again.',
