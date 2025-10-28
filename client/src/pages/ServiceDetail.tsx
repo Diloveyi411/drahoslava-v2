@@ -12,7 +12,7 @@ import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
 import creativePracticeImage from '@assets/Dadi-art-162_1761580803599.jpg';
 import creativePracticeForYouImage from '@assets/Dadi-art-156 (1)_1761580882796.jpg';
 import digitalSpaceImage from '@assets/Dadi-art-175_1761189720828.jpg';
-import digitalSpaceForYouImage from '@assets/Dadi-art-148_1761189769524.jpg';
+import digitalSpaceForYouImage from '@assets/Gemini_Generated_Image_8hd08w8hd08w8hd0_1761628501248.png';
 
 const iconMap = {
   Eye,
