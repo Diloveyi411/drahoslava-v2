@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-import heroImage from '@assets/Dadi-art-32_1761189756239.jpg';
+import heroImage from '@assets/Dadi-art-32_1761189756239.webp';
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {

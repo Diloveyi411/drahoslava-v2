@@ -7,12 +7,12 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import NotFound from '@/pages/not-found';
 import servicesData from '@/data/services.json';
-import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
-import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
-import creativePracticeImage from '@assets/Dadi-art-162_1761580803599.jpg';
-import creativePracticeForYouImage from '@assets/Dadi-art-156 (1)_1761580882796.jpg';
-import digitalSpaceImage from '@assets/Dadi-art-175_1761189720828.jpg';
-import digitalSpaceForYouImage from '@assets/Gemini_Generated_Image_8hd08w8hd08w8hd0_1761628501248.png';
+import innerWorkImage from '@assets/Dadi-art-94_1761189715147.webp';
+import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.webp';
+import creativePracticeImage from '@assets/Dadi-art-162_1761580803599.webp';
+import creativePracticeForYouImage from '@assets/Dadi-art-156 (1)_1761580882796.webp';
+import digitalSpaceImage from '@assets/Dadi-art-175_1761189720828.webp';
+import digitalSpaceForYouImage from '@assets/Gemini_Generated_Image_8hd08w8hd08w8hd0_1761628501248.webp';
 
 const iconMap = {
   Eye,

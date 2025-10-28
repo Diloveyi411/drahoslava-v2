@@ -6,10 +6,10 @@ import { Dialog, DialogPortal, DialogOverlay, DialogTitle } from '@/components/u
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { cn } from '@/lib/utils';
-import gallery1 from '@assets/13b_1761189596670.jpg';
-import gallery2 from '@assets/Obraz 2_1761189596670.jpg';
-import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.png';
-import gallery4 from '@assets/Screenshot 2025-10-08 at 20.18.59_1761189596671.png';
+import gallery1 from '@assets/13b_1761189596670.webp';
+import gallery2 from '@assets/Obraz 2_1761189596670.webp';
+import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.webp';
+import gallery4 from '@assets/Screenshot 2025-10-08 at 20.18.59_1761189596671.webp';
 
 interface Artwork {
   id: number;

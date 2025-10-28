@@ -1,4 +1,4 @@
-import profileImage from '@assets/Dadi-art-11_1761189784462.jpg';
+import profileImage from '@assets/Dadi-art-11_1761189784462.webp';
 
 export default function About() {
   return (
