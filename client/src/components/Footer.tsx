@@ -51,7 +51,7 @@ export default function Footer() {
             <SiFacebook className="h-6 w-6" />
           </a>
           <a
-            href="https://www.tiktok.com/@drahoslavacom"
+            href="https://www.tiktok.com/@baidee.art"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
