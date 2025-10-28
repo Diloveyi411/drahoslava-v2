@@ -19,11 +19,11 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="text-right">
             <h4 className="font-medium text-foreground mb-4">Contact</h4>
-            <div className="flex items-center gap-3 text-sm text-muted-foreground">
-              <Mail className="h-4 w-4 flex-shrink-0" />
+            <div className="flex items-center justify-end gap-3 text-sm text-muted-foreground">
               <span data-testid="text-footer-email">info@drahoslava.com</span>
+              <Mail className="h-4 w-4 flex-shrink-0" />
             </div>
           </div>
         </div>
