@@ -48,6 +48,7 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
 - **Backend**: Express.js with TypeScript, providing API endpoints for contact submissions and newsletter subscriptions.
 - **Data Storage**: In-memory storage (`MemStorage`) for contact messages and newsletter subscriptions.
 - **Shared Schemas**: `shared/schema.ts` defines shared data models and validation schemas.
+- **Image Optimization**: All images converted to WebP format using Sharp, achieving 55.7% size reduction (from 38.28 MB to 16.95 MB) while maintaining quality at 85%.
 
 ## External Dependencies
 - **Notion API**: Used for content management of newsletter articles. Requires `NOTION_API_KEY` and `NOTION_DATABASE_ID`.
