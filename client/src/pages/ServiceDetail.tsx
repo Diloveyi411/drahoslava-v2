@@ -39,6 +39,16 @@ export default function ServiceDetail() {
     }, 100);
   };
 
+  const handleBackToServices = () => {
+    setLocation('/');
+    setTimeout(() => {
+      const element = document.getElementById('services');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   if (!service) {
     return <NotFound />;
   }
@@ -56,16 +66,15 @@ export default function ServiceDetail() {
           </div>
           
           <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <Link href="/#services">
-              <Button
-                variant="ghost"
-                className="mb-8 hover-elevate"
-                data-testid="button-back-to-services"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Services
-              </Button>
-            </Link>
+            <Button
+              variant="ghost"
+              className="mb-8 hover-elevate"
+              onClick={handleBackToServices}
+              data-testid="button-back-to-services"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Services
+            </Button>
 
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6 mx-auto">
               <IconComponent className="h-8 w-8 text-primary" />
