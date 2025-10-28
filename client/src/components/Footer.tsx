@@ -61,7 +61,7 @@ export default function Footer() {
             <SiTiktok className="h-6 w-6" />
           </a>
           <a
-            href="https://www.youtube.com/@drahoslavacom"
+            href="https://www.youtube.com/@drahoslava.forgacova"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
