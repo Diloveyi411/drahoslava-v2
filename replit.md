@@ -32,6 +32,7 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
     - **Markdown Support**: Article detail pages (`/newsletter/:slug`) render rich-text Notion content using `react-markdown` with `remark-gfm`, styled to match the iridescent pearl aesthetic.
     - **EmailJS Integration**: Newsletter signup forms (homepage and `/newsletter` page) send welcome emails via EmailJS upon successful subscription, with backend storage for subscribers.
     - **Category Filtering**: The main newsletter page includes a category-based filtering system for articles.
+    - **Blog Preview on Homepage**: A "Recent Thoughts" section displays the 3 most recent articles from Notion in a glass card grid layout below the Gallery section, with hover effects and navigation to article details.
 - **Gallery Section**: Features a grid layout of framed artworks with titles and a lightbox modal for detailed viewing, both maintaining the glass morphism and milky overlay effects.
 - **Contact Form**: Integrated with a backend API for submission, including client and server-side validation.
 - **Smooth Navigation**: Sticky header with anchor links and dynamic routing.
@@ -39,6 +40,7 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
 ### Feature Specifications
 - **Services**: Three primary services (Soul, Body, Mind) with dedicated detail pages and clear CTAs.
 - **Gallery**: Four textured floral artworks displayed in a framed, square aspect ratio grid, with a framed lightbox for detailed viewing.
+- **Blog Preview**: Homepage section showing 3 most recent articles in glass card layout with images, categories, titles, and descriptions. Includes "View All Articles" CTA.
 - **Newsletter**: A comprehensive blog with articles categorized, rich text support, and an integrated subscription system.
 - **About Section**: Prominent portrait photo and bio aligned with the artistic practice.
 - **Forms**: Contact and Newsletter forms with robust validation and success/error handling.
