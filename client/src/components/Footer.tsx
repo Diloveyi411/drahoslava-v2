@@ -4,17 +4,10 @@ import { SiInstagram, SiFacebook } from 'react-icons/si';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="font-serif text-2xl font-light text-foreground mb-4" data-testid="text-footer-brand">
               Drahoslava Forgáčová
@@ -24,23 +17,6 @@ export default function Footer() {
               <br />
               Exploring the self through awareness, art, and technology.
             </p>
-          </div>
-
-          <div>
-            <h4 className="font-medium text-foreground mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {['about', 'gallery', 'services', 'contact'].map((link) => (
-                <li key={link}>
-                  <button
-                    onClick={() => scrollToSection(link)}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm capitalize"
-                    data-testid={`link-footer-${link}`}
-                  >
-                    {link}
-                  </button>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>

@@ -22,8 +22,9 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
 - **Color Palette**: Dominated by #F8F7F7 (pearl base), #2B303B (soft dark text), #C9A9A6 (dusty rose primary accent), and #DDE2DF (light sage-gray secondary).
 - **Typography**: Cormorant Garamond is used for all main text for an elegant, unified aesthetic, with Fira Mono for monospace content.
 - **Image Treatment**: All images feature a 20% milky white overlay to reduce saturation and maintain the pearl aesthetic.
-- **Button Enhancements**: Primary buttons are dusty rose with white text and `btn-lift` hover animations.
+- **Button Enhancements**: All buttons across the site use the `btn-lift` class for consistent, elegant hover animations creating a subtle elevation effect.
 - **Shadow System**: Softer, multi-layered shadows complement the glass effects without harshness.
+- **Footer Design**: Simple two-column layout featuring brand information and contact details (removed Quick Links section for cleaner aesthetic).
 
 ### Technical Implementations
 - **Dynamic Service Detail Pages**: Each service (`/services/:slug`) has a dedicated page with a hero section, full description, glass card content sections, and navigation. Content is sourced from `client/src/data/services.json`. The first content section of the inner-work service features a split layout with an image (Dadi-art-94_1761189715147.jpg) on the left and text on the right (desktop), stacking on mobile with text above image. The image has a square aspect ratio with a 20% milky overlay consistent with the gallery aesthetic.
