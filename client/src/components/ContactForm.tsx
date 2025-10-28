@@ -182,7 +182,7 @@ export default function ContactForm() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full"
+                className="w-full btn-lift"
                 disabled={mutation.isPending}
                 data-testid="button-submit"
               >

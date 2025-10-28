@@ -116,7 +116,7 @@ export default function Newsletter() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={mutation.isPending} data-testid="button-subscribe">
+              <Button type="submit" disabled={mutation.isPending} className="btn-lift" data-testid="button-subscribe">
                 {mutation.isPending ? 'Subscribing...' : 'Subscribe'}
               </Button>
             </form>

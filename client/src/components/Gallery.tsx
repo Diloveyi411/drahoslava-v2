@@ -107,7 +107,7 @@ export default function Gallery() {
                 <Button
                   size="icon"
                   onClick={closeLightbox}
-                  className="fixed top-6 right-6 z-[100] bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl rounded-full w-12 h-12 !flex items-center justify-center"
+                  className="fixed top-6 right-6 z-[100] bg-primary text-primary-foreground shadow-xl rounded-full w-12 h-12 !flex items-center justify-center btn-lift"
                   data-testid="button-close-lightbox"
                 >
                   <X className="h-6 w-6" />
@@ -119,7 +119,7 @@ export default function Gallery() {
                       size="icon"
                       variant="ghost"
                       onClick={goToPrevious}
-                      className="flex-shrink-0"
+                      className="flex-shrink-0 btn-lift"
                       data-testid="button-previous"
                     >
                       <ChevronLeft className="h-8 w-8" />
@@ -151,7 +151,7 @@ export default function Gallery() {
                       size="icon"
                       variant="ghost"
                       onClick={goToNext}
-                      className="flex-shrink-0"
+                      className="flex-shrink-0 btn-lift"
                       data-testid="button-next"
                     >
                       <ChevronRight className="h-8 w-8" />
