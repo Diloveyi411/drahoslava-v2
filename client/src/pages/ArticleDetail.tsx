@@ -9,6 +9,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 export default function ArticleDetail() {
   const [, params] = useRoute('/newsletter/:slug');
@@ -123,6 +124,11 @@ export default function ArticleDetail() {
             <div data-testid="text-article-content">
               <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                  p: ({node, ...props}) => <p className="mb-4" {...props} />,
+                  br: () => <br className="my-2" />,
+                }}
               >
                 {article.content}
               </ReactMarkdown>
