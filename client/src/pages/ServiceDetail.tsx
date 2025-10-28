@@ -12,6 +12,7 @@ import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
 import creativePracticeImage from '@assets/Dadi-art-162_1761580803599.jpg';
 import creativePracticeForYouImage from '@assets/Dadi-art-156 (1)_1761580882796.jpg';
 import digitalSpaceImage from '@assets/Dadi-art-175_1761189720828.jpg';
+import digitalSpaceForYouImage from '@assets/Dadi-art-148_1761189769524.jpg';
 
 const iconMap = {
   Eye,
@@ -140,10 +141,13 @@ export default function ServiceDetail() {
           <div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-16">
             {service.content.map((section, index) => {
               // "For You, If You" section gets image split layout
-              const isForYouSection = index === 2 && (service.slug === 'inner-work' || service.slug === 'creative-practice');
+              const isForYouSection = index === 2 && (service.slug === 'inner-work' || service.slug === 'creative-practice' || service.slug === 'digital-space');
               
               if (isForYouSection) {
-                const sectionImage = service.slug === 'inner-work' ? whoThisIsForImage : creativePracticeForYouImage;
+                const sectionImage = 
+                  service.slug === 'inner-work' ? whoThisIsForImage :
+                  service.slug === 'creative-practice' ? creativePracticeForYouImage :
+                  digitalSpaceForYouImage;
                 
                 return (
                   <Card
