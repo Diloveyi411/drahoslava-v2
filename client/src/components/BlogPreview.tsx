@@ -24,7 +24,7 @@ export default function BlogPreview() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-blog-preview-title"
           >
-            Recent Thoughts
+            Essays & Insights
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-blog-preview-subtitle">
             Reflections on art, psychology, and the spaces where they meet.
