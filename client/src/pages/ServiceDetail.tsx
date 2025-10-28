@@ -11,6 +11,7 @@ import innerWorkImage from '@assets/Dadi-art-94_1761189715147.jpg';
 import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.jpg';
 import creativePracticeImage from '@assets/Dadi-art-162_1761580803599.jpg';
 import creativePracticeForYouImage from '@assets/Dadi-art-156 (1)_1761580882796.jpg';
+import digitalSpaceImage from '@assets/Dadi-art-175_1761189720828.jpg';
 
 const iconMap = {
   Eye,
@@ -99,12 +100,16 @@ export default function ServiceDetail() {
         {/* Full Description Section */}
         <section className="py-16 md:py-24 bg-background">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
-            {(service.slug === 'inner-work' || service.slug === 'creative-practice') ? (
+            {(service.slug === 'inner-work' || service.slug === 'creative-practice' || service.slug === 'digital-space') ? (
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Image Column */}
                 <div className="relative aspect-square rounded-md overflow-hidden order-2 md:order-1">
                   <img
-                    src={service.slug === 'inner-work' ? innerWorkImage : creativePracticeImage}
+                    src={
+                      service.slug === 'inner-work' ? innerWorkImage :
+                      service.slug === 'creative-practice' ? creativePracticeImage :
+                      digitalSpaceImage
+                    }
                     alt="Textured floral artwork"
                     className="w-full h-full object-cover"
                     data-testid={`img-${service.slug}-section`}
