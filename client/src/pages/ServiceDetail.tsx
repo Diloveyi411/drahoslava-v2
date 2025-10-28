@@ -70,7 +70,7 @@ export default function ServiceDetail() {
           <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <Button
               variant="ghost"
-              className="mb-8 hover-elevate"
+              className="mb-8 btn-lift"
               onClick={handleBackToServices}
               data-testid="button-back-to-services"
             >
