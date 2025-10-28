@@ -1,5 +1,5 @@
-import { Mail, MapPin } from 'lucide-react';
-import { SiInstagram, SiFacebook } from 'react-icons/si';
+import { Mail } from 'lucide-react';
+import { SiInstagram, SiFacebook, SiTiktok, SiYoutube } from 'react-icons/si';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 mb-8">
           <div>
             <h3 className="font-serif text-2xl font-light text-foreground mb-4" data-testid="text-footer-brand">
               Drahoslava Forgáčová
@@ -21,44 +21,58 @@ export default function Footer() {
 
           <div>
             <h4 className="font-medium text-foreground mb-4">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span data-testid="text-footer-email">info@drahoslava.com</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <SiInstagram className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <a 
-                  href="https://instagram.com/drahoslavacom" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors"
-                  data-testid="link-footer-instagram"
-                >
-                  @drahoslavacom
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <SiFacebook className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <a 
-                  href="https://www.facebook.com/Drahoslavaa" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors"
-                  data-testid="link-footer-facebook"
-                >
-                  facebook.com/Drahoslavaa
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span data-testid="text-footer-location">Bratislava, Slovakia</span>
-              </li>
-            </ul>
+            <div className="flex items-center gap-3 text-sm text-muted-foreground">
+              <Mail className="h-4 w-4 flex-shrink-0" />
+              <span data-testid="text-footer-email">info@drahoslava.com</span>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border text-center">
+        {/* Social Media Icons - Centered */}
+        <div className="flex justify-center items-center gap-6 mb-8">
+          <a
+            href="https://instagram.com/drahoslavacom"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Instagram"
+            data-testid="link-footer-instagram"
+          >
+            <SiInstagram className="h-6 w-6" />
+          </a>
+          <a
+            href="https://www.facebook.com/Drahoslavaa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Facebook"
+            data-testid="link-footer-facebook"
+          >
+            <SiFacebook className="h-6 w-6" />
+          </a>
+          <a
+            href="https://www.tiktok.com/@drahoslavacom"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="TikTok"
+            data-testid="link-footer-tiktok"
+          >
+            <SiTiktok className="h-6 w-6" />
+          </a>
+          <a
+            href="https://www.youtube.com/@drahoslavacom"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="YouTube"
+            data-testid="link-footer-youtube"
+          >
+            <SiYoutube className="h-6 w-6" />
+          </a>
+        </div>
+
+        <div className="pt-8 border-t border-border text-center">
           <p className="text-sm text-muted-foreground" data-testid="text-footer-copyright">
             © {currentYear} Drahoslava Forgáčová. All rights reserved.
           </p>
