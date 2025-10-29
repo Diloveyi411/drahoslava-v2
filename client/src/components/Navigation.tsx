@@ -54,9 +54,14 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <button
             onClick={() => handleNavigation('hero')}
-            className="font-serif text-xl lg:text-2xl font-light text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors"
+            className="font-serif text-xl lg:text-2xl font-light text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors flex items-center gap-3"
             data-testid="link-logo"
           >
+            <img 
+              src="/favicon.png" 
+              alt="Drahoslava Logo" 
+              className="h-10 w-10 lg:h-12 lg:w-12 object-contain"
+            />
             Drahoslava Forgáčová
           </button>
 
