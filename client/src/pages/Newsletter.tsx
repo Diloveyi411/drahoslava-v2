@@ -117,7 +117,7 @@ export default function Newsletter() {
               {filteredArticles.map((article) => (
                 <Link
                   key={article.id}
-                  href={`/newsletter/${article.slug}`}
+                  href={`/blog/${article.slug}`}
                   data-testid={`card-article-${article.slug}`}
                 >
                   <Card className="glass-card overflow-hidden hover-elevate cursor-pointer h-full transition-all">

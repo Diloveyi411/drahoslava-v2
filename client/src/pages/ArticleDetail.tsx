@@ -12,7 +12,7 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 
 export default function ArticleDetail() {
-  const [, params] = useRoute('/newsletter/:slug');
+  const [, params] = useRoute('/blog/:slug');
   const slug = params?.slug || '';
 
   const { data: article, isLoading } = useQuery<NotionArticle | null>({
@@ -60,8 +60,8 @@ export default function ArticleDetail() {
           <p className="text-muted-foreground mb-8">
             The article you're looking for doesn't exist or has been removed.
           </p>
-          <Link href="/newsletter">
-            <Button className="btn-lift" data-testid="button-back-to-newsletter">
+          <Link href="/blog">
+            <Button className="btn-lift" data-testid="button-back-to-blog">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Blog
             </Button>
@@ -78,7 +78,7 @@ export default function ArticleDetail() {
       <Navigation />
       <div className="min-h-screen pt-16 lg:pt-20 py-12 px-4 sm:px-6 lg:px-8">
       <article className="max-w-4xl mx-auto">
-        <Link href="/newsletter">
+        <Link href="/blog">
           <Button variant="ghost" className="mb-8 btn-lift" data-testid="button-back">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Blog
@@ -143,7 +143,7 @@ export default function ArticleDetail() {
               {filteredRelated.map((related) => (
                 <Link
                   key={related.id}
-                  href={`/newsletter/${related.slug}`}
+                  href={`/blog/${related.slug}`}
                   data-testid={`card-related-${related.slug}`}
                 >
                   <Card className="glass-card overflow-hidden hover-elevate cursor-pointer h-full transition-all">

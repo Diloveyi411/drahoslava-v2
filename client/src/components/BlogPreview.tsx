@@ -55,7 +55,7 @@ export default function BlogPreview() {
             {recentArticles.map((article) => (
               <Link
                 key={article.id}
-                href={`/newsletter/${article.slug}`}
+                href={`/blog/${article.slug}`}
                 data-testid={`card-blog-preview-${article.slug}`}
               >
                 <Card className="glass-card overflow-hidden hover-elevate cursor-pointer h-full transition-all group">
@@ -88,7 +88,7 @@ export default function BlogPreview() {
         )}
 
         <div className="text-center">
-          <Link href="/newsletter">
+          <Link href="/blog">
             <Button
               size="lg"
               variant="outline"

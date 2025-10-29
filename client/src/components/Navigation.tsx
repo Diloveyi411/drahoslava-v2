@@ -17,8 +17,8 @@ export default function Navigation() {
   }, []);
 
   const handleNavigation = (id: string) => {
-    if (id === 'newsletter') {
-      setLocation('/newsletter');
+    if (id === 'blog') {
+      setLocation('/blog');
       setIsMobileMenuOpen(false);
     } else {
       const element = document.getElementById(id);
@@ -41,7 +41,7 @@ export default function Navigation() {
     { label: 'Gallery', id: 'gallery' },
     { label: 'Services', id: 'services' },
     { label: 'Contact', id: 'contact' },
-    { label: 'Blog', id: 'newsletter' },
+    { label: 'Blog', id: 'blog' },
   ];
 
   return (
