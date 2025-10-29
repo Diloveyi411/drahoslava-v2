@@ -28,11 +28,11 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
 
 ### Technical Implementations
 - **Dynamic Service Detail Pages**: Each service (`/services/:slug`) has a dedicated page with a hero section, full description, glass card content sections, and navigation. Content is sourced from `client/src/data/services.json`. The first content section of the inner-work service features a split layout with an image (Dadi-art-94_1761189715147.jpg) on the left and text on the right (desktop), stacking on mobile with text above image. The image has a square aspect ratio with a 20% milky overlay consistent with the gallery aesthetic.
-- **Newsletter & Blog System**:
+- **Blog System** (previously Newsletter):
     - **Notion Integration**: Articles are fetched from a Notion database via a custom backend API using native fetch. Slugs are auto-generated if not provided in Notion.
-    - **Markdown Support**: Article detail pages (`/newsletter/:slug`) render rich-text Notion content using `react-markdown` with `remark-gfm`, styled to match the iridescent pearl aesthetic.
-    - **EmailJS Integration**: Newsletter signup forms (homepage and `/newsletter` page) send welcome emails via EmailJS upon successful subscription, with backend storage for subscribers.
-    - **Category Filtering**: The main newsletter page includes a category-based filtering system for articles.
+    - **Markdown Support**: Article detail pages (`/blog/:slug`) render rich-text Notion content using `react-markdown` with `remark-gfm`, styled to match the iridescent pearl aesthetic.
+    - **EmailJS Integration**: Newsletter signup forms (homepage and `/blog` page) send welcome emails via EmailJS upon successful subscription, with backend storage for subscribers.
+    - **Category Filtering**: The main blog page includes a category-based filtering system for articles.
     - **Blog Preview on Homepage**: A "Recent Thoughts" section displays the 3 most recent articles from Notion in a glass card grid layout below the Gallery section, with hover effects and navigation to article details.
 - **Gallery Section**: Features a grid layout of framed artworks with titles and a lightbox modal for detailed viewing, both maintaining the glass morphism and milky overlay effects.
 - **Contact Form**: Integrated with a backend API for submission, including client and server-side validation.
@@ -43,7 +43,7 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
 - **Services**: Three primary services (Soul, Body, Mind) with dedicated detail pages and clear CTAs.
 - **Gallery**: Four textured floral artworks displayed in a framed, square aspect ratio grid, with a framed lightbox for detailed viewing.
 - **Blog Preview**: Homepage section showing 3 most recent articles in glass card layout with images, categories, titles, and descriptions. Includes "View All Articles" CTA.
-- **Newsletter**: A comprehensive blog with articles categorized, rich text support, and an integrated subscription system.
+- **Blog**: A comprehensive blog at `/blog` with articles categorized, rich text support, and an integrated subscription system.
 - **About Section**: Prominent portrait photo and bio aligned with the artistic practice.
 - **Forms**: Contact and Newsletter forms with robust validation and success/error handling.
 
