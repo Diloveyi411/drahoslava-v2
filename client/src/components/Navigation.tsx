@@ -54,10 +54,19 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <button
             onClick={() => handleNavigation('hero')}
-            className="font-serif text-xl lg:text-2xl font-light text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors"
+            className="flex items-center font-serif text-xl lg:text-2xl font-light text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors"
             data-testid="link-logo"
           >
-            Drahoslava Forgáčová
+            <img
+              src="/favicon.png"
+              alt="Rose logo"
+              className={`transition-all duration-300 ${
+                isScrolled 
+                  ? 'h-8 w-8 lg:h-10 lg:w-10 opacity-100 mr-3' 
+                  : 'h-0 w-0 opacity-0 mr-0'
+              }`}
+            />
+            <span>Drahoslava Forgáčová</span>
           </button>
 
           <div className="hidden md:flex items-center gap-2">
