@@ -36,7 +36,8 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
     - **Blog Preview on Homepage**: A "Recent Thoughts" section displays the 3 most recent articles from Notion in a glass card grid layout below the Gallery section, with hover effects and navigation to article details.
 - **Gallery Section**: Features a grid layout of framed artworks with titles and a lightbox modal for detailed viewing, both maintaining the glass morphism and milky overlay effects.
 - **Contact Form**: Integrated with a backend API for submission, including client and server-side validation.
-- **Smooth Navigation**: Sticky header with anchor links and dynamic routing.
+- **Smooth Navigation**: Sticky header with anchor links and dynamic routing. Logo appears in header only when scrolling (opaque state), hidden when translucent.
+- **Social Media Preview**: Custom Open Graph image (1200x675px) with pearl iridescent aesthetic, rose logo, and brand text. Comprehensive OG and Twitter Card meta tags ensure proper preview on WhatsApp, Facebook, LinkedIn, and other platforms.
 
 ### Feature Specifications
 - **Services**: Three primary services (Soul, Body, Mind) with dedicated detail pages and clear CTAs.
