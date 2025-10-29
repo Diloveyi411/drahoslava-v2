@@ -60,7 +60,7 @@ export default function Navigation() {
             <img 
               src="/favicon.png" 
               alt="Drahoslava Logo" 
-              className="h-10 w-10 lg:h-12 lg:w-12 object-contain"
+              className="h-10 w-10 lg:h-12 lg:w-12 object-contain opacity-50"
             />
             Drahoslava Forgáčová
           </button>
