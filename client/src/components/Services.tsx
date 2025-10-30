@@ -13,22 +13,22 @@ interface Service {
 const services: Service[] = [
   {
     icon: Eye,
-    title: 'Soul — Inner Work',
-    description: 'True change begins with awareness. Through guided 1-on-1 sessions, you\'ll learn to observe your inner world with gentleness — to recognize emotional patterns, release inner resistance, and return to your authentic rhythm. This space is for those who want to see clearly and live truthfully.',
+    title: 'Soul - Inner Work',
+    description: 'True change begins with awareness. Through guided 1-on-1 sessions, you\'ll learn to observe your inner world with gentleness - to recognize emotional patterns, release inner resistance, and return to your authentic rhythm. This space is for those who want to see clearly and live truthfully.',
     slug: 'inner-work',
   },
   {
     icon: Hand,
-    title: 'Body — Creative Practice',
+    title: 'Body - Creative Practice',
     description: 'Art becomes a mirror when creation is guided by awareness. In my workshops, you\'ll explore meditative painting, floral sculpting, and other tactile forms that connect thought with touch. It\'s not about artistic skill; it\'s about letting your body speak what words cannot.',
     slug: 'creative-practice',
   },
   {
     icon: Monitor,
-    title: 'Mind — Digital Space',
+    title: 'Mind - Digital Space',
     description: `Our inner life now extends into the digital realm.
-Through experimental projects — an AI-based self-awareness app, interactive digital galleries, visual essays and creations— I explore how technology can help us understand ourselves more deeply.
-These are not tools of distraction, but instruments of reflection — art that thinks with you.`,
+Through experimental projects - an AI-based self-awareness app, interactive digital galleries, visual essays and creations - I explore how technology can help us understand ourselves more deeply.
+These are not tools of distraction, but instruments of reflection - art that thinks with you.`,
     slug: 'digital-space',
   },
 ];
@@ -46,7 +46,7 @@ export default function Services() {
             Three Expressions of the Self
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-services-subtitle">
-            Soul, body, and mind — unfolding through creation.
+            Soul, body, and mind - unfolding through creation.
           </p>
         </div>
 
