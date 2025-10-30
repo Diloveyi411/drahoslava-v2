@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Dialog, DialogPortal, DialogOverlay, DialogTitle } from '@/components/ui/dialog';
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { cn } from '@/lib/utils';
-import { Link } from 'wouter';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import gallery1 from '@assets/13b_1761189596670.webp';
 import gallery2 from '@assets/Obraz 2_1761189596670.webp';
 import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.webp';
@@ -25,13 +26,21 @@ const artworks: Artwork[] = [
   { id: 2, image: gallery2, title: 'Field of Presence', medium: 'Textured Mixed Media', year: '2024' },
   { id: 3, image: gallery3, title: 'Between Worlds', medium: 'Textured Mixed Media', year: '2025' },
   { id: 4, image: gallery4, title: 'Soft Return', medium: 'Textured Mixed Media', year: '2025' },
+  // Placeholder frames for future artworks
+  { id: 5, image: '', title: '', medium: '', year: '' },
+  { id: 6, image: '', title: '', medium: '', year: '' },
+  { id: 7, image: '', title: '', medium: '', year: '' },
+  { id: 8, image: '', title: '', medium: '', year: '' },
 ];
 
-export default function Gallery() {
+export default function Artwork() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
-    setSelectedIndex(index);
+    // Only open lightbox if artwork has an image
+    if (artworks[index].image) {
+      setSelectedIndex(index);
+    }
   };
 
   const closeLightbox = () => {
@@ -40,83 +49,104 @@ export default function Gallery() {
 
   const goToPrevious = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex - 1 + artworks.length) % artworks.length);
+      let prevIndex = (selectedIndex - 1 + artworks.length) % artworks.length;
+      // Find previous artwork with image
+      while (!artworks[prevIndex].image && prevIndex !== selectedIndex) {
+        prevIndex = (prevIndex - 1 + artworks.length) % artworks.length;
+      }
+      if (artworks[prevIndex].image) {
+        setSelectedIndex(prevIndex);
+      }
     }
   };
 
   const goToNext = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex + 1) % artworks.length);
+      let nextIndex = (selectedIndex + 1) % artworks.length;
+      // Find next artwork with image
+      while (!artworks[nextIndex].image && nextIndex !== selectedIndex) {
+        nextIndex = (nextIndex + 1) % artworks.length;
+      }
+      if (artworks[nextIndex].image) {
+        setSelectedIndex(nextIndex);
+      }
     }
   };
 
+  const handleContactClick = () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.location.href = '/#contact';
+  };
+
   return (
-    <section id="gallery" className="py-20 md:py-32 bg-card">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
-            data-testid="text-gallery-title"
-          >
-            Floral meditations
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
-            This selection of my previous work were custom created for beautiful souls around the world
-          </p>
-        </div>
+    <div className="min-h-screen">
+      <Navigation />
+      <main className="pt-16 lg:pt-20">
+        <section className="py-20 md:py-32 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h1
+                className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
+                data-testid="text-artwork-title"
+              >
+                My artwork
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-artwork-subtitle">
+                A collection of paintings exploring the intersection of beauty, awareness, and presence
+              </p>
+            </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 lg:gap-8">
-          {artworks.map((artwork, index) => (
-            <Card
-              key={artwork.id}
-              className="overflow-visible hover-elevate active-elevate-2 transition-all shadow-md cursor-pointer glass-card"
-              onClick={() => openLightbox(index)}
-              data-testid={`button-artwork-${index}`}
-            >
-              <div className="p-4 sm:p-6">
-                <div className="group relative overflow-hidden">
-                  <img
-                    src={artwork.image}
-                    alt={artwork.title}
-                    className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-white/20 pointer-events-none" />
-                </div>
-                <div className="mt-4 text-center">
-                  <h3 className="font-serif text-lg text-foreground">{artwork.title}</h3>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {artworks.map((artwork, index) => (
+                <Card
+                  key={artwork.id}
+                  className={`overflow-visible transition-all shadow-md glass-card ${
+                    artwork.image ? 'hover-elevate active-elevate-2 cursor-pointer' : 'opacity-50'
+                  }`}
+                  onClick={() => openLightbox(index)}
+                  data-testid={`card-artwork-${index}`}
+                >
+                  <div className="p-4 sm:p-6">
+                    <div className="group relative overflow-hidden">
+                      {artwork.image ? (
+                        <>
+                          <img
+                            src={artwork.image}
+                            alt={artwork.title}
+                            className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-white/20 pointer-events-none" />
+                        </>
+                      ) : (
+                        <div className="w-full aspect-square bg-muted/30 flex items-center justify-center border-2 border-dashed border-muted-foreground/20">
+                          <span className="text-muted-foreground/40 text-sm">Coming soon</span>
+                        </div>
+                      )}
+                    </div>
+                    {artwork.title && (
+                      <div className="mt-4 text-center">
+                        <h3 className="font-serif text-lg text-foreground">{artwork.title}</h3>
+                      </div>
+                    )}
+                  </div>
+                </Card>
+              ))}
+            </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-          <Link href="/artwork">
-            <Button
-              size="lg"
-              variant="outline"
-              className="btn-lift group text-base"
-              data-testid="button-explore-more"
-            >
-              Explore more of my work
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
-          <Button
-            size="lg"
-            className="text-base"
-            onClick={() => {
-              const contactSection = document.getElementById('contact');
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            data-testid="button-art-inquiries"
-          >
-            Get in touch for art inquiries
-          </Button>
-        </div>
-      </div>
+            <div className="text-center mt-12">
+              <Button
+                size="lg"
+                className="text-base"
+                onClick={handleContactClick}
+                data-testid="button-contact-artwork"
+              >
+                Get in touch for art inquiries
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
 
       <Dialog open={selectedIndex !== null} onOpenChange={closeLightbox}>
         <DialogPortal>
@@ -126,7 +156,7 @@ export default function Gallery() {
               "fixed left-[50%] top-[50%] z-50 grid w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] border-none outline-none bg-transparent p-0 shadow-none duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 focus:outline-none focus-visible:outline-none [&>button[type=button]]:hidden"
             )}
           >
-            {selectedIndex !== null && (
+            {selectedIndex !== null && artworks[selectedIndex].image && (
               <>
                 <VisuallyHidden>
                   <DialogTitle>{artworks[selectedIndex].title}</DialogTitle>
@@ -191,6 +221,6 @@ export default function Gallery() {
           </DialogPrimitive.Content>
         </DialogPortal>
       </Dialog>
-    </section>
+    </div>
   );
 }

@@ -8,11 +8,11 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
 
-  // Check if we're on the blog page
-  const isBlogPage = location === '/blog';
+  // Check if we're on pages that need white navigation
+  const isSpecialPage = location === '/blog' || location === '/artwork';
   
-  // On blog page, always show navigation with background
-  const showBackground = isScrolled || isBlogPage;
+  // On special pages, always show navigation with background
+  const showBackground = isScrolled || isSpecialPage;
 
   useEffect(() => {
     const handleScroll = () => {

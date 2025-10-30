@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Newsletter from "@/pages/Newsletter";
 import ArticleDetail from "@/pages/ArticleDetail";
 import ServiceDetail from "@/pages/ServiceDetail";
+import Artwork from "@/pages/Artwork";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/blog" component={Newsletter} />
       <Route path="/blog/:slug" component={ArticleDetail} />
       <Route path="/services/:slug" component={ServiceDetail} />
+      <Route path="/artwork" component={Artwork} />
       <Route component={NotFound} />
     </Switch>
   );
