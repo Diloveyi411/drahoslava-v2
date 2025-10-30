@@ -140,7 +140,7 @@ export default function ServiceDetail() {
         <section className="py-16 md:py-24 bg-card">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-16">
             {service.content.map((section, index) => {
-              // "For You, If You" section gets image split layout
+              // "For you, if you" section gets image split layout
               const isForYouSection = index === 2 && (service.slug === 'inner-work' || service.slug === 'creative-practice' || service.slug === 'digital-space');
               
               if (isForYouSection) {
