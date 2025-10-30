@@ -13,7 +13,7 @@ interface Service {
 const services: Service[] = [
   {
     icon: Eye,
-    title: 'Soul - Inner Work',
+    title: 'Soul - Inner work',
     description: 'True change begins with awareness. Through guided 1-on-1 sessions, you\'ll learn to observe your inner world with gentleness - to recognize emotional patterns, release inner resistance, and return to your authentic rhythm. This space is for those who want to see clearly and live truthfully.',
     slug: 'inner-work',
   },
