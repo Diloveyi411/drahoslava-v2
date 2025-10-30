@@ -29,6 +29,14 @@ export default function Hero() {
         >
           Connecting psychology, art and technology<br />to help you rediscover your true essence
         </h1>
+        <p 
+          className="text-white/90 text-sm mb-8 leading-relaxed"
+          style={{ textShadow: '0 1px 3px rgba(0,0,0,0.3)' }}
+          data-testid="text-development-status"
+        >
+          Currently in development — launching soon.<br />
+          (A gentle companion for your self-reflection is on its way.)
+        </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
