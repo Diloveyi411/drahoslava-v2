@@ -54,7 +54,9 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <button
             onClick={() => handleNavigation('hero')}
-            className="flex items-center font-serif text-xl lg:text-2xl font-light text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors"
+            className={`flex items-center font-serif text-xl lg:text-2xl font-light hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors ${
+              isScrolled ? 'text-foreground' : 'text-white'
+            }`}
             data-testid="link-logo"
           >
             <img
@@ -75,6 +77,7 @@ export default function Navigation() {
                 key={link.id}
                 variant="ghost"
                 onClick={() => handleNavigation(link.id)}
+                className={isScrolled ? '' : 'text-white hover:text-white'}
                 data-testid={`link-${link.id}`}
               >
                 {link.label}
@@ -82,6 +85,7 @@ export default function Navigation() {
             ))}
             <Button
               onClick={() => handleNavigation('contact')}
+              className={isScrolled ? '' : 'text-white hover:text-white'}
               data-testid="button-contact-cta"
             >
               Get in Touch
@@ -91,7 +95,7 @@ export default function Navigation() {
           <Button
             size="icon"
             variant="ghost"
-            className="md:hidden"
+            className={`md:hidden ${isScrolled ? '' : 'text-white hover:text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="button-menu-toggle"
           >
