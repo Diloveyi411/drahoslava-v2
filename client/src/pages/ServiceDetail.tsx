@@ -195,9 +195,24 @@ export default function ServiceDetail() {
                     {section.heading}
                   </h2>
                   <div className="prose prose-lg max-w-none">
-                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line font-light">
-                      {section.text}
-                    </p>
+                    {section.heading === "The InnerNet app" ? (
+                      <>
+                        <p className="text-muted-foreground leading-relaxed font-light mb-4">
+                          Part of this practice extends into The InnerNet - a self-awareness app I'm developing to help you notice emotional patterns, set intentions, and reflect between sessions.
+                          <br />
+                          It is a digital mirror for your inner life - a quiet companion for ongoing self-discovery.
+                        </p>
+                        <p className="text-muted-foreground leading-relaxed font-light text-sm italic">
+                          Currently in development — launching soon.
+                          <br />
+                          (A gentle companion for your self-reflection is on its way.)
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-muted-foreground leading-relaxed whitespace-pre-line font-light">
+                        {section.text}
+                      </p>
+                    )}
                   </div>
                 </Card>
               );
