@@ -6,6 +6,7 @@ import { Dialog, DialogPortal, DialogOverlay, DialogTitle } from '@/components/u
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { cn } from '@/lib/utils';
+import { useLocation } from 'wouter';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import gallery1 from '@assets/13b_1761189596670.webp';
@@ -30,6 +31,7 @@ const artworks: Artwork[] = [
 
 export default function Artwork() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [, setLocation] = useLocation();
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
@@ -52,8 +54,13 @@ export default function Artwork() {
   };
 
   const handleContactClick = () => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    window.location.href = '/#contact';
+    setLocation('/');
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   return (
