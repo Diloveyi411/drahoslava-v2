@@ -64,11 +64,14 @@ export default function Gallery() {
             Each piece in this collection was created as a personal reflection for kindred spirits around the world.
           </p>
           <h2
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-gallery-title"
           >
             Floral meditations
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
+            Where beauty becomes awareness, and every bloom carries a quiet truth
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 lg:gap-8">
