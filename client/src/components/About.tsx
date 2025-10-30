@@ -52,7 +52,7 @@ export default function About() {
               onClick={handleReadMore}
               data-testid="button-read-more-story"
             >
-              Read more about my story
+              Read my story
             </Button>
           </div>
         </div>
