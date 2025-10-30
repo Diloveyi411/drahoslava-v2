@@ -67,7 +67,7 @@ export default function Gallery() {
             Floral meditations
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
-            This selection of my previous work were custom created for beautiful souls around the world
+            Each piece in this collection was created as a personal reflection for kindred spirits around the world.
           </p>
         </div>
 
