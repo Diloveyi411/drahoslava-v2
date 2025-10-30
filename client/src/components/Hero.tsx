@@ -45,7 +45,7 @@ export default function Hero() {
             className="bg-white/10 text-white border-white/30 backdrop-blur-sm min-w-[200px] btn-lift"
             data-testid="button-explore-services"
           >
-            Explore Services
+            Explore services
           </Button>
         </div>
       </div>
