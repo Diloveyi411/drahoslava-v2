@@ -104,7 +104,7 @@ export default function Gallery() {
             onClick={handleExploreMore}
             data-testid="button-explore-more"
           >
-            Enter the Gallery
+            Enter the gallery
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
           <Button
