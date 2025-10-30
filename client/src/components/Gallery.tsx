@@ -60,15 +60,15 @@ export default function Gallery() {
     <section id="gallery" className="py-20 md:py-32 bg-card">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
+          <p className="text-base text-muted-foreground mb-6" data-testid="text-gallery-intro">
+            Each piece in this collection was created as a personal reflection for kindred spirits around the world.
+          </p>
           <h2
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground"
             data-testid="text-gallery-title"
           >
             Floral meditations
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
-            Each piece in this collection was created as a personal reflection for kindred spirits around the world.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 lg:gap-8">
