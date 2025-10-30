@@ -25,7 +25,7 @@ const services: Service[] = [
   },
   {
     icon: Monitor,
-    title: 'Mind - Digital Space',
+    title: 'Mind - Digital space',
     description: `Our inner life now extends into the digital realm.
 Through experimental projects - an AI-based self-awareness app, interactive digital galleries, visual essays and creations - I explore how technology can help us understand ourselves more deeply.
 These are not tools of distraction, but instruments of reflection - art that thinks with you.`,
