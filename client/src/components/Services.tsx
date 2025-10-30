@@ -19,7 +19,7 @@ const services: Service[] = [
   },
   {
     icon: Hand,
-    title: 'Body - Creative Practice',
+    title: 'Body - Creative practice',
     description: 'Art becomes a mirror when creation is guided by awareness. In my workshops, you\'ll explore meditative painting, floral sculpting, and other tactile forms that connect thought with touch. It\'s not about artistic skill; it\'s about letting your body speak what words cannot.',
     slug: 'creative-practice',
   },
