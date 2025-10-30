@@ -61,7 +61,7 @@ export default function ArticleDetail() {
             The article you're looking for doesn't exist or has been removed.
           </p>
           <Link href="/blog">
-            <Button className="btn-lift" data-testid="button-back-to-blog">
+            <Button className="btn-lift text-base" data-testid="button-back-to-blog">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Blog
             </Button>
@@ -79,7 +79,7 @@ export default function ArticleDetail() {
       <div className="min-h-screen pt-16 lg:pt-20 py-12 px-4 sm:px-6 lg:px-8">
       <article className="max-w-4xl mx-auto">
         <Link href="/blog">
-          <Button variant="ghost" className="mb-8 btn-lift" data-testid="button-back">
+          <Button variant="ghost" className="mb-8 btn-lift text-base" data-testid="button-back">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to Blog
           </Button>

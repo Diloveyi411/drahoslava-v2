@@ -92,7 +92,7 @@ export default function BlogPreview() {
             <Button
               size="lg"
               variant="outline"
-              className="btn-lift group"
+              className="btn-lift group text-base"
               data-testid="button-view-all-articles"
             >
               View All Articles

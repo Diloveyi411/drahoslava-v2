@@ -69,7 +69,7 @@ export default function Services() {
               <Link href={`/services/${service.slug}`}>
                 <Button
                   variant="outline"
-                  className="w-full mt-auto btn-lift"
+                  className="w-full mt-auto btn-lift text-base"
                   data-testid={`button-learn-more-${index}`}
                 >
                   Learn More

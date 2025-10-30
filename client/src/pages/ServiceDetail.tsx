@@ -70,7 +70,7 @@ export default function ServiceDetail() {
           <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <Button
               variant="ghost"
-              className="mb-8 btn-lift"
+              className="mb-8 btn-lift text-base"
               onClick={handleBackToServices}
               data-testid="button-back-to-services"
             >
@@ -216,11 +216,11 @@ export default function ServiceDetail() {
             </p>
             <Button
               size="lg"
-              className="btn-lift"
+              className="btn-lift text-base"
               onClick={handleContactClick}
               data-testid="button-book-now"
             >
-              Get in Touch
+              Get in touch
             </Button>
           </div>
         </section>

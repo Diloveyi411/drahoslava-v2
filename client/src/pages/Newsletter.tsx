@@ -84,7 +84,7 @@ export default function Newsletter() {
                   key={category}
                   variant={selectedCategory === category ? 'default' : 'outline'}
                   onClick={() => setSelectedCategory(category)}
-                  className="btn-lift"
+                  className="btn-lift text-base"
                   data-testid={`button-filter-${category.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   {category}
@@ -145,7 +145,7 @@ export default function Newsletter() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="btn-lift"
+                        className="btn-lift text-base"
                         data-testid={`button-read-more-${article.slug}`}
                       >
                         Read More
@@ -185,7 +185,7 @@ export default function Newsletter() {
               </div>
               <Button
                 type="submit"
-                className="w-full btn-lift"
+                className="w-full btn-lift text-base"
                 disabled={isSubmitting}
                 data-testid="button-newsletter-subscribe"
               >
