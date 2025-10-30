@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Mail } from 'lucide-react';
 import type { NotionArticle } from '@/lib/notionTypes';
@@ -33,6 +33,11 @@ export default function Newsletter() {
   
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const { toast } = useToast();
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
 
   const { data: articles = [], isLoading } = useQuery<NotionArticle[]>({
     queryKey: ['/api/newsletter/articles'],

@@ -1,8 +1,17 @@
 import profileImage from '@assets/Dadi-art-11_1761189784462.webp';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
+import { useLocation } from 'wouter';
 
 export default function About() {
+  const [, setLocation] = useLocation();
+
+  const handleReadMore = () => {
+    // Scroll to top first
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Then navigate to blog with category filter
+    setLocation('/blog?category=THE SOUL\'S NOTE');
+  };
+
   return (
     <section id="about" className="py-20 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -37,15 +46,14 @@ export default function About() {
                 My goal is not to teach people who they are, but to build spaces where they can see themselves more clearly - through beauty, structure, and attention.
               </p>
             </div>
-            <Link href="/blog?category=THE SOUL'S NOTE">
-              <Button 
-                variant="outline" 
-                className="btn-lift text-base"
-                data-testid="button-read-more-story"
-              >
-                Read more about my story
-              </Button>
-            </Link>
+            <Button 
+              variant="outline" 
+              className="btn-lift text-base"
+              onClick={handleReadMore}
+              data-testid="button-read-more-story"
+            >
+              Read more about my story
+            </Button>
           </div>
         </div>
       </div>
