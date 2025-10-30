@@ -1,4 +1,6 @@
 import profileImage from '@assets/Dadi-art-11_1761189784462.webp';
+import { Button } from '@/components/ui/button';
+import { Link } from 'wouter';
 
 export default function About() {
   return (
@@ -21,7 +23,7 @@ export default function About() {
             >
               Psychologist, artist and creator of experiences
             </h2>
-            <div className="space-y-4 text-base md:text-lg text-foreground/80 leading-relaxed">
+            <div className="space-y-4 text-base md:text-lg text-foreground/80 leading-relaxed mb-8">
               <p data-testid="text-about-paragraph-1">
                 My work explores how psychology, art, and technology can serve as mirrors for self-awareness.
               </p>
@@ -35,6 +37,15 @@ export default function About() {
                 My goal is not to teach people who they are, but to build spaces where they can see themselves more clearly - through beauty, structure, and attention.
               </p>
             </div>
+            <Link href="/blog">
+              <Button 
+                variant="outline" 
+                className="btn-lift text-base"
+                data-testid="button-read-more-story"
+              >
+                Read more about my story
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
