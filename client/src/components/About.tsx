@@ -45,6 +45,9 @@ export default function About() {
               <p data-testid="text-about-paragraph-4">
                 My goal is not to teach people who they are, but to build spaces where they can see themselves more clearly - through beauty, structure, and attention.
               </p>
+              <p data-testid="text-about-paragraph-5">
+                Experience this work through private sessions, creative workshops, and art designed - or personally commissioned - for your space.
+              </p>
             </div>
             <Button 
               variant="outline" 
