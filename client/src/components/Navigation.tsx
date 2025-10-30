@@ -88,7 +88,7 @@ export default function Navigation() {
               className={isScrolled ? '' : 'text-white hover:text-white'}
               data-testid="button-contact-cta"
             >
-              Get in Touch
+              Get in touch
             </Button>
           </div>
 
@@ -123,7 +123,7 @@ export default function Navigation() {
               className="w-full"
               data-testid="mobile-button-contact"
             >
-              Get in Touch
+              Get in touch
             </Button>
           </div>
         </div>
