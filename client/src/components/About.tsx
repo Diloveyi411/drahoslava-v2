@@ -26,13 +26,13 @@ export default function About() {
                 My work explores how psychology, art, and technology can serve as mirrors for self-awareness.
               </p>
               <p data-testid="text-about-paragraph-2">
-                I'm interested in what happens when understanding becomes not only intellectual but sensory — when reflection takes form, color, and motion.
+                I'm interested in what happens when understanding becomes not only intellectual but sensory - when reflection takes form, color, and motion.
               </p>
               <p data-testid="text-about-paragraph-3">
                 Every project I create, whether digital or physical, is an experiment in how consciousness expresses itself through creation.
               </p>
               <p data-testid="text-about-paragraph-4">
-                My goal is not to teach people who they are, but to build spaces where they can see themselves more clearly — through beauty, structure, and attention.
+                My goal is not to teach people who they are, but to build spaces where they can see themselves more clearly - through beauty, structure, and attention.
               </p>
             </div>
           </div>
