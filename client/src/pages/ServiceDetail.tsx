@@ -98,7 +98,7 @@ export default function ServiceDetail() {
             
             {service.slug === 'digital-space' && (
               <p className="text-muted-foreground text-sm italic mt-4" data-testid="text-digital-space-status">
-                Currently in development — launching soon.
+                Currently in development - launching soon.
               </p>
             )}
           </div>
@@ -209,7 +209,7 @@ export default function ServiceDetail() {
                           It is a digital mirror for your inner life - a quiet companion for ongoing self-discovery.
                         </p>
                         <p className="text-muted-foreground leading-relaxed font-light text-sm italic">
-                          Currently in development — launching soon.
+                          Currently in development - launching soon.
                         </p>
                       </>
                     ) : (
