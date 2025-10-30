@@ -6,7 +6,13 @@ import { useLocation } from 'wouter';
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [, setLocation] = useLocation();
+  const [location, setLocation] = useLocation();
+
+  // Check if we're on the blog page
+  const isBlogPage = location === '/blog';
+  
+  // On blog page, always show navigation with background
+  const showBackground = isScrolled || isBlogPage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +53,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
+        showBackground ? 'bg-background/95 backdrop-blur-md border-b border-border' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -55,7 +61,7 @@ export default function Navigation() {
           <button
             onClick={() => handleNavigation('hero')}
             className={`flex items-center font-serif text-2xl lg:text-3xl font-light hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-white'
+              showBackground ? 'text-foreground' : 'text-white'
             }`}
             data-testid="link-logo"
           >
@@ -63,7 +69,7 @@ export default function Navigation() {
               src="/favicon.png"
               alt="Rose logo"
               className={`transition-all duration-300 ${
-                isScrolled 
+                showBackground 
                   ? 'h-8 w-8 lg:h-10 lg:w-10 opacity-100 mr-3' 
                   : 'h-0 w-0 opacity-0 mr-0'
               }`}
@@ -77,7 +83,7 @@ export default function Navigation() {
                 key={link.id}
                 variant="ghost"
                 onClick={() => handleNavigation(link.id)}
-                className={`text-base ${isScrolled ? '' : 'text-white hover:text-white'}`}
+                className={`text-base ${showBackground ? '' : 'text-white hover:text-white'}`}
                 data-testid={`link-${link.id}`}
               >
                 {link.label}
@@ -85,7 +91,7 @@ export default function Navigation() {
             ))}
             <Button
               onClick={() => handleNavigation('contact')}
-              className={`text-base ${isScrolled ? '' : 'text-white hover:text-white'}`}
+              className={`text-base ${showBackground ? '' : 'text-white hover:text-white'}`}
               data-testid="button-contact-cta"
             >
               Get in touch
@@ -95,7 +101,7 @@ export default function Navigation() {
           <Button
             size="icon"
             variant="ghost"
-            className={`md:hidden ${isScrolled ? '' : 'text-white hover:text-white'}`}
+            className={`md:hidden ${showBackground ? '' : 'text-white hover:text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="button-menu-toggle"
           >
