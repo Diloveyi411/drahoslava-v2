@@ -141,7 +141,7 @@ export default function Gallery() {
                             {artworks[selectedIndex].title}
                           </h3>
                           <p className="text-muted-foreground">
-                            {artworks[selectedIndex].medium} • {artworks[selectedIndex].year} • 100x100cm
+                            {artworks[selectedIndex].medium} • 100x100cm • {artworks[selectedIndex].year}
                           </p>
                         </div>
                       </div>
