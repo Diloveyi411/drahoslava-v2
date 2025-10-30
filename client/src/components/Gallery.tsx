@@ -6,7 +6,7 @@ import { Dialog, DialogPortal, DialogOverlay, DialogTitle } from '@/components/u
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { cn } from '@/lib/utils';
-import { Link } from 'wouter';
+import { useLocation } from 'wouter';
 import gallery1 from '@assets/13b_1761189596670.webp';
 import gallery2 from '@assets/Obraz 2_1761189596670.webp';
 import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.webp';
@@ -29,6 +29,7 @@ const artworks: Artwork[] = [
 
 export default function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [, setLocation] = useLocation();
 
   const openLightbox = (index: number) => {
     setSelectedIndex(index);
@@ -48,6 +49,11 @@ export default function Gallery() {
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex + 1) % artworks.length);
     }
+  };
+
+  const handleExploreMore = () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    setLocation('/artwork');
   };
 
   return (
@@ -91,17 +97,16 @@ export default function Gallery() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-          <Link href="/artwork">
-            <Button
-              size="lg"
-              variant="outline"
-              className="btn-lift group text-base"
-              data-testid="button-explore-more"
-            >
-              Explore more of my work
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </Link>
+          <Button
+            size="lg"
+            variant="outline"
+            className="btn-lift group text-base"
+            onClick={handleExploreMore}
+            data-testid="button-explore-more"
+          >
+            Explore more of my work
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
           <Button
             size="lg"
             className="text-base"
