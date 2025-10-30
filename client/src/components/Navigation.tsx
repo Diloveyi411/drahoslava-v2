@@ -54,7 +54,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <button
             onClick={() => handleNavigation('hero')}
-            className={`flex items-center font-serif text-xl lg:text-2xl font-light hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors ${
+            className={`flex items-center font-serif text-2xl lg:text-3xl font-light hover-elevate active-elevate-2 px-3 py-2 rounded-lg transition-colors ${
               isScrolled ? 'text-foreground' : 'text-white'
             }`}
             data-testid="link-logo"
@@ -77,7 +77,7 @@ export default function Navigation() {
                 key={link.id}
                 variant="ghost"
                 onClick={() => handleNavigation(link.id)}
-                className={isScrolled ? '' : 'text-white hover:text-white'}
+                className={`text-base ${isScrolled ? '' : 'text-white hover:text-white'}`}
                 data-testid={`link-${link.id}`}
               >
                 {link.label}
@@ -85,7 +85,7 @@ export default function Navigation() {
             ))}
             <Button
               onClick={() => handleNavigation('contact')}
-              className={isScrolled ? '' : 'text-white hover:text-white'}
+              className={`text-base ${isScrolled ? '' : 'text-white hover:text-white'}`}
               data-testid="button-contact-cta"
             >
               Get in touch
@@ -112,7 +112,7 @@ export default function Navigation() {
                 key={link.id}
                 variant="ghost"
                 onClick={() => handleNavigation(link.id)}
-                className="w-full justify-start"
+                className="w-full justify-start text-base"
                 data-testid={`mobile-link-${link.id}`}
               >
                 {link.label}
@@ -120,7 +120,7 @@ export default function Navigation() {
             ))}
             <Button
               onClick={() => handleNavigation('contact')}
-              className="w-full"
+              className="w-full text-base"
               data-testid="mobile-button-contact"
             >
               Get in touch
