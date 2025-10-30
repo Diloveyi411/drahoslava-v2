@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <h1
-          className="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight leading-tight"
+          className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight leading-tight"
           style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2)' }}
           data-testid="text-hero-title"
         >
