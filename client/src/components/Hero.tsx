@@ -27,7 +27,7 @@ export default function Hero() {
           style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3), 0 4px 8px rgba(0,0,0,0.2)' }}
           data-testid="text-hero-title"
         >
-          Connecting psychology, art, and technology<br />to help you rediscover your true essence
+          Connecting psychology, art and technology<br />to help you rediscover your true essence
         </h1>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
