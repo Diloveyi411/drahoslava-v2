@@ -95,6 +95,12 @@ export default function ServiceDetail() {
             >
               {service.heroDescription}
             </p>
+            
+            {service.slug === 'digital-space' && (
+              <p className="text-muted-foreground text-sm italic mt-4" data-testid="text-digital-space-status">
+                Currently in development — launching soon.
+              </p>
+            )}
           </div>
         </section>
 
