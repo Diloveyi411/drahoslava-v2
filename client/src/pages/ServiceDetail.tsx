@@ -204,8 +204,6 @@ export default function ServiceDetail() {
                         </p>
                         <p className="text-muted-foreground leading-relaxed font-light text-sm italic">
                           Currently in development — launching soon.
-                          <br />
-                          (A gentle companion for your self-reflection is on its way.)
                         </p>
                       </>
                     ) : (
