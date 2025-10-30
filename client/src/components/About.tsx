@@ -37,7 +37,7 @@ export default function About() {
                 My goal is not to teach people who they are, but to build spaces where they can see themselves more clearly - through beauty, structure, and attention.
               </p>
             </div>
-            <Link href="/blog">
+            <Link href="/blog?category=THE SOUL'S NOTE">
               <Button 
                 variant="outline" 
                 className="btn-lift text-base"

@@ -23,7 +23,15 @@ const CATEGORIES = [
 export default function Newsletter() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  
+  // Get category from URL if present
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryFromUrl = urlParams.get('category');
+  const initialCategory = categoryFromUrl && CATEGORIES.includes(categoryFromUrl as any) 
+    ? categoryFromUrl 
+    : 'All';
+  
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const { toast } = useToast();
 
   const { data: articles = [], isLoading } = useQuery<NotionArticle[]>({
