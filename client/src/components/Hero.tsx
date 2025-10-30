@@ -36,7 +36,7 @@ export default function Hero() {
             className="bg-primary/90 text-primary-foreground backdrop-blur-sm min-w-[200px] btn-lift"
             data-testid="button-view-gallery"
           >
-            View Gallery
+            View gallery
           </Button>
           <Button
             size="lg"
