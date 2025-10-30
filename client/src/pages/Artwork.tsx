@@ -26,21 +26,13 @@ const artworks: Artwork[] = [
   { id: 2, image: gallery2, title: 'Field of Presence', medium: 'Textured Mixed Media', year: '2024' },
   { id: 3, image: gallery3, title: 'Between Worlds', medium: 'Textured Mixed Media', year: '2025' },
   { id: 4, image: gallery4, title: 'Soft Return', medium: 'Textured Mixed Media', year: '2025' },
-  // Placeholder frames for future artworks
-  { id: 5, image: '', title: '', medium: '', year: '' },
-  { id: 6, image: '', title: '', medium: '', year: '' },
-  { id: 7, image: '', title: '', medium: '', year: '' },
-  { id: 8, image: '', title: '', medium: '', year: '' },
 ];
 
 export default function Artwork() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openLightbox = (index: number) => {
-    // Only open lightbox if artwork has an image
-    if (artworks[index].image) {
-      setSelectedIndex(index);
-    }
+    setSelectedIndex(index);
   };
 
   const closeLightbox = () => {
@@ -49,27 +41,13 @@ export default function Artwork() {
 
   const goToPrevious = () => {
     if (selectedIndex !== null) {
-      let prevIndex = (selectedIndex - 1 + artworks.length) % artworks.length;
-      // Find previous artwork with image
-      while (!artworks[prevIndex].image && prevIndex !== selectedIndex) {
-        prevIndex = (prevIndex - 1 + artworks.length) % artworks.length;
-      }
-      if (artworks[prevIndex].image) {
-        setSelectedIndex(prevIndex);
-      }
+      setSelectedIndex((selectedIndex - 1 + artworks.length) % artworks.length);
     }
   };
 
   const goToNext = () => {
     if (selectedIndex !== null) {
-      let nextIndex = (selectedIndex + 1) % artworks.length;
-      // Find next artwork with image
-      while (!artworks[nextIndex].image && nextIndex !== selectedIndex) {
-        nextIndex = (nextIndex + 1) % artworks.length;
-      }
-      if (artworks[nextIndex].image) {
-        setSelectedIndex(nextIndex);
-      }
+      setSelectedIndex((selectedIndex + 1) % artworks.length);
     }
   };
 
@@ -100,34 +78,22 @@ export default function Artwork() {
               {artworks.map((artwork, index) => (
                 <Card
                   key={artwork.id}
-                  className={`overflow-visible transition-all shadow-md glass-card ${
-                    artwork.image ? 'hover-elevate active-elevate-2 cursor-pointer' : 'opacity-50'
-                  }`}
+                  className="overflow-visible transition-all shadow-md glass-card hover-elevate active-elevate-2 cursor-pointer"
                   onClick={() => openLightbox(index)}
                   data-testid={`card-artwork-${index}`}
                 >
                   <div className="p-4 sm:p-6">
                     <div className="group relative overflow-hidden">
-                      {artwork.image ? (
-                        <>
-                          <img
-                            src={artwork.image}
-                            alt={artwork.title}
-                            className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-white/20 pointer-events-none" />
-                        </>
-                      ) : (
-                        <div className="w-full aspect-square bg-muted/30 flex items-center justify-center border-2 border-dashed border-muted-foreground/20">
-                          <span className="text-muted-foreground/40 text-sm">Coming soon</span>
-                        </div>
-                      )}
+                      <img
+                        src={artwork.image}
+                        alt={artwork.title}
+                        className="w-full aspect-square object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-white/20 pointer-events-none" />
                     </div>
-                    {artwork.title && (
-                      <div className="mt-4 text-center">
-                        <h3 className="font-serif text-lg text-foreground">{artwork.title}</h3>
-                      </div>
-                    )}
+                    <div className="mt-4 text-center">
+                      <h3 className="font-serif text-lg text-foreground">{artwork.title}</h3>
+                    </div>
                   </div>
                 </Card>
               ))}
@@ -156,7 +122,7 @@ export default function Artwork() {
               "fixed left-[50%] top-[50%] z-50 grid w-full max-w-5xl translate-x-[-50%] translate-y-[-50%] border-none outline-none bg-transparent p-0 shadow-none duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 focus:outline-none focus-visible:outline-none [&>button[type=button]]:hidden"
             )}
           >
-            {selectedIndex !== null && artworks[selectedIndex].image && (
+            {selectedIndex !== null && (
               <>
                 <VisuallyHidden>
                   <DialogTitle>{artworks[selectedIndex].title}</DialogTitle>
