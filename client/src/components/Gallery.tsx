@@ -113,7 +113,7 @@ export default function Gallery() {
             }}
             data-testid="button-art-inquiries"
           >
-            Get in touch for art inquiries
+            Get in touch for commission request
           </Button>
         </div>
       </div>

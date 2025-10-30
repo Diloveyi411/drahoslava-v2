@@ -140,7 +140,7 @@ export default function Artwork() {
                 onClick={handleContactClick}
                 data-testid="button-contact-artwork"
               >
-                Get in touch for art inquiries
+                Get in touch for commission request
               </Button>
             </div>
           </div>
