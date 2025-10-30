@@ -57,10 +57,10 @@ export default function Gallery() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-gallery-title"
           >
-            Floral Meditations
+            Floral meditations
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-gallery-subtitle">
-            Where beauty becomes awareness, and every bloom carries a quiet truth.
+            This selection of my previous work were custom created for beautiful souls around the world
           </p>
         </div>
 
