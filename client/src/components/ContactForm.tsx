@@ -78,7 +78,7 @@ export default function ContactForm() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-contact-title"
           >
-            Get in Touch
+            Get in touch
           </h2>
           <p className="text-lg text-muted-foreground" data-testid="text-contact-subtitle">
             If you feel called to create, reflect, or simply share your thoughts - this space is open.
@@ -88,7 +88,7 @@ export default function ContactForm() {
         {isSubmitted ? (
           <div className="text-center p-12 bg-background rounded-2xl glass-card" data-testid="message-success">
             <CheckCircle className="h-16 w-16 text-primary mx-auto mb-4" />
-            <h3 className="font-serif text-2xl text-foreground mb-2">Thank You!</h3>
+            <h3 className="font-serif text-2xl text-foreground mb-2">Thank you!</h3>
             <p className="text-muted-foreground">
               Your message has been received. I'll respond within 24-48 hours.
             </p>

@@ -43,7 +43,7 @@ export default function Services() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-services-title"
           >
-            Three Expressions of the Self
+            Three expressions of the self
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-services-subtitle">
             Soul, body, and mind - unfolding through creation.
@@ -72,7 +72,7 @@ export default function Services() {
                   className="w-full mt-auto btn-lift text-base"
                   data-testid={`button-learn-more-${index}`}
                 >
-                  Learn More
+                  Learn more
                 </Button>
               </Link>
             </Card>

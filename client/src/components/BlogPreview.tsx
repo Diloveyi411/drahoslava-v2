@@ -24,7 +24,7 @@ export default function BlogPreview() {
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-blog-preview-title"
           >
-            Essays & Insights
+            Essays and insights
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-blog-preview-subtitle">
             Reflections on art, psychology, and the spaces where they meet.
@@ -95,7 +95,7 @@ export default function BlogPreview() {
               className="btn-lift group text-base"
               data-testid="button-view-all-articles"
             >
-              View All Articles
+              View all articles
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>

@@ -56,14 +56,14 @@ export default function ArticleDetail() {
         <Navigation />
         <div className="min-h-screen pt-16 lg:pt-20 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl font-light text-foreground mb-4">Article Not Found</h1>
+          <h1 className="text-3xl font-light text-foreground mb-4">Article not found</h1>
           <p className="text-muted-foreground mb-8">
             The article you're looking for doesn't exist or has been removed.
           </p>
           <Link href="/blog">
             <Button className="btn-lift text-base" data-testid="button-back-to-blog">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Blog
+              Back to blog
             </Button>
           </Link>
         </div>
@@ -81,7 +81,7 @@ export default function ArticleDetail() {
         <Link href="/blog">
           <Button variant="ghost" className="mb-8 btn-lift text-base" data-testid="button-back">
             <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Blog
+            Back to blog
           </Button>
         </Link>
 
@@ -138,7 +138,7 @@ export default function ArticleDetail() {
 
         {filteredRelated.length > 0 && (
           <div>
-            <h2 className="text-2xl font-light text-foreground mb-6">Related Articles</h2>
+            <h2 className="text-2xl font-light text-foreground mb-6">Related articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {filteredRelated.map((related) => (
                 <Link

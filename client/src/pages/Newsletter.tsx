@@ -148,7 +148,7 @@ export default function Newsletter() {
                         className="btn-lift text-base"
                         data-testid={`button-read-more-${article.slug}`}
                       >
-                        Read More
+                        Read more
                       </Button>
                     </div>
                   </Card>
@@ -162,7 +162,7 @@ export default function Newsletter() {
               <Mail className="h-6 w-6 text-primary" />
             </div>
             <h2 className="text-2xl sm:text-3xl font-light text-foreground mb-2">
-              Stay in Touch
+              Stay in touch
             </h2>
             <p className="text-sm text-muted-foreground max-w-xl mx-auto">
               A thoughtful newsletter on art, psychology, and digital creation.

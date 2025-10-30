@@ -75,7 +75,7 @@ export default function ServiceDetail() {
               data-testid="button-back-to-services"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Services
+              Back to services
             </Button>
 
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6 mx-auto">
@@ -209,7 +209,7 @@ export default function ServiceDetail() {
         <section className="py-16 md:py-24 bg-primary/5">
           <div className="max-w-2xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-light text-foreground mb-4">
-              Ready to Begin?
+              Ready to begin?
             </h2>
             <p className="text-muted-foreground mb-8 text-lg">
               Let's explore this journey together. Reach out to book a session or ask any questions.
