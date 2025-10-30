@@ -39,6 +39,9 @@ export default function Services() {
     <section id="services" className="py-20 md:py-32 bg-card">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
+          <p className="text-base text-muted-foreground mb-6" data-testid="text-services-intro">
+            These are the areas I currently explore with my clients:
+          </p>
           <h2
             className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground mb-4"
             data-testid="text-services-title"
