@@ -186,7 +186,7 @@ export default function ContactForm() {
                 disabled={mutation.isPending}
                 data-testid="button-submit"
               >
-                {mutation.isPending ? 'Sending...' : 'Send Message'}
+                {mutation.isPending ? 'Sending...' : 'Send message'}
               </Button>
             </form>
           </Form>
