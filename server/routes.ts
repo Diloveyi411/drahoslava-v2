@@ -14,17 +14,51 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send email notification via Resend
       try {
         const { client, fromEmail } = await getUncachableResendClient();
+        
+        // Sanitize text to prevent control characters and header injection
+        const sanitizeText = (text: string) => {
+          return text.replace(/[\r\n\t\0\x0B\x0C]/g, ' ').trim();
+        };
+        
+        // Escape HTML to prevent injection
+        const escapeHtml = (text: string) => {
+          return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        };
+        
+        const safeName = escapeHtml(validatedData.name);
+        const safeEmail = escapeHtml(validatedData.email);
+        const safeSubject = escapeHtml(validatedData.subject);
+        const safeMessage = escapeHtml(validatedData.message).replace(/\n/g, '<br>');
+        
+        // Sanitize subject for email header (remove control characters)
+        const emailSubject = sanitizeText(`New Contact Form Message: ${validatedData.subject}`);
+        
         await client.emails.send({
           from: fromEmail,
           to: 'info@drahoslava.com',
-          subject: `New Contact Form Message: ${validatedData.subject}`,
+          subject: emailSubject,
           html: `
             <h2>New Contact Form Submission</h2>
-            <p><strong>From:</strong> ${validatedData.name}</p>
-            <p><strong>Email:</strong> ${validatedData.email}</p>
-            <p><strong>Subject:</strong> ${validatedData.subject}</p>
+            <p><strong>From:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            <p><strong>Subject:</strong> ${safeSubject}</p>
             <p><strong>Message:</strong></p>
-            <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
+            <p>${safeMessage}</p>
+          `,
+          text: `
+New Contact Form Submission
+
+From: ${sanitizeText(validatedData.name)}
+Email: ${sanitizeText(validatedData.email)}
+Subject: ${sanitizeText(validatedData.subject)}
+
+Message:
+${validatedData.message}
           `
         });
       } catch (emailError) {
