@@ -15,6 +15,10 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
+localPort = 32805
+externalPort = 9000
+
+[[ports]]
 localPort = 33219
 externalPort = 6800
 
@@ -95,4 +99,4 @@ args = "npm run dev"
 waitForPort = 5000
 
 [agent]
-integrations = ["javascript_mem_db:1.0.0"]
+integrations = ["javascript_mem_db:1.0.0", "resend:1.0.0"]

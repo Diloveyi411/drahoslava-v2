@@ -3,12 +3,35 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactMessageSchema, insertNewsletterSubscriptionSchema } from "@shared/schema";
 import { getArticles, getArticleBySlug, getArticlesByCategory } from "./lib/notion";
+import { getUncachableResendClient } from "./lib/resend-client";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/contact", async (req, res) => {
     try {
       const validatedData = insertContactMessageSchema.parse(req.body);
       const message = await storage.createContactMessage(validatedData);
+      
+      // Send email notification via Resend
+      try {
+        const { client, fromEmail } = await getUncachableResendClient();
+        await client.emails.send({
+          from: fromEmail,
+          to: 'info@drahoslava.com',
+          subject: `New Contact Form Message: ${validatedData.subject}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>From:</strong> ${validatedData.name}</p>
+            <p><strong>Email:</strong> ${validatedData.email}</p>
+            <p><strong>Subject:</strong> ${validatedData.subject}</p>
+            <p><strong>Message:</strong></p>
+            <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
+          `
+        });
+      } catch (emailError) {
+        console.error('Failed to send email notification:', emailError);
+        // Don't fail the request if email fails
+      }
+      
       res.json(message);
     } catch (error) {
       res.status(400).json({ error: "Invalid request data" });
