@@ -13,7 +13,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Send email notification via Resend
       try {
+        console.log('Attempting to send email via Resend...');
         const { client, fromEmail } = await getUncachableResendClient();
+        console.log('Resend client initialized, from email:', fromEmail);
         
         // Sanitize text to prevent control characters and header injection
         const sanitizeText = (text: string) => {
@@ -38,7 +40,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Sanitize subject for email header (remove control characters)
         const emailSubject = sanitizeText(`New Contact Form Message: ${validatedData.subject}`);
         
-        await client.emails.send({
+        console.log('Sending email to: info@drahoslava.com');
+        const result = await client.emails.send({
           from: fromEmail,
           to: 'info@drahoslava.com',
           subject: emailSubject,
@@ -61,8 +64,10 @@ Message:
 ${validatedData.message}
           `
         });
+        console.log('Email sent successfully via Resend:', result);
       } catch (emailError) {
         console.error('Failed to send email notification:', emailError);
+        console.error('Email error details:', JSON.stringify(emailError, null, 2));
         // Don't fail the request if email fails
       }
       
