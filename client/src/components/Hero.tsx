@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-import heroImage from '@assets/Dadi-art-32_1761189756239.webp';
 
 export default function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -15,10 +14,30 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-105 opacity-60"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      <picture className="absolute inset-0">
+        <source
+          media="(max-width: 767px)"
+          srcSet="/optimized/hero-mobile.webp"
+          width={800}
+          height={533}
+        />
+        <source
+          media="(max-width: 1199px)"
+          srcSet="/optimized/hero-tablet.webp"
+          width={1200}
+          height={800}
+        />
+        <img
+          src="/optimized/hero-desktop.webp"
+          srcSet="/optimized/hero-desktop.webp"
+          alt="Background artwork"
+          className="absolute inset-0 w-full h-full object-cover scale-105 opacity-60"
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+          loading="eager"
+        />
+      </picture>
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/20" />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
