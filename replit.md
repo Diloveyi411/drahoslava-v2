@@ -59,7 +59,13 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
 - **Backend**: Express.js with TypeScript, providing API endpoints for contact submissions and newsletter subscriptions.
 - **Data Storage**: In-memory storage (`MemStorage`) for contact messages and newsletter subscriptions.
 - **Shared Schemas**: `shared/schema.ts` defines shared data models and validation schemas.
-- **Image Optimization**: All images converted to WebP format using Sharp, achieving 55.7% size reduction (from 38.28 MB to 16.95 MB) while maintaining quality at 85%.
+- **Image Optimization**: 
+    - **Gallery Images**: All images converted to WebP format using Sharp, achieving 55.7% size reduction (from 38.28 MB to 16.95 MB) while maintaining quality at 85%.
+    - **Hero Background Optimization**: Responsive hero image variants created for optimal performance:
+        - Mobile (≤767px): 800x533px, 48KB (97% size reduction from original 1.9MB)
+        - Tablet (768-1199px): 1200x800px, 110KB (94% size reduction)
+        - Desktop (≥1200px): 1920x1280px, 310KB (84% size reduction)
+    - **Performance Features**: Hero uses `<picture>` element with `fetchPriority="high"` and `loading="eager"` for optimized LCP (Largest Contentful Paint). Proper width/height attributes prevent layout shift.
 
 ## External Dependencies
 - **Notion API**: Used for content management of newsletter articles. Requires `NOTION_API_KEY` and `NOTION_DATABASE_ID`.
