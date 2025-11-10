@@ -35,9 +35,16 @@ The design centers on an "Iridescent Pearl Aesthetic" with a soft, gender-neutra
     - **Category Filtering**: The main blog page includes a category-based filtering system for articles.
     - **Blog Preview on Homepage**: A "Recent Thoughts" section displays the 3 most recent articles from Notion in a glass card grid layout below the Gallery section, with hover effects and navigation to article details.
 - **Gallery Section**: Features a grid layout of framed artworks with titles and a lightbox modal for detailed viewing, both maintaining the glass morphism and milky overlay effects.
-- **Contact Form**: Integrated with a backend API for submission, including client and server-side validation.
+- **Contact Form**: Integrated with Resend email service for delivery to info@drahoslava.com. Includes client and server-side validation, HTML sanitization, and header injection protection. Emails are formatted with both HTML and plain-text versions.
 - **Smooth Navigation**: Sticky header with anchor links and dynamic routing. Logo appears in header only when scrolling (opaque state), hidden when translucent.
-- **Social Media Preview**: Custom Open Graph image (1200x675px) with pearl iridescent aesthetic, rose logo, and brand text. Comprehensive OG and Twitter Card meta tags ensure proper preview on WhatsApp, Facebook, LinkedIn, and other platforms.
+- **SEO Implementation**: Comprehensive SEO setup with dynamic meta tags, Open Graph, and Twitter Cards:
+    - **SEO Component**: Custom React component managing document.title, meta tags, canonical URLs, and Open Graph/Twitter Card tags using useEffect
+    - **Dynamic Meta Tags**: Each page (Home, Blog, Artwork, Services, Articles) has unique title and description
+    - **Article Meta Tags**: Blog articles include article-specific tags (article:published_time, article:author, article:tag) that are automatically cleaned up when navigating away
+    - **JSON-LD Structured Data**: Person, WebSite, and Article schemas following schema.org spec for enhanced search results
+    - **Sitemap.xml**: Static sitemap listing all main pages (homepage, blog, artwork, three service pages)
+    - **Robots.txt**: Configured to allow all crawlers and reference sitemap location
+    - **Social Media Preview**: Custom Open Graph image (1200x675px) with pearl iridescent aesthetic, rose logo, and brand text ensuring proper preview on WhatsApp, Facebook, LinkedIn, and other platforms
 
 ### Feature Specifications
 - **Services**: Three primary services (Soul, Body, Mind) with dedicated detail pages and clear CTAs.
