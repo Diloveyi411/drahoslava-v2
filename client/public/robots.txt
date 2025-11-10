@@ -1,0 +1,6 @@
+# Robots.txt for drahoslava.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://drahoslava.com/sitemap.xml

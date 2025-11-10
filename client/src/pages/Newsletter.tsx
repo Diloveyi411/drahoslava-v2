@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Link } from 'wouter';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const CATEGORIES = [
   'All',
@@ -86,6 +87,11 @@ export default function Newsletter() {
 
   return (
     <>
+      <SEO
+        title="Blog - Drahoslava Forgacova"
+        description="Thoughts on art, psychology, awareness, and creative consciousness. Exploring the intersection of inner work and creative expression."
+        url="/blog"
+      />
       <Navigation />
       <div className="min-h-screen pt-16 lg:pt-20">
         <section className="py-20 px-4 sm:px-6 lg:px-8">

@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import { useLocation } from 'wouter';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import gallery1 from '@assets/13b_1761189596670.webp';
 import gallery2 from '@assets/Obraz 2_1761189596670.webp';
 import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.webp';
@@ -65,6 +66,11 @@ export default function Artwork() {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Artwork - Drahoslava Forgacova"
+        description="A collection of textured floral paintings exploring the intersection of beauty, awareness, and presence through mixed media art."
+        url="/artwork"
+      />
       <Navigation />
       <main className="pt-16 lg:pt-20">
         <section className="py-20 md:py-32 bg-background">

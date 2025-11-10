@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import NotFound from '@/pages/not-found';
+import SEO from '@/components/SEO';
 import servicesData from '@/data/services.json';
 import innerWorkImage from '@assets/Dadi-art-94_1761189715147.webp';
 import whoThisIsForImage from '@assets/Dadi-art-192_1761579069938.webp';
@@ -59,6 +60,11 @@ export default function ServiceDetail() {
 
   return (
     <>
+      <SEO
+        title={`${service.title} - Drahoslava Forgacova`}
+        description={service.fullDescription.substring(0, 160)}
+        url={`/services/${service.slug}`}
+      />
       <Navigation />
       <div className="min-h-screen pt-16 lg:pt-20">
         {/* Hero Section */}

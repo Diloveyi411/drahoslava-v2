@@ -7,6 +7,8 @@ import { Card } from '@/components/ui/card';
 import { format } from 'date-fns';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
+import StructuredData from '@/components/StructuredData';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -75,6 +77,28 @@ export default function ArticleDetail() {
 
   return (
     <>
+      <SEO
+        title={`${article.title} - Drahoslava Forgacova`}
+        description={article.description || article.title}
+        url={`/blog/${article.slug}`}
+        image={article.featuredImage || undefined}
+        type="article"
+        article={{
+          publishedTime: article.date || undefined,
+          author: "Drahoslava Forgacova",
+          tag: article.category
+        }}
+      />
+      <StructuredData 
+        type="article" 
+        data={{
+          headline: article.title,
+          description: article.description || undefined,
+          datePublished: article.date || undefined,
+          author: "Drahoslava Forgacova",
+          image: article.featuredImage || undefined
+        }}
+      />
       <Navigation />
       <div className="min-h-screen pt-16 lg:pt-20 py-12 px-4 sm:px-6 lg:px-8">
       <article className="max-w-4xl mx-auto">
