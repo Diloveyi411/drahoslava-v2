@@ -34,9 +34,7 @@ export default function Footer() {
               Drahoslava Forgáčová
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Psychologist, artist and creator.
-              <br />
-              Exploring the self through awareness, art, and technology.
+              Psychology graduate, artist and creator. Exploring the self through awareness, art, and technology.
             </p>
           </div>
         </div>
