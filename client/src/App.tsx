@@ -3,21 +3,19 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Home from "@/pages/Home";
-import Newsletter from "@/pages/Newsletter";
-import ArticleDetail from "@/pages/ArticleDetail";
-import ServiceDetail from "@/pages/ServiceDetail";
-import Artwork from "@/pages/Artwork";
+import Hub from "@/pages/Hub";
+import Systems from "@/pages/Systems";
+import Art from "@/pages/Art";
+import Psychology from "@/pages/Psychology";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/blog" component={Newsletter} />
-      <Route path="/blog/:slug" component={ArticleDetail} />
-      <Route path="/services/:slug" component={ServiceDetail} />
-      <Route path="/artwork" component={Artwork} />
+      <Route path="/" component={Hub} />
+      <Route path="/systems" component={Systems} />
+      <Route path="/art" component={Art} />
+      <Route path="/psychology" component={Psychology} />
       <Route component={NotFound} />
     </Switch>
   );
