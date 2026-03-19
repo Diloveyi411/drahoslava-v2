@@ -100,7 +100,7 @@ export default function Hub() {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          objectPosition: 'center top',
+          objectPosition: '60% 20%',
           zIndex: 0,
         }}
       />
