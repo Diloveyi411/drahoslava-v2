@@ -485,8 +485,8 @@ export default function Systems() {
       <section
         id="hero"
         style={{
-          height: '100vh',
-          minHeight: 700,
+          height: m ? 'calc(100vh - 72px)' : '100vh',
+          minHeight: m ? 500 : 700,
           position: 'relative',
           marginTop: 72,
           overflow: 'hidden',
