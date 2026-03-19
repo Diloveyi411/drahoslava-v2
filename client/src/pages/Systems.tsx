@@ -1115,17 +1115,35 @@ export default function Systems() {
         <span style={{ fontFamily: 'Unbounded', fontWeight: 700, fontSize: 13, letterSpacing: '-0.3px', color: 'rgba(237,237,234,0.3)' }}>
           DRAHOSLAVA
         </span>
-        <a
-          href="mailto:info@drahoslava.com"
-          style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: 'rgba(237,237,234,0.4)', textDecoration: 'none', letterSpacing: 0.3 }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#EDEDEA')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(237,237,234,0.4)')}
-        >
-          info@drahoslava.com
-        </a>
-        <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>
-          © 2026 · drahoslava.com
-        </span>
+        {m ? (
+          <>
+            <a
+              href="mailto:info@drahoslava.com"
+              style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: 'rgba(237,237,234,0.4)', textDecoration: 'none', letterSpacing: 0.3 }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#EDEDEA')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(237,237,234,0.4)')}
+            >
+              info@drahoslava.com
+            </a>
+            <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>
+              © 2026 · drahoslava.com
+            </span>
+          </>
+        ) : (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+            <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>
+              © 2026 · drahoslava.com
+            </span>
+            <a
+              href="mailto:info@drahoslava.com"
+              style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: 'rgba(237,237,234,0.4)', textDecoration: 'none', letterSpacing: 0.3 }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#EDEDEA')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(237,237,234,0.4)')}
+            >
+              info@drahoslava.com
+            </a>
+          </div>
+        )}
       </footer>
 
     </div>
