@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const fadeUp = {
@@ -89,9 +89,126 @@ function PrismaticLine({ width = 280 }: { width?: number }) {
 
 type GalleryItem = { src?: string; video?: string; caption: string; contain?: boolean };
 
+function Lightbox({ src, caption, onClose, onPrev, onNext, hasPrev, hasNext }: {
+  src: string; caption: string; onClose: () => void;
+  onPrev: () => void; onNext: () => void; hasPrev: boolean; hasNext: boolean;
+}) {
+  const [zoom, setZoom] = useState(1);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  const resetZoom = useCallback(() => { setZoom(1); setPos({ x: 0, y: 0 }); }, []);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft' && hasPrev) { resetZoom(); onPrev(); }
+      if (e.key === 'ArrowRight' && hasNext) { resetZoom(); onNext(); }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [onClose, onPrev, onNext, hasPrev, hasNext, resetZoom]);
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    setZoom(z => Math.min(4, Math.max(1, z - e.deltaY * 0.001)));
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (zoom <= 1) return;
+    setDragging(true);
+    setDragStart({ x: e.clientX - pos.x, y: e.clientY - pos.y });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!dragging) return;
+    setPos({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(7,7,13,0.97)',
+        backdropFilter: 'blur(12px)',
+        display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+      }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      {/* Close */}
+      <button onClick={onClose} style={{
+        position: 'absolute', top: 24, right: 24, background: 'none',
+        border: '1px solid rgba(237,237,234,0.15)', color: 'rgba(237,237,234,0.6)',
+        width: 40, height: 40, cursor: 'pointer', fontSize: 18,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}>✕</button>
+
+      {/* Prev */}
+      {hasPrev && (
+        <button onClick={() => { resetZoom(); onPrev(); }} style={{
+          position: 'absolute', left: 24, top: '50%', transform: 'translateY(-50%)',
+          background: 'none', border: '1px solid rgba(237,237,234,0.15)',
+          color: 'rgba(237,237,234,0.6)', width: 44, height: 44,
+          cursor: 'pointer', fontSize: 18, display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>←</button>
+      )}
+
+      {/* Next */}
+      {hasNext && (
+        <button onClick={() => { resetZoom(); onNext(); }} style={{
+          position: 'absolute', right: 24, top: '50%', transform: 'translateY(-50%)',
+          background: 'none', border: '1px solid rgba(237,237,234,0.15)',
+          color: 'rgba(237,237,234,0.6)', width: 44, height: 44,
+          cursor: 'pointer', fontSize: 18, display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>→</button>
+      )}
+
+      {/* Image */}
+      <div
+        style={{ overflow: 'hidden', maxWidth: '90vw', maxHeight: '80vh', cursor: zoom > 1 ? 'grab' : 'zoom-in' }}
+        onWheel={handleWheel}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={() => setDragging(false)}
+        onMouseLeave={() => setDragging(false)}
+        onDoubleClick={() => zoom > 1 ? resetZoom() : setZoom(2.5)}
+      >
+        <img
+          src={src}
+          alt={caption}
+          draggable={false}
+          style={{
+            maxWidth: '90vw', maxHeight: '80vh',
+            objectFit: 'contain', display: 'block',
+            transform: `scale(${zoom}) translate(${pos.x / zoom}px, ${pos.y / zoom}px)`,
+            transformOrigin: 'center',
+            transition: dragging ? 'none' : 'transform 0.15s ease',
+            userSelect: 'none',
+          }}
+        />
+      </div>
+
+      {/* Caption + zoom hint */}
+      <div style={{ marginTop: 16, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+        <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: 'rgba(237,237,234,0.4)' }}>{caption}</p>
+        <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, color: 'rgba(237,237,234,0.2)', letterSpacing: 1 }}>
+          scroll to zoom · double-click to reset · drag to pan
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
 function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   const go = (next: number) => {
     setDir(next > index ? 1 : -1);
@@ -124,7 +241,8 @@ function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
               <img
                 src={gallery[index].src}
                 alt={gallery[index].caption}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'zoom-in' }}
+                onClick={() => setLightbox(index)}
                 onError={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '0'; }}
               />
             )}
@@ -187,6 +305,26 @@ function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
           )}
         </div>
       </div>
+
+      <AnimatePresence>
+        {lightbox !== null && gallery[lightbox].src && (
+          <Lightbox
+            src={gallery[lightbox].src!}
+            caption={gallery[lightbox].caption}
+            onClose={() => setLightbox(null)}
+            onPrev={() => {
+              const prev = gallery.slice(0, lightbox).map((_, i) => i).filter(i => gallery[i].src).pop();
+              if (prev !== undefined) setLightbox(prev);
+            }}
+            onNext={() => {
+              const next = gallery.slice(lightbox + 1).findIndex(i => i.src);
+              if (next !== -1) setLightbox(lightbox + 1 + next);
+            }}
+            hasPrev={gallery.slice(0, lightbox).some(i => i.src)}
+            hasNext={gallery.slice(lightbox + 1).some(i => i.src)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
