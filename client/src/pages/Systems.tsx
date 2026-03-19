@@ -346,6 +346,7 @@ export default function Systems() {
   const m = useIsMobile();
   const px = m ? '20px' : '80px';
   const sectionPad = m ? '56px 20px' : '96px 80px';
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div style={{ background: '#07070D', minHeight: '100vh', color: '#EDEDEA' }}>
@@ -391,7 +392,7 @@ export default function Systems() {
           </span>
         </a>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: m ? 16 : 32 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
           {!m && ['Work', 'Approach', 'About'].map((item) => (
             <a
               key={item}
@@ -410,14 +411,74 @@ export default function Systems() {
               {item}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="btn-prismatic"
-            style={{ marginLeft: m ? 0 : 8 }}
-          >
-            {m ? 'Contact' : 'Get in touch'}
-          </a>
+          {!m && (
+            <a href="#contact" className="btn-prismatic" style={{ marginLeft: 8 }}>
+              Get in touch
+            </a>
+          )}
+          {m && (
+            <button
+              onClick={() => setMenuOpen(o => !o)}
+              style={{
+                background: 'none', border: 'none', cursor: 'pointer',
+                display: 'flex', flexDirection: 'column', gap: 5,
+                padding: 8,
+              }}
+              aria-label="Menu"
+            >
+              <span style={{ display: 'block', width: 22, height: 2, background: menuOpen ? 'rgba(237,237,234,0.6)' : '#EDEDEA', transition: 'transform 0.2s, opacity 0.2s', transform: menuOpen ? 'translateY(7px) rotate(45deg)' : 'none' }} />
+              <span style={{ display: 'block', width: 22, height: 2, background: '#EDEDEA', transition: 'opacity 0.2s', opacity: menuOpen ? 0 : 1 }} />
+              <span style={{ display: 'block', width: 22, height: 2, background: menuOpen ? 'rgba(237,237,234,0.6)' : '#EDEDEA', transition: 'transform 0.2s, opacity 0.2s', transform: menuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none' }} />
+            </button>
+          )}
         </div>
+
+        {/* Mobile dropdown */}
+        <AnimatePresence>
+          {m && menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              style={{
+                position: 'absolute', top: 72, left: 0, right: 0,
+                background: 'rgba(7,7,13,0.97)',
+                backdropFilter: 'blur(12px)',
+                borderBottom: '1px solid rgba(237,237,234,0.07)',
+                display: 'flex', flexDirection: 'column',
+                padding: '8px 0 16px',
+              }}
+            >
+              {['Work', 'Approach', 'About'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    fontFamily: 'Urbanist, sans-serif', fontWeight: 400,
+                    fontSize: 16, color: 'rgba(237,237,234,0.6)',
+                    textDecoration: 'none', padding: '14px 20px',
+                    borderBottom: '1px solid rgba(237,237,234,0.05)',
+                  }}
+                >
+                  {item}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  fontFamily: 'Urbanist, sans-serif', fontWeight: 500,
+                  fontSize: 16, color: '#EDEDEA',
+                  textDecoration: 'none', padding: '14px 20px',
+                }}
+              >
+                Contact
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* ─── HERO ─── */}
