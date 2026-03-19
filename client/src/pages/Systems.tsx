@@ -58,7 +58,7 @@ const WORK = [
     ],
   },
   {
-    title: 'Tina Tantra',
+    title: 'Lights of Tantra',
     tags: 'UX Strategy · User Perception · Content Design',
     context: 'Communication redesign for a somatic practitioner whose product experience was not connecting with the right users.',
     problem: 'Users did not recognize themselves in the experience.\nMessaging reflected the practitioner, not the user\'s problem.',
