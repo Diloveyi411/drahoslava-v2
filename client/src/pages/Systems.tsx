@@ -440,7 +440,7 @@ export default function Systems() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: m ? 'right top' : 'center center',
+            objectPosition: m ? '65% 20%' : 'center center',
           }}
         />
 
