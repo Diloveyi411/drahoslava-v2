@@ -14,17 +14,17 @@ const stagger = {
 const SERVICES = [
   {
     num: '01',
-    title: 'UX\nDesign',
+    title: 'UX\ndesign',
     body: 'Flows, structure, and interaction design that turn products into clear, usable systems.',
   },
   {
     num: '02',
-    title: 'Product\nThinking',
+    title: 'Product\nthinking',
     body: 'Turning complex products into clear decisions.',
   },
   {
     num: '03',
-    title: 'Conversion\n& Clarity',
+    title: 'Conversion\n& clarity',
     body: 'Making key actions visible where decisions happen.',
   },
 ];
@@ -549,7 +549,7 @@ export default function Systems() {
               marginBottom: 48,
             }}
           >
-            <span className="section-label">WHAT I DO</span>
+            <span className="section-label">What I do</span>
             <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 15, color: 'rgba(237,237,234,0.35)' }}>
               Every product is a system of decisions.
             </span>
@@ -623,7 +623,7 @@ export default function Systems() {
               marginBottom: 40,
             }}
           >
-            <span className="section-label">SELECTED SYSTEMS</span>
+            <span className="section-label">Selected systems</span>
           </motion.div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -764,7 +764,7 @@ export default function Systems() {
             padding: '120px 80px',
           }}
         >
-          <motion.span variants={fadeUp} className="section-label">APPROACH</motion.span>
+          <motion.span variants={fadeUp} className="section-label">Approach</motion.span>
 
           <motion.h2
             variants={fadeUp}
@@ -879,7 +879,7 @@ export default function Systems() {
           viewport={{ once: true, margin: '-80px' }}
           variants={stagger}
         >
-          <motion.span variants={fadeUp} className="section-label">ABOUT</motion.span>
+          <motion.span variants={fadeUp} className="section-label">About</motion.span>
 
           <motion.h2
             variants={fadeUp}
@@ -982,7 +982,7 @@ export default function Systems() {
               marginBottom: 20,
             }}
           >
-            LOOKING FOR A<br />UX DESIGNER?
+            Looking for a<br />UX designer?
           </motion.h2>
 
           <motion.div variants={fadeUp}>
