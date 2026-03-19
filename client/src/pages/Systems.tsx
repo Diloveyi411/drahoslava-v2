@@ -1100,13 +1100,14 @@ export default function Systems() {
       <footer
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
-          padding: m ? '20px' : `0 ${px}`,
+          padding: m ? '24px 20px' : `0 ${px}`,
           minHeight: 72,
           display: 'flex',
           flexDirection: m ? 'column' : 'row',
-          alignItems: m ? 'flex-start' : 'center',
-          justifyContent: 'space-between',
-          gap: m ? 12 : 0,
+          alignItems: m ? 'center' : 'center',
+          justifyContent: m ? 'center' : 'space-between',
+          gap: m ? 10 : 0,
+          textAlign: m ? 'center' : 'left',
         }}
       >
         <span style={{ fontFamily: 'Unbounded', fontWeight: 700, fontSize: 13, letterSpacing: '-0.3px', color: 'rgba(237,237,234,0.3)' }}>
