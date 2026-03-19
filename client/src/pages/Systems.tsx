@@ -87,6 +87,16 @@ function PrismaticLine({ width = 280 }: { width?: number }) {
 }
 
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(() => window.innerWidth < 768);
+  useEffect(() => {
+    const handler = () => setMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+  return mobile;
+}
+
 type GalleryItem = { src?: string; video?: string; caption: string; contain?: boolean };
 
 function Lightbox({ src, caption, onClose, onPrev, onNext, hasPrev, hasNext }: {
@@ -215,8 +225,9 @@ function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
     setIndex(next);
   };
 
+  const mSlider = useIsMobile();
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%', minHeight: 560, background: '#0A0A12', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ position: 'relative', width: '100%', height: '100%', minHeight: mSlider ? 280 : 560, background: '#0A0A12', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       {/* Image/Video area */}
       <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
         <AnimatePresence mode="wait" custom={dir}>
@@ -331,6 +342,9 @@ function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
 
 
 export default function Systems() {
+  const m = useIsMobile();
+  const px = m ? '20px' : '80px';
+  const sectionPad = m ? '56px 20px' : '96px 80px';
 
   return (
     <div style={{ background: '#07070D', minHeight: '100vh', color: '#EDEDEA' }}>
@@ -342,7 +356,7 @@ export default function Systems() {
           top: 0, left: 0, right: 0,
           zIndex: 50,
           height: 72,
-          padding: '0 80px',
+          padding: `0 ${px}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -376,8 +390,8 @@ export default function Systems() {
           </span>
         </a>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-          {['Work', 'Approach', 'About'].map((item) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: m ? 16 : 32 }}>
+          {!m && ['Work', 'Approach', 'About'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -398,9 +412,9 @@ export default function Systems() {
           <a
             href="#contact"
             className="btn-prismatic"
-            style={{ marginLeft: 8 }}
+            style={{ marginLeft: m ? 0 : 8 }}
           >
-            Get in touch
+            {m ? 'Contact' : 'Get in touch'}
           </a>
         </div>
       </nav>
@@ -430,11 +444,13 @@ export default function Systems() {
           }}
         />
 
-        {/* Dark gradient overlay — left side for text readability */}
+        {/* Dark gradient overlay */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(90deg, rgba(7,7,13,0.85) 0%, rgba(7,7,13,0.6) 50%, rgba(7,7,13,0.1) 100%)',
+          background: m
+            ? 'linear-gradient(180deg, rgba(7,7,13,0.7) 0%, rgba(7,7,13,0.85) 100%)'
+            : 'linear-gradient(90deg, rgba(7,7,13,0.85) 0%, rgba(7,7,13,0.6) 50%, rgba(7,7,13,0.1) 100%)',
         }} />
 
         {/* Text content */}
@@ -448,9 +464,9 @@ export default function Systems() {
             height: '100%',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
-            padding: '0 80px',
-            maxWidth: 720,
+            justifyContent: m ? 'flex-end' : 'center',
+            padding: m ? '0 20px 48px' : '0 80px',
+            maxWidth: m ? '100%' : 720,
           }}
         >
           <motion.p
@@ -531,7 +547,7 @@ export default function Systems() {
         id="services"
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
-          padding: '96px 80px',
+          padding: sectionPad,
         }}
       >
         <motion.div
@@ -544,21 +560,23 @@ export default function Systems() {
             variants={fadeUp}
             style={{
               display: 'flex',
+              flexDirection: m ? 'column' : 'row',
               justifyContent: 'space-between',
-              alignItems: 'flex-end',
+              alignItems: m ? 'flex-start' : 'flex-end',
+              gap: m ? 8 : 0,
               marginBottom: 48,
             }}
           >
             <span className="section-label">What I do</span>
-            <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 15, color: 'rgba(237,237,234,0.35)' }}>
+            {!m && <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 15, color: 'rgba(237,237,234,0.35)' }}>
               Every product is a system of decisions.
-            </span>
+            </span>}
           </motion.div>
 
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)',
               gap: 2,
             }}
           >
@@ -568,7 +586,7 @@ export default function Systems() {
                 variants={fadeUp}
                 style={{
                   background: i % 2 === 0 ? '#0C0C14' : '#07070D',
-                  padding: '48px 40px',
+                  padding: m ? '32px 24px' : '48px 40px',
                   display: 'flex',
                   flexDirection: 'column',
                   gap: 20,
@@ -605,7 +623,7 @@ export default function Systems() {
         id="work"
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
-          padding: '96px 80px',
+          padding: sectionPad,
         }}
       >
         <motion.div
@@ -633,15 +651,15 @@ export default function Systems() {
                 variants={fadeUp}
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: i % 2 === 0 ? '45% 55%' : '55% 45%',
+                  gridTemplateColumns: m ? '1fr' : (i % 2 === 0 ? '45% 55%' : '55% 45%'),
                   background: '#0C0C14',
-                  minHeight: 560,
+                  minHeight: m ? 'auto' : 560,
                   alignItems: 'stretch',
                 }}
               >
-                {/* Image — alternates left/right */}
-                {i % 2 !== 0 && (
-                  <div style={{ background: '#0A0A12', overflow: 'hidden', order: 2, alignSelf: 'stretch' }}>
+                {/* Image — on mobile always on top */}
+                {(m || i % 2 !== 0) && (
+                  <div style={{ background: '#0A0A12', overflow: 'hidden', order: m ? 1 : 2, alignSelf: 'stretch', minHeight: m ? 260 : 'auto' }}>
                     <GallerySlider gallery={w.gallery} />
                   </div>
                 )}
@@ -649,12 +667,12 @@ export default function Systems() {
                 {/* Content panel */}
                 <div
                   style={{
-                    padding: '56px 64px',
+                    padding: m ? '32px 24px' : '56px 64px',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
                     gap: 0,
-                    order: i % 2 !== 0 ? 1 : 2,
+                    order: m ? 2 : (i % 2 !== 0 ? 1 : 2),
                   }}
                 >
                   <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(237,237,234,0.25)', marginBottom: 20 }}>
@@ -704,8 +722,8 @@ export default function Systems() {
                   </div>
                 </div>
 
-                {/* Image — left side for even items */}
-                {i % 2 === 0 && (
+                {/* Image — left side for even items (desktop only) */}
+                {!m && i % 2 === 0 && (
                   <div style={{ background: '#0A0A12', overflow: 'hidden', order: 1, alignSelf: 'stretch' }}>
                     <GallerySlider gallery={w.gallery} />
                   </div>
@@ -747,10 +765,12 @@ export default function Systems() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(90deg, rgba(7,7,13,0.15) 0%, rgba(7,7,13,0.75) 55%, rgba(7,7,13,0.92) 100%)',
+          background: m
+            ? 'rgba(7,7,13,0.82)'
+            : 'linear-gradient(90deg, rgba(7,7,13,0.15) 0%, rgba(7,7,13,0.75) 55%, rgba(7,7,13,0.92) 100%)',
         }} />
 
-        {/* RIGHT — Text overlay */}
+        {/* Text overlay */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -759,9 +779,9 @@ export default function Systems() {
           style={{
             position: 'relative',
             zIndex: 2,
-            maxWidth: 480,
-            marginLeft: 'auto',
-            padding: '120px 80px',
+            maxWidth: m ? '100%' : 480,
+            marginLeft: m ? 0 : 'auto',
+            padding: m ? '56px 20px' : '120px 80px',
           }}
         >
           <motion.span variants={fadeUp} className="section-label">Approach</motion.span>
@@ -866,10 +886,10 @@ export default function Systems() {
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
           background: '#0A0A12',
-          padding: '96px 80px',
+          padding: sectionPad,
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 80,
+          gridTemplateColumns: m ? '1fr' : '1fr 1fr',
+          gap: m ? 40 : 80,
           alignItems: 'start',
         }}
       >
@@ -959,7 +979,7 @@ export default function Systems() {
         id="contact"
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
-          padding: '120px 80px',
+          padding: m ? '64px 20px' : '120px 80px',
           background: '#07070D',
         }}
       >
@@ -1015,7 +1035,7 @@ export default function Systems() {
       <footer
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
-          padding: '0 80px',
+          padding: `0 ${px}`,
           height: 72,
           display: 'flex',
           alignItems: 'center',
