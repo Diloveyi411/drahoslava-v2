@@ -440,7 +440,7 @@ export default function Systems() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: 'center center',
+            objectPosition: m ? 'right top' : 'center center',
           }}
         />
 
@@ -743,7 +743,7 @@ export default function Systems() {
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
           position: 'relative',
-          minHeight: 700,
+          minHeight: m ? 'auto' : 700,
           overflow: 'hidden',
         }}
       >
