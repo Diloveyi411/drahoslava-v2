@@ -745,30 +745,33 @@ export default function Systems() {
           position: 'relative',
           minHeight: m ? 'auto' : 700,
           overflow: 'hidden',
+          background: m ? '#07070D' : 'transparent',
         }}
       >
-        {/* Full-bleed photo */}
-        <img
-          src="/diagram.png"
-          alt="Drahoslava - approach diagram"
-          style={{
+        {/* Full-bleed photo — desktop only */}
+        {!m && (
+          <img
+            src="/diagram.png"
+            alt="Drahoslava - approach diagram"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center center',
+            }}
+          />
+        )}
+
+        {/* Dark overlay — desktop only */}
+        {!m && (
+          <div style={{
             position: 'absolute',
             inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center center',
-          }}
-        />
-
-        {/* Dark overlay */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: m
-            ? 'rgba(7,7,13,0.82)'
-            : 'linear-gradient(90deg, rgba(7,7,13,0.15) 0%, rgba(7,7,13,0.75) 55%, rgba(7,7,13,0.92) 100%)',
-        }} />
+            background: 'linear-gradient(90deg, rgba(7,7,13,0.15) 0%, rgba(7,7,13,0.75) 55%, rgba(7,7,13,0.92) 100%)',
+          }} />
+        )}
 
         {/* Text overlay */}
         <motion.div
