@@ -252,6 +252,7 @@ function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
               <img
                 src={gallery[index].src}
                 alt={gallery[index].caption}
+                loading="lazy"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'zoom-in' }}
                 onClick={() => setLightbox(index)}
                 onError={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '0'; }}
@@ -432,7 +433,7 @@ export default function Systems() {
       >
         {/* Full-bleed photo */}
         <img
-          src="/hero-photo.png"
+          src="/hero-photo.jpg"
           alt="Drahoslava"
           style={{
             position: 'absolute',
@@ -751,7 +752,7 @@ export default function Systems() {
         {/* Full-bleed photo — desktop only */}
         {!m && (
           <img
-            src="/diagram.png"
+            src="/diagram.jpg"
             alt="Drahoslava - approach diagram"
             style={{
               position: 'absolute',
