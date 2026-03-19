@@ -502,7 +502,7 @@ export default function Systems() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: m ? '65% 20%' : 'center center',
+            objectPosition: m ? '65% 10%' : 'center center',
           }}
         />
 
@@ -527,7 +527,7 @@ export default function Systems() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: m ? 'flex-end' : 'center',
-            padding: m ? '0 20px 48px' : '0 80px',
+            padding: m ? '0 20px 20px' : '0 80px',
             maxWidth: m ? '100%' : 720,
           }}
         >
@@ -540,7 +540,7 @@ export default function Systems() {
               letterSpacing: 3,
               textTransform: 'uppercase',
               color: 'rgba(237,237,234,0.45)',
-              marginBottom: 28,
+              marginBottom: m ? 12 : 28,
             }}
           >
             UX DESIGNER · PRODUCT CLARITY
@@ -551,11 +551,11 @@ export default function Systems() {
             style={{
               fontFamily: 'Unbounded, sans-serif',
               fontWeight: 700,
-              fontSize: 'clamp(40px, 4.5vw, 72px)',
+              fontSize: m ? '36px' : 'clamp(40px, 4.5vw, 72px)',
               letterSpacing: '-2px',
               lineHeight: 1.0,
               color: '#EDEDEA',
-              marginBottom: 24,
+              marginBottom: m ? 14 : 24,
             }}
           >
             I design products people understand - and use.
@@ -573,7 +573,7 @@ export default function Systems() {
               fontSize: 18,
               lineHeight: 1.65,
               color: 'rgba(237,237,234,0.65)',
-              marginTop: 20,
+              marginTop: m ? 10 : 20,
               maxWidth: 460,
             }}
           >
@@ -582,7 +582,7 @@ export default function Systems() {
 
           <motion.div
             variants={fadeUp}
-            style={{ display: 'flex', gap: 16, marginTop: 40, flexWrap: 'wrap' }}
+            style={{ display: 'flex', gap: 12, marginTop: m ? 18 : 40, flexWrap: 'wrap' }}
           >
             <a href="#work" className="btn-primary">View case studies</a>
             <a href="#approach" className="btn-outline">See how I think</a>
@@ -596,7 +596,7 @@ export default function Systems() {
               fontSize: 12,
               letterSpacing: 2,
               color: 'rgba(237,237,234,0.25)',
-              marginTop: 20,
+              marginTop: m ? 10 : 20,
             }}
           >
             Focus: onboarding, conversion flows, product clarity
