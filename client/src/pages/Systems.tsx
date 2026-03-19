@@ -502,7 +502,7 @@ export default function Systems() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: m ? '65% 20%' : 'center center',
+            objectPosition: m ? '65% 5%' : 'center center',
           }}
         />
 
