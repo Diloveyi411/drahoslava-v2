@@ -111,7 +111,7 @@ export default function Hub() {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          objectPosition: m ? '50% 30%' :
+          objectPosition: m ? '80% 30%' :
             activePortal.id === 'psychology'
               ? '50% 35%'
               : activePortal.id === 'art'
