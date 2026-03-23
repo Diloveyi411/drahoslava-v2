@@ -102,7 +102,7 @@ export default function Hub() {
 
       {/* Background photo */}
       <img
-        src={activePortal.preview}
+        src={m ? '/hub-previews/design.png' : activePortal.preview}
         alt=""
         aria-hidden="true"
         style={{
@@ -111,7 +111,7 @@ export default function Hub() {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          objectPosition:
+          objectPosition: m ? '50% 30%' :
             activePortal.id === 'psychology'
               ? '50% 35%'
               : activePortal.id === 'art'
