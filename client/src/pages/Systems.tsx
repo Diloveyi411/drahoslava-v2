@@ -397,7 +397,7 @@ export default function Systems() {
         }}
       >
         <a
-          href="#hero"
+          href="/"
           style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}
         >
           <span style={{
