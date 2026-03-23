@@ -495,21 +495,21 @@ export default function Systems() {
           overflow: 'hidden',
         }}
       >
-        {/* Full-bleed photo */}
-        <img
-          src="/hub-previews/wuah1.png"
-          alt="Drahoslava"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: m ? '50% 30%' : '50% 24%',
-            transform: m ? 'scale(1.08)' : 'none',
-            transformOrigin: 'center',
-          }}
-        />
+        {/* Full-bleed photo — desktop only */}
+        {!m && (
+          <img
+            src="/hub-previews/wuah1.png"
+            alt="Drahoslava"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: '50% 24%',
+            }}
+          />
+        )}
 
         {/* Dark gradient overlay */}
         <div style={{
@@ -1065,48 +1065,15 @@ export default function Systems() {
       <footer
         style={{
           borderTop: '1px solid rgba(237,237,234,0.07)',
-          padding: m ? '24px 20px' : `0 ${px}`,
-          minHeight: 72,
+          padding: m ? '0 20px' : `0 ${px}`,
+          height: 72,
           display: 'flex',
-          flexDirection: m ? 'column' : 'row',
-          alignItems: m ? 'center' : 'center',
-          justifyContent: m ? 'center' : 'space-between',
-          gap: m ? 10 : 0,
-          textAlign: m ? 'center' : 'left',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
-        <span style={{ fontFamily: 'Unbounded', fontWeight: 700, fontSize: 13, letterSpacing: '-0.3px', color: 'rgba(237,237,234,0.3)' }}>
-          DRAHOSLAVA
-        </span>
-        {m ? (
-          <>
-            <a
-              href="mailto:info@drahoslava.com"
-              style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: 'rgba(237,237,234,0.4)', textDecoration: 'none', letterSpacing: 0.3 }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#EDEDEA')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(237,237,234,0.4)')}
-            >
-              info@drahoslava.com
-            </a>
-            <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>
-              © 2026 · drahoslava.com
-            </span>
-          </>
-        ) : (
-          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-            <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>
-              © 2026 · drahoslava.com
-            </span>
-            <a
-              href="mailto:info@drahoslava.com"
-              style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: 'rgba(237,237,234,0.4)', textDecoration: 'none', letterSpacing: 0.3 }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#EDEDEA')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(237,237,234,0.4)')}
-            >
-              info@drahoslava.com
-            </a>
-          </div>
-        )}
+        <span style={{ fontFamily: 'Unbounded', fontWeight: 700, fontSize: 13, letterSpacing: '-0.3px', color: 'rgba(237,237,234,0.25)' }}>DRAHOSLAVA</span>
+        <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>© 2026 · drahoslava.com</span>
       </footer>
 
     </div>

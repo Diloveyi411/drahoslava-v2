@@ -45,6 +45,15 @@ export default function Psychology() {
           </button>
         </motion.div>
       </div>
+
+      <footer style={{
+        borderTop: '1px solid rgba(237,237,234,0.07)',
+        padding: '0 80px', height: 72,
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      }}>
+        <span style={{ fontFamily: 'Unbounded, sans-serif', fontWeight: 700, fontSize: 13, letterSpacing: '-0.3px', color: 'rgba(237,237,234,0.25)' }}>DRAHOSLAVA</span>
+        <span style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>© 2026 · drahoslava.com</span>
+      </footer>
     </div>
   );
 }
