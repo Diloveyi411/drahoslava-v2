@@ -385,7 +385,7 @@ export default function Art() {
       {/* ─── FOOTER ─── */}
       <footer style={{
         borderTop: `1px solid ${L.border}`,
-        padding: '0 80px', height: 72,
+        padding: m ? '0 20px' : '0 80px', height: 72,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         <span style={{ fontFamily: 'Unbounded', fontWeight: 700, fontSize: 13, letterSpacing: '-0.3px', color: L.t25 }}>DRAHOSLAVA</span>
