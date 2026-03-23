@@ -4,49 +4,59 @@ import { motion } from 'framer-motion';
 
 const portals = [
   {
-    id: 'art',
-    num: '01',
-    title: 'ART',
-    sub: 'Floral paintings, monthly sessions, meditative creation.',
-    path: '/art',
-    accent: '#F5A623',
-    gradient: 'linear-gradient(90deg, #F5A623 0%, #E8C97E 100%)',
-  },
-  {
-    id: 'psychology',
-    num: '02',
-    title: 'PSYCHOLOGY',
-    sub: 'Self-discovery, inner systems, and dream work.',
-    path: '/psychology',
-    accent: '#9B8FD7',
-    gradient: 'linear-gradient(90deg, #6B7FD7 0%, #C4B5FD 100%)',
-  },
-  {
     id: 'design',
-    num: '03',
+    num: '01',
     title: 'DESIGN',
-    sub: 'UX audit, product optimization, workflow clarity.',
+    kicker: 'Find what breaks. Fix what matters.',
+    next: 'UX audit + optimization',
+    preview: '/hub-previews/wuah1.png',
     path: '/design',
     accent: '#7CF0EA',
     gradient: 'linear-gradient(90deg, #7CF0EA 0%, #B8C0FF 50%, #FF9ECD 100%)',
   },
   {
     id: 'branding',
-    num: '04',
+    num: '02',
     title: 'BRANDING',
-    sub: 'Visual identity and brand systems for builders.',
+    kicker: 'Make your work understood.',
+    next: 'Identity + visual systems',
+    preview: '/hub-previews/branding.png',
     path: '/branding',
     accent: '#FFE680',
     gradient: 'linear-gradient(90deg, #FFE680 0%, #FF9ECD 100%)',
   },
   {
     id: 'social',
-    num: '05',
+    num: '03',
     title: 'SOCIAL',
-    sub: 'Content strategy and social media management.',
+    kicker: 'Turn ideas into content.',
+    next: 'Strategy + execution',
+    preview: '/hub-previews/Dadi-art-168.png',
     path: '/social',
     accent: '#B8C0FF',
     gradient: 'linear-gradient(90deg, #B8C0FF 0%, #7CF0EA 100%)',
+  },
+  {
+    id: 'psychology',
+    num: '04',
+    title: 'PSYCHOLOGY',
+    kicker: 'Understand yourself deeply.',
+    next: 'Self-discovery + dream work',
+    preview: '/hub-previews/Dadi-art-199.jpg',
+    path: '/psychology',
+    accent: '#9B8FD7',
+    gradient: 'linear-gradient(90deg, #6B7FD7 0%, #C4B5FD 100%)',
+  },
+  {
+    id: 'art',
+    num: '05',
+    title: 'ART',
+    kicker: 'Create, feel, express.',
+    next: 'Gallery + monthly sessions',
+    preview: '/hub-previews/Dadi-art-142.jpg',
+    path: '/art',
+    accent: '#F5A623',
+    gradient: 'linear-gradient(90deg, #F5A623 0%, #E8C97E 100%)',
   },
 ];
 
@@ -62,9 +72,10 @@ function useIsMobile() {
 
 export default function Hub() {
   const [, navigate] = useLocation();
-  const [hovered, setHovered] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<string | null>('design');
   const [mouse, setMouse] = useState({ x: -500, y: -500 });
   const m = useIsMobile();
+  const activePortal = portals.find((portal) => portal.id === hovered) ?? portals[0];
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     setMouse({ x: e.clientX, y: e.clientY });
@@ -91,7 +102,7 @@ export default function Hub() {
 
       {/* Background photo */}
       <img
-        src="/hub-bg.jpg"
+        src={activePortal.preview}
         alt=""
         aria-hidden="true"
         style={{
@@ -100,8 +111,19 @@ export default function Hub() {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          objectPosition: '55% 30%',
+          objectPosition:
+            activePortal.id === 'psychology'
+              ? '50% 35%'
+              : activePortal.id === 'art'
+                ? '52% 26%'
+                : activePortal.id === 'design'
+                  ? '50% 38%'
+                : activePortal.id === 'social'
+                    ? '50% 28%'
+                    : 'center',
           zIndex: 0,
+          transition: 'opacity 0.5s ease, transform 0.8s ease',
+          transform: hovered ? 'scale(1.02)' : 'scale(1)',
         }}
       />
 
@@ -231,19 +253,19 @@ export default function Hub() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          style={{ padding: m ? '28px 20px 16px' : '36px 80px 20px', flexShrink: 0 }}
+          style={{ padding: m ? '24px 20px 12px' : '32px 80px 16px', flexShrink: 0 }}
         >
-          <h1 style={{
-            fontFamily: 'Unbounded, sans-serif',
-            fontWeight: 700,
-            fontSize: m ? '28px' : 'clamp(28px, 3.5vw, 48px)',
-            letterSpacing: '-2px',
-            lineHeight: 0.95,
-            color: '#EDEDEA',
+          <p style={{
+            fontFamily: 'Urbanist, sans-serif',
+            fontWeight: 500,
+            fontSize: 11,
+            letterSpacing: 3,
+            textTransform: 'uppercase',
+            color: 'rgba(237,237,234,0.42)',
             margin: 0,
           }}>
-            FIVE<br />DIMENSIONS.
-          </h1>
+            Choose your entry point
+          </p>
         </motion.div>
 
         {/* Portals */}
@@ -267,7 +289,7 @@ export default function Hub() {
                 position: 'relative',
                 overflow: 'hidden',
                 transition: 'flex 0.45s cubic-bezier(0.25, 0.1, 0.25, 1)',
-                background: hovered === portal.id ? 'rgba(7,7,13,0.15)' : 'transparent',
+                background: hovered === portal.id ? 'rgba(7,7,13,0.24)' : 'rgba(7,7,13,0.08)',
               }}
             >
               {/* Left accent bar */}
@@ -308,10 +330,10 @@ export default function Hub() {
               <h2 style={{
                 fontFamily: 'Unbounded, sans-serif',
                 fontWeight: 700,
-                fontSize: m ? '22px' : hovered === portal.id ? 'clamp(28px, 4vw, 58px)' : 'clamp(22px, 3.2vw, 46px)',
+                fontSize: m ? '22px' : hovered === portal.id ? 'clamp(28px, 4vw, 58px)' : portal.id === 'design' ? 'clamp(24px, 3.4vw, 50px)' : 'clamp(20px, 3vw, 44px)',
                 letterSpacing: '-1.5px',
                 lineHeight: 1,
-                color: hovered === portal.id ? '#EDEDEA' : 'rgba(237,237,234,0.7)',
+                color: hovered === portal.id ? '#EDEDEA' : portal.id === 'design' ? 'rgba(237,237,234,0.88)' : 'rgba(237,237,234,0.55)',
                 flex: 1,
                 paddingLeft: m ? 0 : 48,
                 transition: 'color 0.3s ease, font-size 0.35s ease',
@@ -320,35 +342,85 @@ export default function Hub() {
                 {portal.title}
               </h2>
 
-              {/* Description */}
-              {!m && (
-                <p style={{
-                  fontFamily: 'Urbanist, sans-serif',
-                  fontWeight: 300,
-                  fontSize: 13,
-                  lineHeight: 1.55,
-                  color: 'rgba(237,237,234,0.4)',
-                  maxWidth: 280,
-                  textAlign: 'right',
-                  opacity: hovered === portal.id ? 1 : 0,
-                  transform: hovered === portal.id ? 'translateX(0)' : 'translateX(10px)',
-                  transition: 'opacity 0.3s ease, transform 0.3s ease',
-                  margin: 0,
-                  flexShrink: 0,
+              <div style={{
+                display: 'flex',
+                alignItems: m ? 'flex-start' : 'center',
+                justifyContent: 'flex-end',
+                gap: m ? 8 : 24,
+                minWidth: m ? 0 : 430,
+                flexShrink: 0,
+                opacity: m || hovered === portal.id ? 1 : 0.72,
+                transform: hovered === portal.id ? 'translateX(0)' : 'translateX(10px)',
+                transition: 'opacity 0.3s ease, transform 0.3s ease',
+              }}>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: m ? 'flex-start' : 'flex-end',
+                  gap: 6,
+                  textAlign: m ? 'left' : 'right',
                 }}>
-                  {portal.sub}
-                </p>
-              )}
+                  <p style={{
+                    fontFamily: 'Urbanist, sans-serif',
+                    fontWeight: 600,
+                    fontSize: m ? 14 : hovered === portal.id ? 18 : 16,
+                    lineHeight: 1.2,
+                    color: '#EDEDEA',
+                    margin: 0,
+                    transition: 'font-size 0.3s ease',
+                  }}>
+                    {portal.kicker}
+                  </p>
+                  <p style={{
+                    fontFamily: 'Urbanist, sans-serif',
+                    fontWeight: 400,
+                    fontSize: m ? 11 : 12,
+                    letterSpacing: 0.5,
+                    color: portal.accent,
+                    margin: 0,
+                    opacity: hovered === portal.id ? 1 : 0.75,
+                    transition: 'opacity 0.3s ease',
+                  }}>
+                    {portal.next}
+                  </p>
+                </div>
+
+                {!m && (
+                  <div style={{
+                    width: hovered === portal.id ? 172 : 124,
+                    height: hovered === portal.id ? 106 : 80,
+                    borderRadius: 8,
+                    overflow: 'hidden',
+                    border: '1px solid rgba(237,237,234,0.18)',
+                    boxShadow: hovered === portal.id ? '0 22px 55px rgba(0,0,0,0.32)' : '0 4px 16px rgba(0,0,0,0.18)',
+                    transition: 'width 0.35s ease, height 0.35s ease, box-shadow 0.35s ease',
+                    backgroundImage: `linear-gradient(180deg, rgba(7,7,13,0.02) 0%, rgba(7,7,13,0.18) 100%), url(${portal.preview})`,
+                    backgroundSize: 'cover',
+                    filter: 'contrast(1.08) saturate(1.1)',
+                    backgroundPosition:
+                      portal.id === 'psychology'
+                        ? '50% 35%'
+                        : portal.id === 'art'
+                          ? '52% 24%'
+                          : portal.id === 'design'
+                            ? '50% 38%'
+                            : portal.id === 'social'
+                              ? '56% 40%'
+                              : 'center',
+                    flexShrink: 0,
+                  }} />
+                )}
+              </div>
 
               {/* Arrow */}
               <span style={{
                 fontFamily: 'Urbanist, sans-serif',
-                fontSize: m ? 16 : 18,
-                color: hovered === portal.id ? portal.accent : 'rgba(237,237,234,0.15)',
+                fontSize: m ? 18 : 22,
+                color: hovered === portal.id ? portal.accent : 'rgba(237,237,234,0.3)',
                 marginLeft: m ? 0 : 32,
                 flexShrink: 0,
                 transition: 'color 0.3s ease, transform 0.3s ease',
-                transform: hovered === portal.id ? 'translateX(5px)' : 'translateX(0)',
+                transform: hovered === portal.id ? 'translateX(8px)' : 'translateX(0)',
                 display: 'inline-block',
               }}>
                 →

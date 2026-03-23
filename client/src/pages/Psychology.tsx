@@ -31,7 +31,7 @@ export default function Psychology() {
           style={{ textAlign: 'left', maxWidth: 640 }}
         >
           <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 10, letterSpacing: 4, color: 'rgba(237,237,234,0.25)', textTransform: 'uppercase', marginBottom: 20 }}>
-            02 — Psychology
+            02 Psychology
           </p>
           <h1 style={{ fontFamily: 'Unbounded, sans-serif', fontWeight: 700, fontSize: 'clamp(40px, 5vw, 72px)', letterSpacing: '-2px', lineHeight: 0.95, marginBottom: 20 }}>
             DEPTH<br />COMING SOON.

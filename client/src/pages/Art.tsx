@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,12 +7,13 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { cn } from '@/lib/utils';
 
-const heroImage = '/optimized/hero-desktop.webp';
+import heroImage from '@assets/alternative.jpg';
+import commissionImage from '@assets/Dadi-art-148.jpg';
 import gallery1 from '@assets/13b_1761189596670.webp';
 import gallery2 from '@assets/Obraz 2_1761189596670.webp';
 import gallery3 from '@assets/Screenshot 2025-10-23 at 00.04.50_1761189596671.webp';
 import gallery4 from '@assets/Screenshot 2025-10-08 at 20.18.59_1761189596671.webp';
-import profileImage from '@assets/Dadi-art-11_1761189784462.webp';
+import profileImage from '@assets/commission.png';
 
 interface Artwork {
   id: number;
@@ -24,10 +25,10 @@ interface Artwork {
 }
 
 const artworks: Artwork[] = [
-  { id: 1, image: gallery1, title: 'Silent Garden',    medium: 'Textured Mixed Media', size: '100×100cm', year: '2024' },
-  { id: 2, image: gallery2, title: 'Field of Presence', medium: 'Textured Mixed Media', size: '100×100cm', year: '2024' },
-  { id: 3, image: gallery3, title: 'Between Worlds',   medium: 'Textured Mixed Media', size: '100×100cm', year: '2025' },
-  { id: 4, image: gallery4, title: 'Soft Return',      medium: 'Textured Mixed Media', size: '100×100cm', year: '2025' },
+  { id: 1, image: gallery1, title: 'Silent garden',    medium: 'Textured mixed media', size: '100×100cm', year: '2024' },
+  { id: 2, image: gallery2, title: 'Field of presence', medium: 'Textured mixed media', size: '100×100cm', year: '2024' },
+  { id: 3, image: gallery3, title: 'Between worlds',   medium: 'Textured mixed media', size: '100×100cm', year: '2025' },
+  { id: 4, image: gallery4, title: 'Soft return',      medium: 'Textured mixed media', size: '100×100cm', year: '2025' },
 ];
 
 const ART_ACCENT = 'linear-gradient(135deg, #F5A623 0%, #E8C97E 100%)';
@@ -42,14 +43,62 @@ const stagger = {
   show:   { transition: { staggerChildren: 0.08 } },
 };
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(() => window.innerWidth < 768);
+  useEffect(() => {
+    const handler = () => setMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
+  }, []);
+  return mobile;
+}
+
 function ArtLine({ width = 200 }: { width?: number }) {
   return <div style={{ width, height: 2, background: ART_ACCENT, flexShrink: 0 }} />;
+}
+
+const BRACKET = 18; // px length of each bracket arm
+const BRACKET_W = 1.5; // px thickness
+
+function FrameBrackets({ hovered }: { hovered: boolean }) {
+  const color = hovered ? ART_COLOR : '#07070D';
+  const corners = [
+    { top: 0, left: 0,  borderTop: BRACKET_W, borderLeft: BRACKET_W  },
+    { top: 0, right: 0, borderTop: BRACKET_W, borderRight: BRACKET_W },
+    { bottom: 0, left: 0,  borderBottom: BRACKET_W, borderLeft: BRACKET_W  },
+    { bottom: 0, right: 0, borderBottom: BRACKET_W, borderRight: BRACKET_W },
+  ];
+  return (
+    <>
+      {corners.map((c, i) => (
+        <div
+          key={i}
+          style={{
+            position: 'absolute',
+            width: BRACKET, height: BRACKET,
+            ...Object.fromEntries(
+              Object.entries(c).map(([k, v]) =>
+                typeof v === 'number' && (k === 'borderTop' || k === 'borderBottom' || k === 'borderLeft' || k === 'borderRight')
+                  ? [k, `${v}px solid ${color}`]
+                  : [k, v]
+              )
+            ),
+            transition: 'border-color 0.3s ease',
+            pointerEvents: 'none',
+          }}
+        />
+      ))}
+    </>
+  );
 }
 
 export default function Art() {
   const [, navigate] = useLocation();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const m = useIsMobile();
+
+  const activeIndex = hoveredIndex;
 
   const closeLightbox  = () => setSelectedIndex(null);
   const goToPrev = () => selectedIndex !== null && setSelectedIndex((selectedIndex - 1 + artworks.length) % artworks.length);
@@ -73,7 +122,7 @@ export default function Art() {
       {/* ─── NAV ─── */}
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
-        height: 72, padding: '0 80px',
+        height: 72, padding: m ? '0 20px' : '0 80px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         background: 'rgba(237,237,234,0.92)', backdropFilter: 'blur(12px)',
         borderBottom: `1px solid rgba(7,7,13,0.08)`,
@@ -84,12 +133,12 @@ export default function Art() {
         >
           DRAHOSLAVA
         </button>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-          <a href="#gallery" style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 14, color: L.t50, textDecoration: 'none' }}>Gallery</a>
-          <a href="#about"   style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 14, color: L.t50, textDecoration: 'none' }}>About</a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: m ? 16 : 32 }}>
+          {!m && <a href="#gallery" style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 14, color: L.t50, textDecoration: 'none' }}>Gallery</a>}
+          {!m && <a href="#about"   style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 14, color: L.t50, textDecoration: 'none' }}>About</a>}
           <a href="#commission" style={{
-            fontFamily: 'Urbanist', fontWeight: 500, fontSize: 13, color: L.text,
-            padding: '10px 24px', border: `1px solid ${ART_COLOR}88`,
+            fontFamily: 'Urbanist', fontWeight: 500, fontSize: m ? 12 : 13, color: L.text,
+            padding: m ? '8px 16px' : '10px 24px', border: `1px solid ${ART_COLOR}88`,
             textDecoration: 'none', letterSpacing: 0.5,
             transition: 'border-color 0.2s',
           }}>Commission</a>
@@ -97,124 +146,102 @@ export default function Art() {
       </nav>
 
       {/* ─── HERO ─── */}
-      <section style={{
-        position: 'relative',
-        paddingTop: 72,
-        minHeight: '75vh',
-        display: 'flex',
-        alignItems: 'flex-end',
-        overflow: 'hidden',
-      }}>
-        {/* Background photo */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.5,
-        }} />
-        {/* Milky overlay — uniform 10% */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'rgba(255,255,255,0.10)',
-        }} />
-        {/* Text */}
-        <motion.div
-          initial="hidden" animate="show" variants={stagger}
-          style={{ position: 'relative', zIndex: 10, padding: '0 80px 72px', maxWidth: 720 }}
-        >
-          <motion.p variants={fadeUp} style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 10, letterSpacing: 4, color: L.t35, textTransform: 'uppercase', marginBottom: 20 }}>
-            01 — Art
-          </motion.p>
-          <motion.h1 variants={fadeUp} style={{
-            fontFamily: 'Cormorant Garamond, serif', fontWeight: 300,
-            fontStyle: 'italic',
-            fontSize: 'clamp(56px, 7vw, 104px)', letterSpacing: '-1px', lineHeight: 0.92,
-            color: L.text, marginBottom: 24,
+      <section style={{ paddingTop: 72 }}>
+        <div style={{ position: 'relative', height: m ? '55vh' : '68vh', overflow: 'hidden' }}>
+          <img
+            src={heroImage}
+            alt=""
+            fetchPriority="high"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 100%' }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'rgba(7,7,13,0.45)', pointerEvents: 'none' }} />
+
+          {/* Centred text */}
+          <div style={{
+            position: 'absolute', inset: 0,
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            gap: 16, padding: '0 24px', textAlign: 'center',
           }}>
-            Floral<br />Meditations.
-          </motion.h1>
-          <motion.div variants={fadeUp}><ArtLine width={200} /></motion.div>
-          <motion.p variants={fadeUp} style={{
-            fontFamily: 'Urbanist', fontWeight: 300, fontSize: 18,
-            lineHeight: 1.7, color: L.t50,
-            marginTop: 24, maxWidth: 520,
-          }}>
-            Each piece was created as a personal reflection for kindred spirits around the world.
-            Where beauty becomes awareness, and every bloom carries a quiet truth.
-          </motion.p>
-        </motion.div>
+            <h1 style={{
+              fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic',
+              fontSize: m ? 'clamp(40px, 10vw, 56px)' : 'clamp(56px, 7vw, 88px)',
+              letterSpacing: '-1px', lineHeight: 1.0,
+              color: '#EDEDEA', margin: 0,
+            }}>
+              Art as a mirror.
+            </h1>
+            <p style={{
+              fontFamily: 'Urbanist', fontWeight: 300,
+              fontSize: m ? 14 : 17,
+              letterSpacing: 0.3, lineHeight: 1.6,
+              color: 'rgba(237,237,234,0.7)',
+              maxWidth: 480, margin: 0,
+            }}>
+              Through painting, sculpting and touch, the body remembers what the mind forgets.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* ─── GALLERY ─── */}
-      <section id="gallery" style={{ padding: '96px 80px', borderBottom: `1px solid ${L.border}` }}>
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }} variants={stagger}>
-          <motion.div variants={fadeUp} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 48 }}>
-            <span style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 10, letterSpacing: 4, color: L.t25, textTransform: 'uppercase' }}>
-              — Collection 2024–2025 —
-            </span>
-            <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 14, color: L.t35 }}>
-              {artworks.length} works
-            </span>
+      <section id="gallery" style={{ padding: m ? '48px 20px 64px' : '80px 80px 96px', borderBottom: `1px solid ${L.border}` }}>
+
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: '-60px' }} variants={stagger}>
+          <motion.div variants={fadeUp} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: m ? 40 : 64 }}>
+            <span style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 10, letterSpacing: 4, color: L.t25, textTransform: 'uppercase' }}>Collection 2024/2025</span>
+            <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: L.t35 }}>{artworks.length} works</span>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+          {/* Grid: 2 col desktop, 1 col mobile, centred */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: m ? '1fr' : 'repeat(2, minmax(0, 520px))',
+            gap: m ? 40 : 48,
+            justifyContent: 'center',
+          }}>
             {artworks.map((art, i) => (
               <motion.div
                 key={art.id}
                 variants={fadeUp}
                 onClick={() => setSelectedIndex(i)}
-                onMouseEnter={() => setHoveredId(art.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                style={{
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  background: L.surface2,
-                }}
+                style={{ cursor: 'pointer' }}
               >
                 {/* Image */}
-                <div style={{ aspectRatio: '1/1', overflow: 'hidden', position: 'relative' }}>
-                  <img
-                    src={art.image}
-                    alt={art.title}
-                    style={{
-                      width: '100%', height: '100%', objectFit: 'cover',
-                      transition: 'transform 0.5s ease',
-                      transform: hoveredId === art.id ? 'scale(1.04)' : 'scale(1)',
-                    }}
-                  />
-                  {/* Milky base + hover overlay */}
-                  <div style={{
-                    position: 'absolute', inset: 0,
-                    background: hoveredId === art.id ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.10)',
-                    transition: 'background 0.3s ease',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    {hoveredId === art.id && (
-                      <span style={{ fontFamily: 'Urbanist', fontWeight: 400, fontSize: 13, letterSpacing: 3, color: '#EDEDEA', textTransform: 'uppercase', opacity: 0.9 }}>
-                        View →
-                      </span>
-                    )}
+                <div style={{ position: 'relative', background: L.surface2, border: '1px solid rgba(7,7,13,0.85)', padding: 10 }}>
+                  <div style={{ position: 'relative', overflow: 'hidden' }}>
+                    <img
+                      src={art.image}
+                      alt={art.title}
+                      style={{
+                        width: '100%',
+                        aspectRatio: '1/1',
+                        objectFit: 'cover',
+                        display: 'block',
+                        transition: 'transform 0.6s ease',
+                      }}
+                      loading="lazy"
+                      decoding="async"
+                      onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.03)')}
+                      onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+                    />
+                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(7,7,13,0.15)', pointerEvents: 'none' }} />
                   </div>
                 </div>
 
                 {/* Caption */}
                 <div style={{
-                  padding: '20px 24px',
-                  display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                  borderTop: `1px solid ${L.border}`,
-                  background: L.surface2,
+                  display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start',
+                  paddingTop: 16,
                 }}>
                   <div>
-                    <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 15, color: L.text, marginBottom: 4 }}>
+                    <p style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', fontSize: 22, color: L.text, margin: 0 }}>
                       {art.title}
                     </p>
-                    <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, color: L.t35, letterSpacing: 0.5 }}>
-                      {art.medium}
+                    <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, color: L.t35, marginTop: 4, letterSpacing: 0.5 }}>
+                      {art.medium} · {art.size}
                     </p>
                   </div>
-                  <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, color: L.t25 }}>
+                  <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, color: L.t25, flexShrink: 0, paddingTop: 4 }}>
                     {art.year}
                   </span>
                 </div>
@@ -227,28 +254,13 @@ export default function Art() {
       {/* ─── ABOUT ARTIST ─── */}
       <section id="about" style={{
         background: L.surface,
-        padding: '96px 80px',
-        display: 'grid', gridTemplateColumns: '1fr 1fr',
-        gap: 80, alignItems: 'center',
+        padding: m ? '48px 20px' : '96px 80px',
+        display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr',
+        gap: m ? 40 : 80, alignItems: 'center',
         borderBottom: `1px solid ${L.border}`,
       }}>
-        {/* Photo */}
-        <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <div style={{ position: 'relative', overflow: 'hidden' }}>
-            <img
-              src={profileImage}
-              alt="Drahoslava"
-              style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', display: 'block' }}
-            />
-            {/* Milky overlay */}
-            <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.10)', pointerEvents: 'none' }} />
-            {/* Warm amber accent at bottom */}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 3, background: ART_ACCENT }} />
-          </div>
-        </motion.div>
-
-        {/* Text */}
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }} variants={stagger}>
+        {/* Text — first on mobile via order */}
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }} variants={stagger} style={{ order: m ? 1 : 2 }}>
           <motion.p variants={fadeUp} style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 10, letterSpacing: 4, color: L.t25, textTransform: 'uppercase', marginBottom: 20 }}>
             The artist
           </motion.p>
@@ -258,14 +270,17 @@ export default function Art() {
             fontSize: 'clamp(32px, 3.5vw, 48px)', letterSpacing: '-0.5px', lineHeight: 1.15,
             color: L.text, marginBottom: 20,
           }}>
-            Psychology graduate,<br />artist and creator<br />of experiences.
+            Painting as a way<br />of listening.
           </motion.h2>
           <motion.div variants={fadeUp}><ArtLine width={80} /></motion.div>
 
           {[
-            'My work explores how psychology, art, and technology can serve as mirrors for self-awareness.',
-            'I\'m interested in what happens when understanding becomes not only intellectual but sensory — when reflection takes form, color, and motion.',
-            'Every piece is an experiment in how consciousness expresses itself through creation.',
+            'My background is in psychology. But long before I studied the mind, I understood that the body holds its own kind of knowing - one that bypasses language entirely.',
+            'Textured floral painting became my way of accessing that knowledge. Each layer of paint, each petal built by hand, is a small act of attention - a way of slowing down enough to feel what is present.',
+            'Every piece in this gallery was created as a commission - born from a conversation, shaped by someone\'s personality, their space, their energy. That is what I can continue doing for you.',
+            'Beyond commissions, I run art sessions where I teach the basics of working with art clay and painting techniques - not as an exercise in skill, but as a way of reconnecting with your inner world and supporting self-discovery through creation.',
+            'I also organise painting meditations - a space of complete presence, designed for absolute rest of the mind in a world that rarely slows down.',
+            'If any of this speaks to you, write to me.',
           ].map((p, i) => (
             <motion.p key={i} variants={fadeUp} style={{
               fontFamily: 'Urbanist', fontWeight: 300, fontSize: 16,
@@ -275,105 +290,65 @@ export default function Art() {
               {p}
             </motion.p>
           ))}
+          <motion.a
+            variants={fadeUp}
+            href="mailto:info@drahoslava.com"
+            style={{
+              display: 'inline-flex', alignItems: 'center', marginTop: 32,
+              padding: '13px 28px',
+              background: L.text, color: L.bg,
+              fontFamily: 'Urbanist', fontWeight: 600, fontSize: 14, letterSpacing: 0.5,
+              textDecoration: 'none', transition: 'opacity 0.2s',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = '0.88')}
+            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+          >
+            Get in touch
+          </motion.a>
         </motion.div>
-      </section>
 
-      {/* ─── CREATIVE PRACTICE ─── */}
-      <section style={{
-        padding: '96px 80px',
-        borderBottom: `1px solid ${L.border}`,
-      }}>
-        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }} variants={stagger}>
-          <motion.div variants={fadeUp} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56 }}>
-            <div>
-              <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 10, letterSpacing: 4, color: L.t25, textTransform: 'uppercase', marginBottom: 16 }}>
-                Body — Creative practice
-              </p>
-              <h2 style={{
-                fontFamily: 'Cormorant Garamond, serif', fontWeight: 300,
-                fontStyle: 'italic',
-                fontSize: 'clamp(40px, 4.5vw, 64px)', letterSpacing: '-0.5px', lineHeight: 1.0,
-                color: L.text,
-              }}>
-                Art as<br />Mirror.
-              </h2>
-            </div>
-            <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 16, color: L.t50, maxWidth: 420, textAlign: 'right', lineHeight: 1.65 }}>
-              Through painting, sculpting, and touch, the body remembers what the mind forgets.
-            </p>
-          </motion.div>
-
-          <motion.div variants={fadeUp} style={{ marginBottom: 48 }}>
-            <ArtLine width={80} />
-          </motion.div>
-
-          {/* 3-column offering */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2, marginBottom: 64 }}>
-            {[
-              { num: '01', title: 'Meditative\nPainting', body: 'Using brush and color as a form of moving reflection. No experience needed — only presence and curiosity.' },
-              { num: '02', title: 'Textured\nFloral Art', body: 'Shaping layered flower paintings that express emotion through touch. Each layer is a quiet act of listening.' },
-              { num: '03', title: 'Clay &\nMixed Media', body: 'Air-dry clay forms and collage that translate inner landscapes into three-dimensional, tactile space.' },
-            ].map((item) => (
-              <div key={item.num} style={{ background: L.surface2, padding: '40px 36px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 3, color: L.t25 }}>{item.num}</span>
-                <h3 style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', fontSize: 28, letterSpacing: '0px', lineHeight: 1.15, color: L.text, whiteSpace: 'pre-line' }}>
-                  {item.title}
-                </h3>
-                <ArtLine width={32} />
-                <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 15, lineHeight: 1.65, color: L.t50 }}>
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Full description */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
-            <motion.p variants={fadeUp} style={{
-              fontFamily: 'Urbanist', fontWeight: 300, fontSize: 18,
-              lineHeight: 1.75, color: L.t50,
-            }}>
-              This practice is not about making art, but about being in the act of creation — allowing color, form, and texture to reveal what words cannot hold.
-            </motion.p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 13, color: L.t35, letterSpacing: 0.5 }}>This is for you if you:</p>
-              {[
-                'Feel called to express emotion through creation',
-                'Seek a grounding, embodied way to reconnect with yourself',
-                'Wish to explore art as meditation, not performance',
-                'Want to rediscover play and intuitive making',
-              ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                  <div style={{ width: 16, height: 1, background: ART_ACCENT, marginTop: 11, flexShrink: 0 }} />
-                  <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 15, lineHeight: 1.6, color: L.t50 }}>{item}</p>
-                </div>
-              ))}
+        {/* Photo — second on mobile */}
+        <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ order: m ? 2 : 1 }}>
+          <div style={{ border: '1px solid rgba(7,7,13,0.85)', padding: 10, background: L.surface2 }}>
+            <div style={{ position: 'relative', overflow: 'hidden' }}>
+              <img
+                src={profileImage}
+                alt="Drahoslava"
+                loading="lazy"
+                decoding="async"
+                style={{ width: '100%', aspectRatio: '3/4', objectFit: 'cover', display: 'block' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'rgba(7,7,13,0.18)', pointerEvents: 'none' }} />
             </div>
           </div>
         </motion.div>
       </section>
+
 
       {/* ─── COMMISSION ─── */}
-      <section id="commission" style={{ padding: '96px 80px' }}>
+      <section id="commission" style={{ padding: 0, overflow: 'hidden' }}>
+        <div>
+          {/* Text */}
+          <div style={{ background: L.surface, padding: m ? '48px 24px' : '80px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: '-80px' }} variants={stagger}>
           <motion.h2 variants={fadeUp} style={{
             fontFamily: 'Cormorant Garamond, serif', fontWeight: 300,
             fontStyle: 'italic',
-            fontSize: 'clamp(48px, 6vw, 88px)', letterSpacing: '-1px', lineHeight: 0.95,
-            color: L.text, maxWidth: 800, marginBottom: 20,
+            fontSize: 'clamp(40px, 5vw, 72px)', letterSpacing: '-1px', lineHeight: 0.95,
+            color: L.text, marginBottom: 20,
           }}>
-            Commission<br />a Piece.
+            Commission<br />a piece.
           </motion.h2>
           <motion.div variants={fadeUp}><ArtLine width={200} /></motion.div>
           <motion.p variants={fadeUp} style={{
-            fontFamily: 'Urbanist', fontWeight: 300, fontSize: 18,
-            color: L.t50, margin: '24px 0 40px', maxWidth: 520,
+            fontFamily: 'Urbanist', fontWeight: 300, fontSize: 17,
+            color: L.t50, margin: '24px 0 40px', maxWidth: 440, lineHeight: 1.7,
           }}>
-            Each commissioned piece is created as a personal collaboration — for your space, your energy, your story.
+            Each commissioned piece is created as a personal collaboration, for your space, your energy, your story.
           </motion.p>
           <motion.div variants={fadeUp} style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <a
-              href="mailto:hello@drahoslava.com"
+              href="mailto:info@drahoslava.com"
               style={{
                 display: 'inline-flex', alignItems: 'center',
                 padding: '13px 28px',
@@ -402,6 +377,9 @@ export default function Art() {
             </button>
           </motion.div>
         </motion.div>
+          </div>
+
+        </div>
       </section>
 
       {/* ─── FOOTER ─── */}
@@ -444,53 +422,65 @@ export default function Art() {
                   <X size={18} />
                 </button>
 
-                <div style={{ padding: '40px 60px', display: 'flex', alignItems: 'center', gap: 32 }}>
-                  {/* Prev */}
-                  <button onClick={goToPrev} style={{ flexShrink: 0, background: 'none', border: 'none', color: 'rgba(237,237,234,0.4)', cursor: 'pointer', padding: 8, transition: 'color 0.2s' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#EDEDEA')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(237,237,234,0.4)')}
-                  >
-                    <ChevronLeft size={32} />
-                  </button>
-
-                  {/* Artwork */}
+                <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '80px 40px 40px' }}>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={selectedIndex}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                      style={{ flex: 1, background: '#0C0C14' }}
+                      initial={{ opacity: 0, scale: 0.97 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.97 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
                     >
-                      <img
-                        src={artworks[selectedIndex].image}
-                        alt={artworks[selectedIndex].title}
-                        style={{ width: '100%', maxHeight: '65vh', objectFit: 'contain', display: 'block' }}
-                      />
-                      <div style={{ padding: '20px 28px', borderTop: '1px solid rgba(237,237,234,0.07)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      {/* Frame */}
+                      <div style={{
+                        background: '#F5F3EF',
+                        border: '1px solid rgba(7,7,13,0.85)',
+                        padding: m ? 12 : 20,
+                        boxShadow: '0 32px 80px rgba(7,7,13,0.5)',
+                        position: 'relative',
+                      }}>
+                        <img
+                          src={artworks[selectedIndex].image}
+                          alt={artworks[selectedIndex].title}
+                          style={{
+                            maxHeight: m ? '60vh' : '68vh',
+                            maxWidth: m ? '80vw' : '65vw',
+                            width: 'auto', height: 'auto', display: 'block',
+                          }}
+                        />
+
+                        {/* Prev / Next */}
+                        <button onClick={goToPrev} style={{ position: 'absolute', left: -52, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#EDEDEA', cursor: 'pointer', padding: '8px', opacity: 0.6, transition: 'opacity 0.2s' }}
+                          onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                          onMouseLeave={e => (e.currentTarget.style.opacity = '0.6')}
+                        >
+                          <ChevronLeft size={28} />
+                        </button>
+                        <button onClick={goToNext} style={{ position: 'absolute', right: -52, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: '#EDEDEA', cursor: 'pointer', padding: '8px', opacity: 0.6, transition: 'opacity 0.2s' }}
+                          onMouseEnter={e => (e.currentTarget.style.opacity = '1')}
+                          onMouseLeave={e => (e.currentTarget.style.opacity = '0.6')}
+                        >
+                          <ChevronRight size={28} />
+                        </button>
+                      </div>
+
+                      {/* Caption below frame */}
+                      <div style={{ marginTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', width: '100%', maxWidth: m ? '80vw' : '65vw' }}>
                         <div>
-                          <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 16, color: '#EDEDEA', marginBottom: 4 }}>
+                          <p style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300, fontStyle: 'italic', fontSize: 20, color: '#EDEDEA', margin: 0 }}>
                             {artworks[selectedIndex].title}
                           </p>
-                          <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 13, color: 'rgba(237,237,234,0.4)' }}>
+                          <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, color: 'rgba(237,237,234,0.4)', marginTop: 4, letterSpacing: 0.5 }}>
                             {artworks[selectedIndex].medium} · {artworks[selectedIndex].size} · {artworks[selectedIndex].year}
                           </p>
                         </div>
-                        <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 12, color: 'rgba(237,237,234,0.25)', letterSpacing: 1 }}>
+                        <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, color: 'rgba(237,237,234,0.25)', letterSpacing: 2 }}>
                           {selectedIndex + 1} / {artworks.length}
                         </span>
                       </div>
                     </motion.div>
                   </AnimatePresence>
-
-                  {/* Next */}
-                  <button onClick={goToNext} style={{ flexShrink: 0, background: 'none', border: 'none', color: 'rgba(237,237,234,0.4)', cursor: 'pointer', padding: 8, transition: 'color 0.2s' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#EDEDEA')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(237,237,234,0.4)')}
-                  >
-                    <ChevronRight size={32} />
-                  </button>
                 </div>
               </>
             )}

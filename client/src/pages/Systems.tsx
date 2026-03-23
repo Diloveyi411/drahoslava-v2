@@ -38,37 +38,26 @@ const WORK = [
     intervention: 'Re-architected the layout to surface trust signals and decision elements on initial load.\nRemoved dependency on widget interaction.\nDesigned a flow aligned with user attention and decision points.\nWorked within an existing layout and could not remove the widget entirely - redefined its role instead.',
     outcome: 'Made all key actions visible without interaction.\nAligned the flow with user attention instead of UI constraints.\nCreated a structure ready for testing and measurable improvement.',
     gallery: [
-      { src: '/N4hu5.jpeg', caption: 'Before - all conversion elements hidden in a bottom-right widget' },
-      { src: '/hCd1D.jpeg', caption: 'After - trust signals and CTA visible on page load' },
-      { src: '/5FTm5.jpeg', caption: 'Mobile - bottom sheet pattern, same psychological sequence' },
+      { src: '/portfolio/webtrigo/before-raw.png', title: 'Original Layout', caption: 'Conversion elements hidden behind widget interaction', contain: true },
+      { src: '/portfolio/webtrigo/after-raw.png', title: 'Redesigned Layout', caption: 'Trust signals visible on initial load. No interaction required.', contain: true },
+      { src: '/portfolio/webtrigo/mobile-raw.png', title: 'Mobile Version', caption: 'Same psychological sequence adapted for mobile', contain: true },
     ],
   },
   {
-    title: 'Polystate',
-    tags: 'UX Design · Information Architecture · Content Systems',
-    context: 'Content-heavy SaaS platform for global mobility - tax residency, company formation, and international banking.',
-    problem: 'Users could not identify value or what to do next.\nContent had no hierarchy - every screen competed for attention.',
-    intervention: 'Introduced a consistent information hierarchy across all touchpoints.\nStructured content flows: problem → evidence → action.\nCreated a repeatable structure that scales across screens and formats.',
-    outcome: 'Reduced cognitive load and made key decisions immediately visible.\nUsers no longer needed to read everything to understand what matters.\nApplied across product, website, and social - ensuring consistent user understanding.',
+    title: 'Gentle Touch by Lubka',
+    tags: 'Web Design · Development · Deployment',
+    context: 'Somatic practitioner whose work lives between therapy and massage. Embodied, personal, human. Her name says it: Dotyk od Ľubky. Touch by Lubka.',
+    problem: 'No online presence. No way for potential clients to find, understand, or contact her.\nExisting references were too clinical: massage menus, price lists, procedure lists.\nHer practice is also a conversation. That needed to show.',
+    intervention: 'Designed and built the full website from scratch: structure, copy layout, visual direction, and deployment.\nVisual direction built around soft colors, natural elements, and rounded shapes. No hard edges.\nBalanced image and text at 50/50 so neither dominates.\nPractitioner presence made central — her face, her words, her approach.\nConnected custom domain laskavydotyk.com via Vercel.',
+    outcome: 'Live and fully functional from day one.\nClients can find her, understand her offer, and reach out. Without friction.',
     gallery: [
-      { src: '/p8opA.jpeg', caption: 'Social media system - full overview' },
-      { src: '/GTDVl.jpeg', caption: 'Carousel series - information hierarchy in action' },
-      { src: '/IVrx3.jpeg', caption: 'Full slide archive - 40+ slides across 5 series' },
-      { video: 'https://player.vimeo.com/video/1174984453', caption: 'Launch Party Film' },
-    ],
-  },
-  {
-    title: 'Lights of Tantra',
-    tags: 'UX Strategy · User Perception · Content Design',
-    context: 'Communication redesign for a somatic practitioner whose product experience was not connecting with the right users.',
-    problem: 'Users did not recognize themselves in the experience.\nMessaging reflected the practitioner, not the user\'s problem.',
-    intervention: 'Analyzed the full user-facing experience - website and social. Restructured communication around specific user pain states instead of practitioner identity. Defined a clear content flow: recognition → understanding → action.',
-    outcome: 'Users immediately recognize relevance and what to do next.',
-    gallery: [
-      { src: '/1DRrR.jpeg', caption: 'Brand kit - content system overview' },
-      { src: '/KoTER.jpeg', caption: 'Carousel series detail' },
-      { src: '/kKX0r.jpeg', caption: 'Content templates and structure' },
-      { src: '/RY1IF.jpeg', caption: 'Content system - carousels, guide, and promo across formats' },
+      { src: '/portfolio/lubka/home.png', title: 'Homepage', caption: '"Vráťte sa späť k sebe"', contain: true },
+      { src: '/portfolio/lubka/about.png', title: 'About', caption: 'Warm, personal, clear', contain: true },
+      { src: '/portfolio/lubka/services.png', title: 'Brand Voice', caption: 'Quote section', contain: true },
+      { src: '/portfolio/lubka/contact.png', title: 'Services 1/2', caption: 'Structured for clarity and action', contain: true },
+      { src: '/portfolio/lubka/mobile.png', title: 'Services 2/2', caption: 'Responsive layout', contain: true },
+      { src: '/portfolio/lubka/detail.png', title: 'Footer', caption: 'Services and footer', contain: true },
+      { src: '/portfolio/lubka/inspiration.jpg', title: 'Client Inspiration', caption: 'Soft colors, 50/50 balance, rounded shapes, nature elements', contain: true },
     ],
   },
 ];
@@ -97,7 +86,7 @@ function useIsMobile() {
   return mobile;
 }
 
-type GalleryItem = { src?: string; video?: string; caption: string; contain?: boolean };
+type GalleryItem = { src?: string; video?: string; caption: string; title?: string; contain?: boolean };
 
 function Lightbox({ src, caption, onClose, onPrev, onNext, hasPrev, hasNext }: {
   src: string; caption: string; onClose: () => void;
@@ -215,8 +204,9 @@ function Lightbox({ src, caption, onClose, onPrev, onNext, hasPrev, hasNext }: {
   );
 }
 
-function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
+function GallerySlider({ gallery, projectTitle, accent }: { gallery: GalleryItem[]; projectTitle?: string; accent?: string }) {
   const [index, setIndex] = useState(0);
+  if (gallery.length === 0) return <div style={{ width: '100%', height: '100%', background: '#0A0A12' }} />;
   const [dir, setDir] = useState(1);
   const [lightbox, setLightbox] = useState<number | null>(null);
 
@@ -253,13 +243,36 @@ function GallerySlider({ gallery }: { gallery: GalleryItem[] }) {
                 src={gallery[index].src}
                 alt={gallery[index].caption}
                 loading="lazy"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'zoom-in' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain', background: '#0A0A12', cursor: 'zoom-in' }}
                 onClick={() => setLightbox(index)}
                 onError={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '0'; }}
               />
             )}
           </motion.div>
         </AnimatePresence>
+
+        {/* Gradient overlay */}
+        <div style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 10,
+          background: 'linear-gradient(180deg, rgba(7,7,13,0.88) 0%, rgba(7,7,13,0.25) 38%, rgba(7,7,13,0.04) 62%, rgba(7,7,13,0.75) 100%)',
+        }} />
+
+        {/* Top: label + accent line + title */}
+        {(projectTitle || gallery[index].title) && (
+          <div style={{ position: 'absolute', top: 0, left: 0, padding: '24px 28px', pointerEvents: 'none', zIndex: 11 }}>
+            {projectTitle && (
+              <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 10, letterSpacing: 4, color: `${accent ?? '#7CF0EA'}90`, textTransform: 'uppercase', margin: '0 0 8px' }}>
+                {projectTitle}
+              </p>
+            )}
+            <div style={{ width: 120, height: 2, background: `linear-gradient(90deg, ${accent ?? '#7CF0EA'} 0%, rgba(237,237,234,0.15) 100%)`, marginBottom: 12 }} />
+            {gallery[index].title && (
+              <p style={{ fontFamily: 'Unbounded, sans-serif', fontWeight: 700, fontSize: 20, letterSpacing: '-0.5px', color: '#EDEDEA', margin: 0, lineHeight: 1.1 }}>
+                {gallery[index].title}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Bottom bar — caption + controls */}
@@ -371,16 +384,6 @@ export default function Systems() {
           href="#hero"
           style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}
         >
-          <img
-            src="/logo-mark.jpg"
-            alt="Drahoslava"
-            style={{
-              width: 32,
-              height: 32,
-              borderRadius: '50%',
-              objectFit: 'cover',
-            }}
-          />
           <span style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 700,
@@ -494,7 +497,7 @@ export default function Systems() {
       >
         {/* Full-bleed photo */}
         <img
-          src="/hero-photo.jpg"
+          src="/hub-previews/wuah1.png"
           alt="Drahoslava"
           style={{
             position: 'absolute',
@@ -502,9 +505,9 @@ export default function Systems() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: m ? '65% center' : 'center center',
-            transform: m ? 'scale(1.15) translateY(-8%)' : 'none',
-            transformOrigin: '65% center',
+            objectPosition: m ? '50% 30%' : '50% 24%',
+            transform: m ? 'scale(1.08)' : 'none',
+            transformOrigin: 'center',
           }}
         />
 
@@ -708,93 +711,53 @@ export default function Systems() {
             <span className="section-label">Selected systems</span>
           </motion.div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             {WORK.map((w, i) => (
-              <div key={w.title}>
               <motion.div
+                key={w.title}
                 variants={fadeUp}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: m ? '1fr' : (i % 2 === 0 ? '45% 55%' : '55% 45%'),
-                  background: '#0C0C14',
-                  minHeight: m ? 'auto' : 560,
-                  alignItems: 'stretch',
-                }}
+                style={{ borderTop: '1px solid rgba(237,237,234,0.07)', paddingTop: m ? 40 : 56, paddingBottom: m ? 56 : 80 }}
               >
-                {/* Image — on mobile always on top */}
-                {(m || i % 2 !== 0) && (
-                  <div style={{ background: '#0A0A12', overflow: 'hidden', order: m ? 1 : 2, alignSelf: 'stretch', minHeight: m ? 260 : 'auto' }}>
-                    <GallerySlider gallery={w.gallery} />
+                {/* Header */}
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 40 }}>
+                  <div>
+                    <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 10, letterSpacing: 3, color: 'rgba(237,237,234,0.25)', textTransform: 'uppercase', marginBottom: 10 }}>
+                      0{i + 1}
+                    </p>
+                    <h3 style={{ fontFamily: 'Unbounded, sans-serif', fontWeight: 700, fontSize: m ? 28 : 42, letterSpacing: '-1.5px', lineHeight: 1, margin: 0, color: '#EDEDEA' }}>
+                      {w.title}
+                    </h3>
                   </div>
-                )}
-
-                {/* Content panel */}
-                <div
-                  style={{
-                    padding: m ? '32px 24px' : '56px 64px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    gap: 0,
-                    order: m ? 2 : (i % 2 !== 0 ? 1 : 2),
-                  }}
-                >
-                  <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(237,237,234,0.25)', marginBottom: 20 }}>
+                  <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 2, color: '#7CF0EA', textTransform: 'uppercase', marginTop: m ? 0 : 10 }}>
                     {w.tags}
                   </p>
-                  <h3
-                    style={{
-                      fontFamily: 'Unbounded, sans-serif',
-                      fontWeight: 700,
-                      fontSize: 'clamp(24px, 2.2vw, 36px)',
-                      letterSpacing: '-1px',
-                      lineHeight: 1.05,
-                      color: '#EDEDEA',
-                      marginBottom: 16,
-                    }}
-                  >
-                    {w.title}
-                  </h3>
-                  <PrismaticLine width={32} />
-                  <p
-                    style={{
-                      fontFamily: 'Urbanist, sans-serif',
-                      fontWeight: 300,
-                      fontSize: 14,
-                      lineHeight: 1.6,
-                      color: 'rgba(237,237,234,0.45)',
-                      margin: '20px 0 32px',
-                    }}
-                  >
-                    {w.context}
-                  </p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                    {[
-                      { label: 'Problem', val: w.problem },
-                      { label: 'Intervention', val: w.intervention },
-                      { label: 'Outcome', val: w.outcome },
-                    ].map((row) => (
-                      <div key={row.label} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                        <span style={{ fontFamily: 'Urbanist', fontWeight: 600, fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(237,237,234,0.35)' }}>
-                          {row.label}
-                        </span>
-                        <span style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 14, color: 'rgba(237,237,234,0.55)', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
-                          {row.val}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
 
-                {/* Image — left side for even items (desktop only) */}
-                {!m && i % 2 === 0 && (
-                  <div style={{ background: '#0A0A12', overflow: 'hidden', order: 1, alignSelf: 'stretch' }}>
-                    <GallerySlider gallery={w.gallery} />
+                {/* Full-width gallery */}
+                {w.gallery.length > 0 && (
+                  <div style={{ marginBottom: 40, height: m ? 280 : 560 }}>
+                    <GallerySlider gallery={w.gallery} projectTitle={w.title} accent="#7CF0EA" />
                   </div>
                 )}
-              </motion.div>
 
-              </div>
+                {/* 3-col text */}
+                <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr 1fr', gap: m ? 28 : 48 }}>
+                  {[
+                    { label: 'Problem', val: w.problem },
+                    { label: 'Intervention', val: w.intervention },
+                    { label: 'Outcome', val: w.outcome },
+                  ].map((row) => (
+                    <div key={row.label}>
+                      <p style={{ fontFamily: 'Urbanist', fontWeight: 600, fontSize: 10, letterSpacing: 3, textTransform: 'uppercase', color: '#7CF0EA', marginBottom: 12 }}>
+                        {row.label}
+                      </p>
+                      <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 18, lineHeight: 1.8, color: 'rgba(237,237,234,0.65)', whiteSpace: 'pre-line' }}>
+                        {row.val}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
             ))}
 
           </div>
