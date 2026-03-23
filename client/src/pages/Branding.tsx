@@ -10,6 +10,7 @@ const WORK = [
     problem: 'No visual identity, no brand direction.\nExisting communication reflected the practitioner, not the client\'s world.\nNeeded a brand that could hold the weight of a sensitive, embodied practice without looking generic or spiritual-cliché.',
     intervention: 'Built the full brand identity from scratch: visual direction, color system, typography, and brand kit.\nAnchored the brand in the client\'s felt experience, not practitioner credentials.\nDelivered a system ready to apply across website, social, and print.',
     outcome: 'Brand identity locked with clear visual language.\nClient had a system, not just a logo, to work from.\nAll touchpoints now speak with the same voice.',
+    testimonial: 'Working with Dadka was one of the best investments I have made for my business this year. She really listened, asked the right questions, and then came back with ideas and a detailed audit that exceeded my expectations. The result is a brand kit that 100% looks and feels like me and I no longer dread the creation process for social media because everything is already done beautifully. I just use the templates and go which saves me hours. Lastly, and most importantly, through her work I gained confidence and I am ready to show up fully and authentically on social media now. Thank you!',
     gallery: [
       { src: '/portfolio/tina/brand-kit.png', title: 'Brand Kit', caption: 'Visual identity and direction' },
       { src: '/portfolio/tina/overview.png', title: 'Brand System', caption: 'Applied across touchpoints' },
@@ -191,7 +192,7 @@ function GalleryCarousel({ items, onOpenLightbox, m, workTitle, accent, height }
   );
 }
 
-function WorkCard({ work, index, m, accent }: { work: typeof WORK[0]; index: number; m: boolean; accent: string }) {
+function WorkCard({ work, index, m, accent }: { work: (typeof WORK)[0]; index: number; m: boolean; accent: string }) {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const imgItems = work.gallery.filter(g => g.src);
   const openLightbox = useCallback((idx: number) => setLightbox(idx), []);
@@ -249,6 +250,17 @@ function WorkCard({ work, index, m, accent }: { work: typeof WORK[0]; index: num
           </div>
         ))}
       </div>
+
+      {work.testimonial && (
+        <div style={{ marginTop: m ? 40 : 56, borderLeft: `2px solid ${accent}`, paddingLeft: m ? 20 : 32 }}>
+          <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 17 : 20, lineHeight: 1.75, color: 'rgba(237,237,234,0.6)', fontStyle: 'italic', margin: '0 0 16px' }}>
+            "{work.testimonial}"
+          </p>
+          <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 11, letterSpacing: 3, textTransform: 'uppercase', color: accent, margin: 0 }}>
+            {work.title}
+          </p>
+        </div>
+      )}
 
       <AnimatePresence>
         {lightbox !== null && imgItems[lightbox]?.src && (
