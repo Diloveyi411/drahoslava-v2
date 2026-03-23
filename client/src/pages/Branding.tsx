@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const WORK = [
   {
-    title: 'Lights of Tantra',
+    title: 'Tina Koestler',
     tags: 'Brand Identity · Visual Direction · Brand Kit',
     context: 'Somatic practitioner launching an independent practice. Needed a brand identity that felt as intentional as her work.',
     problem: 'No visual identity, no brand direction.\nExisting communication reflected the practitioner, not the client\'s world.\nNeeded a brand that could hold the weight of a sensitive, embodied practice without looking generic or spiritual-cliché.',

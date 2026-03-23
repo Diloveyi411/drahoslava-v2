@@ -19,7 +19,7 @@ const WORK = [
     ],
   },
   {
-    title: 'Lights of Tantra',
+    title: 'Tina Koestler',
     tags: 'Branding · Content Strategy · Library Organisation',
     context: 'Somatic practitioner launching an independent practice. Needed a brand identity, content system, and organised creative archive.',
     problem: 'No brand direction, no content structure, no organised archive.\nMessaging reflected the practitioner, not the user\'s problem.\n840 photos and 331 videos unorganised. Impossible to work with.',
