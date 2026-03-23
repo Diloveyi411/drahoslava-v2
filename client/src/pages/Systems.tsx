@@ -31,6 +31,22 @@ const SERVICES = [
 
 const WORK = [
   {
+    title: 'Polystate',
+    tags: 'UX Design · Information Architecture · Product Thinking',
+    context: 'UX redesign of the app interior for a global mobility platform that helps digital nomads set up residency, companies, and bank accounts across jurisdictions.',
+    problem: 'Flat navigation mixed paid services with free tools at the same level. Users couldn\'t tell what costs money and what doesn\'t.\nNo onboarding. First-time users landed on a dashboard with no context for what to do.\nServices pages listed products without explaining why someone would need them.\nKey features (AI assistant, legal digest, news feed) buried under generic labels.',
+    intervention: 'Restructured the full information architecture into 4 clear groups: Services, Intelligence, Tools, Community.\nDesigned a homepage with personal journey tracking, contextual widgets, and service cards with pricing.\nAdded a dashboard customization panel where users toggle widgets on and off to control their own layout.\nAdded a "why" layer to services - benefit cards before product listings.\nCreated a 3-step onboarding flow that captures user intent and personalizes the experience from the first visit.',
+    outcome: 'Founder approved the redesign on first presentation and moved directly to implementation.\nNavigation hierarchy now separates paid from free, reducing cognitive load.\nServices lead with user motivation instead of product specs.\nOnboarding enables personalized recommendations from day one.',
+    gallery: [
+      { src: '/portfolio/polystate-ux/before.png', title: 'Before', caption: 'Flat sidebar mixing paid services with free tools, no grouping or hierarchy', contain: true },
+      { src: '/portfolio/polystate-ux/homepage.png', title: 'Redesigned homepage', caption: 'Journey bar, contextual widgets, service cards with pricing', contain: true },
+      { src: '/portfolio/polystate-ux/customize.png', title: 'Customize Dashboard', caption: 'Toggle widgets on/off via side panel', contain: true },
+      { src: '/portfolio/polystate-ux/navigation.png', title: 'Information Architecture', caption: '4-group nav: Services, Intelligence, Tools, Community', contain: true },
+      { src: '/portfolio/polystate-ux/services-hub.png', title: 'Services Hub', caption: '"Why" layer before product cards', contain: true },
+      { src: '/portfolio/polystate-ux/onboarding.png', title: 'Onboarding Flow', caption: '3-step wizard for first-time users', contain: true },
+    ],
+  },
+  {
     title: 'WebTrigo',
     tags: 'UX Audit · Conversion Design · Interaction Design',
     context: 'Redesign of a conversion-critical flow in a cold-email-driven product.',
