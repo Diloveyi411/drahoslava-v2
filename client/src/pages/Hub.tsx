@@ -326,91 +326,110 @@ export default function Hub() {
                 {portal.num}
               </span>
 
-              {/* Title */}
-              <h2 style={{
-                fontFamily: 'Unbounded, sans-serif',
-                fontWeight: 700,
-                fontSize: m ? '22px' : hovered === portal.id ? 'clamp(28px, 4vw, 58px)' : portal.id === 'design' ? 'clamp(24px, 3.4vw, 50px)' : 'clamp(20px, 3vw, 44px)',
-                letterSpacing: '-1.5px',
-                lineHeight: 1,
-                color: hovered === portal.id ? '#EDEDEA' : portal.id === 'design' ? 'rgba(237,237,234,0.88)' : 'rgba(237,237,234,0.55)',
-                flex: 1,
-                paddingLeft: m ? 0 : 48,
-                transition: 'color 0.3s ease, font-size 0.35s ease',
-                margin: 0,
-              }}>
-                {portal.title}
-              </h2>
-
-              <div style={{
-                display: 'flex',
-                alignItems: m ? 'flex-start' : 'center',
-                justifyContent: 'flex-end',
-                gap: m ? 8 : 24,
-                minWidth: m ? 0 : 430,
-                flexShrink: 0,
-                opacity: m || hovered === portal.id ? 1 : 0.72,
-                transform: hovered === portal.id ? 'translateX(0)' : 'translateX(10px)',
-                transition: 'opacity 0.3s ease, transform 0.3s ease',
-              }}>
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: m ? 'flex-start' : 'flex-end',
-                  gap: 6,
-                  textAlign: m ? 'left' : 'right',
-                }}>
+              {m ? (
+                /* ── MOBILE: title + kicker stacked vertically ── */
+                <div style={{ flex: 1, paddingLeft: 12, minWidth: 0 }}>
+                  <h2 style={{
+                    fontFamily: 'Unbounded, sans-serif',
+                    fontWeight: 700,
+                    fontSize: '18px',
+                    letterSpacing: '-1px',
+                    lineHeight: 1,
+                    color: '#EDEDEA',
+                    margin: '0 0 6px',
+                  }}>
+                    {portal.title}
+                  </h2>
                   <p style={{
                     fontFamily: 'Urbanist, sans-serif',
-                    fontWeight: 600,
-                    fontSize: m ? 14 : hovered === portal.id ? 18 : 16,
-                    lineHeight: 1.2,
-                    color: '#EDEDEA',
-                    margin: 0,
-                    transition: 'font-size 0.3s ease',
+                    fontWeight: 500,
+                    fontSize: 13,
+                    lineHeight: 1.3,
+                    color: 'rgba(237,237,234,0.8)',
+                    margin: '0 0 3px',
                   }}>
                     {portal.kicker}
                   </p>
                   <p style={{
                     fontFamily: 'Urbanist, sans-serif',
                     fontWeight: 400,
-                    fontSize: m ? 11 : 12,
+                    fontSize: 11,
                     letterSpacing: 0.5,
                     color: portal.accent,
                     margin: 0,
-                    opacity: hovered === portal.id ? 1 : 0.75,
-                    transition: 'opacity 0.3s ease',
                   }}>
                     {portal.next}
                   </p>
                 </div>
+              ) : (
+                /* ── DESKTOP: title + kicker side by side ── */
+                <>
+                  <h2 style={{
+                    fontFamily: 'Unbounded, sans-serif',
+                    fontWeight: 700,
+                    fontSize: hovered === portal.id ? 'clamp(28px, 4vw, 58px)' : portal.id === 'design' ? 'clamp(24px, 3.4vw, 50px)' : 'clamp(20px, 3vw, 44px)',
+                    letterSpacing: '-1.5px',
+                    lineHeight: 1,
+                    color: hovered === portal.id ? '#EDEDEA' : portal.id === 'design' ? 'rgba(237,237,234,0.88)' : 'rgba(237,237,234,0.55)',
+                    flex: 1,
+                    paddingLeft: 48,
+                    transition: 'color 0.3s ease, font-size 0.35s ease',
+                    margin: 0,
+                  }}>
+                    {portal.title}
+                  </h2>
 
-                {!m && (
                   <div style={{
-                    width: hovered === portal.id ? 172 : 124,
-                    height: hovered === portal.id ? 106 : 80,
-                    borderRadius: 8,
-                    overflow: 'hidden',
-                    border: '1px solid rgba(237,237,234,0.18)',
-                    boxShadow: hovered === portal.id ? '0 22px 55px rgba(0,0,0,0.32)' : '0 4px 16px rgba(0,0,0,0.18)',
-                    transition: 'width 0.35s ease, height 0.35s ease, box-shadow 0.35s ease',
-                    backgroundImage: `linear-gradient(180deg, rgba(7,7,13,0.02) 0%, rgba(7,7,13,0.18) 100%), url(${portal.preview})`,
-                    backgroundSize: 'cover',
-                    filter: 'contrast(1.08) saturate(1.1)',
-                    backgroundPosition:
-                      portal.id === 'psychology'
-                        ? '50% 35%'
-                        : portal.id === 'art'
-                          ? '52% 24%'
-                          : portal.id === 'design'
-                            ? '50% 38%'
-                            : portal.id === 'social'
-                              ? '56% 40%'
-                              : 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                    gap: 24,
+                    minWidth: 430,
                     flexShrink: 0,
-                  }} />
-                )}
-              </div>
+                    opacity: hovered === portal.id ? 1 : 0.72,
+                    transform: hovered === portal.id ? 'translateX(0)' : 'translateX(10px)',
+                    transition: 'opacity 0.3s ease, transform 0.3s ease',
+                  }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, textAlign: 'right' }}>
+                      <p style={{
+                        fontFamily: 'Urbanist, sans-serif', fontWeight: 600,
+                        fontSize: hovered === portal.id ? 18 : 16,
+                        lineHeight: 1.2, color: '#EDEDEA', margin: 0,
+                        transition: 'font-size 0.3s ease',
+                      }}>
+                        {portal.kicker}
+                      </p>
+                      <p style={{
+                        fontFamily: 'Urbanist, sans-serif', fontWeight: 400,
+                        fontSize: 12, letterSpacing: 0.5,
+                        color: portal.accent, margin: 0,
+                        opacity: hovered === portal.id ? 1 : 0.75,
+                        transition: 'opacity 0.3s ease',
+                      }}>
+                        {portal.next}
+                      </p>
+                    </div>
+                    <div style={{
+                      width: hovered === portal.id ? 172 : 124,
+                      height: hovered === portal.id ? 106 : 80,
+                      borderRadius: 8, overflow: 'hidden',
+                      border: '1px solid rgba(237,237,234,0.18)',
+                      boxShadow: hovered === portal.id ? '0 22px 55px rgba(0,0,0,0.32)' : '0 4px 16px rgba(0,0,0,0.18)',
+                      transition: 'width 0.35s ease, height 0.35s ease, box-shadow 0.35s ease',
+                      backgroundImage: `linear-gradient(180deg, rgba(7,7,13,0.02) 0%, rgba(7,7,13,0.18) 100%), url(${portal.preview})`,
+                      backgroundSize: 'cover',
+                      filter: 'contrast(1.08) saturate(1.1)',
+                      backgroundPosition:
+                        portal.id === 'psychology' ? '50% 35%'
+                        : portal.id === 'art' ? '52% 24%'
+                        : portal.id === 'design' ? '50% 38%'
+                        : portal.id === 'social' ? '56% 40%'
+                        : 'center',
+                      flexShrink: 0,
+                    }} />
+                  </div>
+                </>
+              )}
 
               {/* Arrow */}
               <span style={{
