@@ -105,13 +105,19 @@ export default function Hub() {
         src={m ? '/hub-previews/design.png' : activePortal.preview}
         alt=""
         aria-hidden="true"
-        style={{
+        style={m ? {
+          position: 'absolute',
+          top: 0, right: 0, bottom: 0,
+          height: '100%',
+          width: 'auto',
+          zIndex: 0,
+        } : {
           position: 'absolute',
           inset: 0,
           width: '100%',
           height: '100%',
           objectFit: 'cover',
-          objectPosition: m ? '80% 30%' :
+          objectPosition:
             activePortal.id === 'psychology'
               ? '50% 35%'
               : activePortal.id === 'art'
