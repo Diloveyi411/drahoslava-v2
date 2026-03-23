@@ -102,14 +102,16 @@ export default function Hub() {
 
       {/* Background photo */}
       <img
-        src={m ? '/hub-previews/design.png' : activePortal.preview}
+        src={m ? '/hub-previews/design copy.png' : activePortal.preview}
         alt=""
         aria-hidden="true"
         style={m ? {
           position: 'absolute',
-          top: 0, right: 0, bottom: 0,
+          inset: 0,
+          width: '100%',
           height: '100%',
-          width: 'auto',
+          objectFit: 'cover',
+          objectPosition: 'right 15%',
           zIndex: 0,
         } : {
           position: 'absolute',
