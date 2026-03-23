@@ -322,6 +322,40 @@ export default function Social() {
         ))}
       </div>
 
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.6 }}
+        style={{
+          borderTop: '1px solid rgba(237,237,234,0.07)',
+          padding: m ? '60px 20px 72px' : '80px 80px 100px',
+        }}
+      >
+        <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 4, color: 'rgba(237,237,234,0.25)', textTransform: 'uppercase', marginBottom: 20 }}>
+          Work together
+        </p>
+        <h2 style={{ fontFamily: 'Unbounded, sans-serif', fontWeight: 700, fontSize: m ? 'clamp(28px, 8vw, 40px)' : 'clamp(36px, 4vw, 56px)', letterSpacing: '-2px', lineHeight: 1, marginBottom: 24, maxWidth: 640 }}>
+          Content that works<br />every time.
+        </h2>
+        <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 16 : 18, lineHeight: 1.7, color: 'rgba(237,237,234,0.45)', maxWidth: 480, marginBottom: 40 }}>
+          If your content is inconsistent, unclear, or not converting, there is a system missing. Let's build it.
+        </p>
+        <a
+          href="mailto:info@drahoslava.com"
+          style={{
+            display: 'inline-block',
+            fontFamily: 'Urbanist', fontWeight: 500, fontSize: 14, letterSpacing: 1,
+            color: '#07070D', background: '#B8C0FF',
+            padding: '14px 32px', borderRadius: 4,
+            textDecoration: 'none', textTransform: 'uppercase',
+          }}
+        >
+          Get in touch
+        </a>
+      </motion.div>
+
       <footer style={{
         borderTop: '1px solid rgba(237,237,234,0.07)',
         padding: m ? '0 20px' : '0 80px', height: 72,
