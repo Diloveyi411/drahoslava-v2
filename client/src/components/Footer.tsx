@@ -91,9 +91,20 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="pt-8 border-t border-border text-center">
+        <div className="pt-8 border-t border-border text-center space-y-2">
           <p className="text-sm text-muted-foreground" data-testid="text-footer-copyright">
             © {currentYear} Drahoslava Forgáčová. All rights reserved.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Photos by{' '}
+            <a
+              href="https://www.instagram.com/sari.now"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              @sari.now
+            </a>
           </p>
         </div>
       </div>
