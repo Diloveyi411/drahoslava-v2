@@ -20,6 +20,21 @@ const WORK = [
     ],
   },
   {
+    title: 'Láskavý dotyk od Ľubky',
+    tags: 'Brand Identity · Business Card · Web Design',
+    context: 'Certified massage therapist in Košice launching her own practice. Needed a complete brand identity and website to start booking clients.',
+    problem: 'No visual identity or web presence.\nNeeded a brand that felt warm, professional, and embodied — not clinical, not generic wellness.\nThe name itself had a direction: "Láskavý dotyk" (Gentle touch). Everything had to match that energy.',
+    intervention: 'Built a complete brand identity: color system anchored in cream and warm gold, serif + humanist type pairing (Marcellus + Jost), full brand kit.\nDesigned and developed a website from scratch: hero, services, about, contact — deployed on laskavydotyk.com.\nDelivered business card design (front and back) ready for print.',
+    outcome: 'Website live on day one with real booking contact and custom domain.\nBrand system coherent across web, print, and social.\nClient had everything needed to start: identity, site, and print-ready collateral.',
+    gallery: [
+      { src: '/portfolio/lubka/brand-kit.png', title: 'Brand Kit', caption: 'Color, typography, identity system' },
+      { src: '/portfolio/lubka/vizitka-front.png', title: 'Business Card — Front', caption: 'Serif wordmark, warm gold accent' },
+      { src: '/portfolio/lubka/vizitka-back.png', title: 'Business Card — Back', caption: 'Tagline: Vráťte sa späť k sebe' },
+      { src: '/portfolio/lubka/home.png', title: 'Website — Home', caption: 'laskavydotyk.com' },
+      { src: '/portfolio/lubka/services.png', title: 'Website — Services', caption: 'Four treatments, clear pricing' },
+    ],
+  },
+  {
     title: 'DearDreams',
     tags: 'Brand Strategy · Visual Identity · Logo Design',
     context: 'Productivity and stationery brand for women: planners, journals, tools for getting your life together.',
