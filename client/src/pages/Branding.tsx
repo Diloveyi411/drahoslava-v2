@@ -31,7 +31,11 @@ const WORK = [
       { src: '/portfolio/lubka/vizitka-front.png', title: 'Business Card — Front', caption: 'Serif wordmark, warm gold accent' },
       { src: '/portfolio/lubka/vizitka-back.png', title: 'Business Card — Back', caption: 'Tagline: Vráťte sa späť k sebe' },
       { src: '/portfolio/lubka/home.png', title: 'Website — Home', caption: 'laskavydotyk.com' },
-      { src: '/portfolio/lubka/services.png', title: 'Website — Services', caption: 'Four treatments, clear pricing' },
+      { src: '/portfolio/lubka/about.png', title: 'Website — O mne', caption: 'Personal story, human tone' },
+      { src: '/portfolio/lubka/services.png', title: 'Website — Služby', caption: 'Four treatments, clear pricing' },
+      { src: '/portfolio/lubka/contact.png', title: 'Website — Kontakt', caption: 'Simple booking by phone or email' },
+      { src: '/portfolio/lubka/detail.png', title: 'Website — Detail', caption: 'Service detail view' },
+      { src: '/portfolio/lubka/mobile.png', title: 'Website — Mobile', caption: 'Fully responsive layout' },
     ],
   },
   {
