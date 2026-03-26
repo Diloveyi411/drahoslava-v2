@@ -35,7 +35,6 @@ const WORK = [
       { src: '/portfolio/lubka/services.png', title: 'Website: Služby', caption: 'Four treatments, clear pricing' },
       { src: '/portfolio/lubka/contact.png', title: 'Website: Kontakt', caption: 'Simple booking by phone or email' },
       { src: '/portfolio/lubka/detail.png', title: 'Website: Detail', caption: 'Service detail view' },
-      { src: '/portfolio/lubka/mobile.png', title: 'Website: Mobile', caption: 'Fully responsive layout' },
     ],
   },
   {
