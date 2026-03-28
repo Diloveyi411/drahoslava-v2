@@ -364,6 +364,30 @@ export default function Branding() {
         ))}
       </div>
 
+      {/* IS THIS FOR YOU */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }} transition={{ duration: 0.6 }}
+        style={{ borderTop: '1px solid rgba(237,237,234,0.07)', padding: m ? '56px 20px' : '96px 80px' }}
+      >
+        <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 4, color: 'rgba(237,237,234,0.25)', textTransform: 'uppercase', marginBottom: 32 }}>
+          Is this for you?
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? 16 : 20, maxWidth: 800 }}>
+          {[
+            'You know what you stand for but visually it does not show.',
+            'You have outgrown your current look or have never had a real one.',
+            'You need a brand system, not just a logo.',
+            'You are building something real and want it to look like it.',
+          ].map((line, i) => (
+            <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+              <span style={{ color: '#FFE680', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>—</span>
+              <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 15 : 17, lineHeight: 1.65, color: 'rgba(237,237,234,0.65)', margin: 0 }}>{line}</p>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
       {/* CTA */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -384,6 +408,19 @@ export default function Branding() {
         <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 16 : 18, lineHeight: 1.7, color: 'rgba(237,237,234,0.45)', maxWidth: 480, marginBottom: 40 }}>
           Whether you are starting from scratch or rebuilding something that stopped working, get in touch and we will figure it out.
         </p>
+        <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: m ? 20 : 32, maxWidth: 680, marginBottom: 40 }}>
+          {[
+            { n: '01', label: 'You send a message', sub: 'Tell me about the brand and where it stands now.' },
+            { n: '02', label: 'We have a 30-min call', sub: 'No forms. Just a conversation about fit.' },
+            { n: '03', label: 'You get a proposal', sub: 'Scope, timeline, and what you can expect.' },
+          ].map(s => (
+            <div key={s.n}>
+              <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 3, color: '#FFE680', textTransform: 'uppercase', margin: '0 0 8px' }}>{s.n}</p>
+              <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 15, color: '#EDEDEA', margin: '0 0 6px' }}>{s.label}</p>
+              <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 14, color: 'rgba(237,237,234,0.4)', margin: 0, lineHeight: 1.5 }}>{s.sub}</p>
+            </div>
+          ))}
+        </div>
         <a
           href="mailto:info@drahoslava.com"
           style={{

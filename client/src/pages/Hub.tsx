@@ -277,9 +277,19 @@ export default function Hub() {
             letterSpacing: 3,
             textTransform: 'uppercase',
             color: 'rgba(237,237,234,0.42)',
-            margin: 0,
+            margin: '0 0 8px',
           }}>
             Choose your entry point
+          </p>
+          <p style={{
+            fontFamily: 'Urbanist, sans-serif',
+            fontWeight: 300,
+            fontSize: m ? 14 : 16,
+            color: 'rgba(237,237,234,0.28)',
+            margin: 0,
+            letterSpacing: 0.2,
+          }}>
+            I design products people understand — and use.
           </p>
         </motion.div>
 

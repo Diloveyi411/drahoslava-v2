@@ -1027,6 +1027,28 @@ export default function Systems() {
         </motion.div>
       </section>
 
+      {/* ─── IS THIS FOR YOU ─── */}
+      <section style={{ borderTop: '1px solid rgba(237,237,234,0.07)', padding: m ? '56px 20px' : '96px 80px' }}>
+        <motion.div initial="hidden" whileInView="show" viewport={{ once: true, margin: '-60px' }} variants={stagger}>
+          <motion.p variants={fadeUp} style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 4, color: 'rgba(237,237,234,0.25)', textTransform: 'uppercase', marginBottom: 32 }}>
+            Is this for you?
+          </motion.p>
+          <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? 16 : 20, maxWidth: 800 }}>
+            {[
+              'Your product is built but users don\'t get it on first click.',
+              'Your funnel has leaks nobody has mapped yet.',
+              'You need UX that converts, not just looks good.',
+              'You\'re a founder or team who can articulate the problem.',
+            ].map((line, i) => (
+              <motion.div key={i} variants={fadeUp} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+                <span style={{ color: '#7CF0EA', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>—</span>
+                <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 15 : 17, lineHeight: 1.65, color: 'rgba(237,237,234,0.65)', margin: 0 }}>{line}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* ─── CTA ─── */}
       <section
         id="contact"
@@ -1069,12 +1091,26 @@ export default function Systems() {
               fontWeight: 300,
               fontSize: 19,
               color: 'rgba(237,237,234,0.4)',
-              margin: '24px 0 40px',
+              margin: '24px 0 48px',
               maxWidth: 600,
             }}
           >
             I design clear, usable products.<br />Let's make yours work.
           </motion.p>
+
+          <motion.div variants={fadeUp} style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: m ? 20 : 32, maxWidth: 680, marginBottom: 48 }}>
+            {[
+              { n: '01', label: 'You send a message', sub: 'Tell me about the product and the problem.' },
+              { n: '02', label: 'We have a 30-min call', sub: 'No forms. Just a conversation about fit.' },
+              { n: '03', label: 'You get a proposal', sub: 'Scope, timeline, and what you can expect.' },
+            ].map(s => (
+              <div key={s.n}>
+                <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 11, letterSpacing: 3, color: '#7CF0EA', textTransform: 'uppercase', margin: '0 0 8px' }}>{s.n}</p>
+                <p style={{ fontFamily: 'Urbanist', fontWeight: 500, fontSize: 15, color: '#EDEDEA', margin: '0 0 6px' }}>{s.label}</p>
+                <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 14, color: 'rgba(237,237,234,0.4)', margin: 0, lineHeight: 1.5 }}>{s.sub}</p>
+              </div>
+            ))}
+          </motion.div>
 
           <motion.div variants={fadeUp}>
             <a href="mailto:info@drahoslava.com" className="btn-primary" style={{ fontSize: 15, letterSpacing: 1 }}>
