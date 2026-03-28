@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';
 import { Dialog, DialogPortal, DialogOverlay, DialogTitle } from '@/components/ui/dialog';
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
@@ -117,6 +118,12 @@ export default function Art() {
   };
 
   return (
+    <>
+      <SEO
+        title="Art — Drahoslava"
+        description="Original artwork and creative practice. Paintings, illustrations, and visual explorations."
+        url="/art"
+      />
     <div style={{ background: L.bg, minHeight: '100vh', color: L.text }}>
 
       {/* ─── NAV ─── */}
@@ -489,5 +496,6 @@ export default function Art() {
       </Dialog>
 
     </div>
+    </>
   );
 }

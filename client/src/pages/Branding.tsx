@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 const WORK = [
   {
@@ -313,6 +314,12 @@ export default function Branding() {
   const m = useIsMobile();
 
   return (
+    <>
+      <SEO
+        title="Branding — Drahoslava"
+        description="Brand identity, visual direction, and brand kits that make a business recognizable and consistent."
+        url="/branding"
+      />
     <div style={{ background: '#07070D', minHeight: '100vh', color: '#EDEDEA' }}>
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
@@ -400,5 +407,6 @@ export default function Branding() {
         <span style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>© 2026 · drahoslava.com</span>
       </footer>
     </div>
+    </>
   );
 }

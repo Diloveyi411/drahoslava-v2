@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 const WORK = [
   {
@@ -274,6 +275,12 @@ export default function Social() {
   const m = useIsMobile();
 
   return (
+    <>
+      <SEO
+        title="Social Media — Drahoslava"
+        description="Content strategy, social media design, and video editing. Systems that make posting consistent and on-brand."
+        url="/social"
+      />
     <div style={{ background: '#07070D', minHeight: '100vh', color: '#EDEDEA' }}>
 
       {/* Nav */}
@@ -366,5 +373,6 @@ export default function Social() {
       </footer>
 
     </div>
+    </>
   );
 }

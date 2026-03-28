@@ -1,10 +1,17 @@
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 export default function Psychology() {
   const [, navigate] = useLocation();
 
   return (
+    <>
+      <SEO
+        title="Psychology — Drahoslava"
+        description="Self-discovery, inner work, and the psychology behind design decisions. Coming soon."
+        url="/psychology"
+      />
     <div style={{ background: '#07070D', minHeight: '100vh', color: '#EDEDEA' }}>
       <nav
         style={{
@@ -55,5 +62,6 @@ export default function Psychology() {
         <span style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 300, fontSize: 12, letterSpacing: 1, color: 'rgba(237,237,234,0.18)' }}>© 2026 · drahoslava.com</span>
       </footer>
     </div>
+    </>
   );
 }

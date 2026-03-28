@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -378,6 +379,12 @@ export default function Systems() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
+    <>
+      <SEO
+        title="UX Design — Drahoslava"
+        description="UX audits, conversion design, interaction design. See how I find what breaks and fix what matters."
+        url="/design"
+      />
     <div style={{ background: '#07070D', minHeight: '100vh', color: '#EDEDEA' }}>
 
       {/* ─── NAV ─── */}
@@ -1093,5 +1100,6 @@ export default function Systems() {
       </footer>
 
     </div>
+    </>
   );
 }

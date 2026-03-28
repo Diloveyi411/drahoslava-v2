@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
 
 const portals = [
   {
@@ -86,6 +87,12 @@ export default function Hub() {
   }, []);
 
   return (
+    <>
+      <SEO
+        title="Drahoslava — UX Designer"
+        description="I design products people understand and use. UX design, conversion design, brand systems, UX audits."
+        url="/"
+      />
     <div
       style={{
         background: '#07070D',
@@ -458,5 +465,6 @@ export default function Hub() {
 
       </div>
     </div>
+    </>
   );
 }
