@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '@/components/SEO';
+import QuickContactForm from '@/components/QuickContactForm';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -1113,9 +1114,7 @@ export default function Systems() {
           </motion.div>
 
           <motion.div variants={fadeUp}>
-            <a href="mailto:info@drahoslava.com" className="btn-primary" style={{ fontSize: 15, letterSpacing: 1 }}>
-              Contact me
-            </a>
+            <QuickContactForm accent="#7CF0EA" />
           </motion.div>
         </motion.div>
       </section>

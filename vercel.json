@@ -10,7 +10,12 @@
     }
   ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/",           "destination": "/index.html" },
+    { "source": "/design",     "destination": "/design/index.html" },
+    { "source": "/branding",   "destination": "/branding/index.html" },
+    { "source": "/social",     "destination": "/social/index.html" },
+    { "source": "/art",        "destination": "/art/index.html" },
+    { "source": "/psychology", "destination": "/psychology/index.html" }
   ],
   "headers": [
     {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '@/components/SEO';
+import QuickContactForm from '@/components/QuickContactForm';
 
 const WORK = [
   {
@@ -386,18 +387,7 @@ export default function Social() {
             </div>
           ))}
         </div>
-        <a
-          href="mailto:info@drahoslava.com"
-          style={{
-            display: 'inline-block',
-            fontFamily: 'Urbanist', fontWeight: 500, fontSize: 14, letterSpacing: 1,
-            color: '#07070D', background: '#B8C0FF',
-            padding: '14px 32px', borderRadius: 4,
-            textDecoration: 'none', textTransform: 'uppercase',
-          }}
-        >
-          Get in touch
-        </a>
+        <QuickContactForm accent="#B8C0FF" />
       </motion.div>
 
       <footer style={{
