@@ -316,7 +316,7 @@ export default function Branding() {
   return (
     <>
       <SEO
-        title="Branding — Drahoslava"
+        title="Branding - Drahoslava"
         description="Brand identity, visual direction, and brand kits that make a business recognizable and consistent."
         url="/branding"
       />
@@ -381,7 +381,7 @@ export default function Branding() {
             'You are building something real and want it to look like it.',
           ].map((line, i) => (
             <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-              <span style={{ color: '#FFE680', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>—</span>
+              <span style={{ color: '#FFE680', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>-</span>
               <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 15 : 17, lineHeight: 1.65, color: 'rgba(237,237,234,0.65)', margin: 0 }}>{line}</p>
             </div>
           ))}

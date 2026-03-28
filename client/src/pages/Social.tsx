@@ -277,7 +277,7 @@ export default function Social() {
   return (
     <>
       <SEO
-        title="Social Media — Drahoslava"
+        title="Social Media - Drahoslava"
         description="Content strategy, social media design, and video editing. Systems that make posting consistent and on-brand."
         url="/social"
       />
@@ -346,7 +346,7 @@ export default function Social() {
             'You want content that sounds like you, every time.',
           ].map((line, i) => (
             <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-              <span style={{ color: '#B8C0FF', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>—</span>
+              <span style={{ color: '#B8C0FF', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>-</span>
               <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 15 : 17, lineHeight: 1.65, color: 'rgba(237,237,234,0.65)', margin: 0 }}>{line}</p>
             </div>
           ))}

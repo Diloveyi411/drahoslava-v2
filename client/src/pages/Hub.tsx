@@ -89,7 +89,7 @@ export default function Hub() {
   return (
     <>
       <SEO
-        title="Drahoslava — UX Designer"
+        title="Drahoslava - UX Designer"
         description="I design products people understand and use. UX design, conversion design, brand systems, UX audits."
         url="/"
       />
@@ -289,7 +289,7 @@ export default function Hub() {
             margin: 0,
             letterSpacing: 0.2,
           }}>
-            I design products people understand — and use.
+            I design products people understand. And use.
           </p>
         </motion.div>
 

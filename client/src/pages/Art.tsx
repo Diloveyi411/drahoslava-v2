@@ -120,7 +120,7 @@ export default function Art() {
   return (
     <>
       <SEO
-        title="Art — Drahoslava"
+        title="Art - Drahoslava"
         description="Original artwork and creative practice. Paintings, illustrations, and visual explorations."
         url="/art"
       />

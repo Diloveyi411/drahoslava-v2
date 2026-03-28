@@ -381,7 +381,7 @@ export default function Systems() {
   return (
     <>
       <SEO
-        title="UX Design — Drahoslava"
+        title="UX Design - Drahoslava"
         description="UX audits, conversion design, interaction design. See how I find what breaks and fix what matters."
         url="/design"
       />
@@ -1041,7 +1041,7 @@ export default function Systems() {
               'You\'re a founder or team who can articulate the problem.',
             ].map((line, i) => (
               <motion.div key={i} variants={fadeUp} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                <span style={{ color: '#7CF0EA', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>—</span>
+                <span style={{ color: '#7CF0EA', fontFamily: 'Urbanist', fontSize: 16, lineHeight: 1.6, flexShrink: 0 }}>-</span>
                 <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: m ? 15 : 17, lineHeight: 1.65, color: 'rgba(237,237,234,0.65)', margin: 0 }}>{line}</p>
               </motion.div>
             ))}

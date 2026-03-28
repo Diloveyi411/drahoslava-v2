@@ -8,7 +8,7 @@ export default function Psychology() {
   return (
     <>
       <SEO
-        title="Psychology — Drahoslava"
+        title="Psychology - Drahoslava"
         description="Self-discovery, inner work, and the psychology behind design decisions. Coming soon."
         url="/psychology"
       />
