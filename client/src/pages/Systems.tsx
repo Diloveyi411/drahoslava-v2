@@ -96,6 +96,8 @@ const WORK = [
       { src: '/portfolio/amagi-labs/before-clients.png', title: 'Clients: Before', caption: 'Logo strip with no context or weight', contain: true },
       { src: '/portfolio/amagi-labs/after-clients.png', title: 'Clients: After', caption: 'Carousel with named partnerships and descriptions', contain: true },
       { src: '/portfolio/amagi-labs/after-about.png', title: 'Managing Partner', caption: 'Human layer: David Stancel, 10+ years in crypto', contain: true },
+      { src: '/portfolio/amagi-labs/before-footer.png', title: 'Footer: Before', caption: 'Minimal footer, scattered contact info, no visual system', contain: true },
+      { src: '/portfolio/amagi-labs/after-footer.png', title: 'Footer: After', caption: 'Clean CTA section with contact details', contain: true },
     ],
   },
   {
