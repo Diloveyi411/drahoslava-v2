@@ -40,8 +40,8 @@ const WORK = [
     intervention: 'Restructured the full information architecture into 4 clear groups: Services, Intelligence, Tools, Community.\nDesigned a homepage with personal journey tracking, contextual widgets, and service cards with pricing.\nAdded a dashboard customization panel where users toggle widgets on and off to control their own layout.\nAdded a "why" layer to services - benefit cards before product listings.\nCreated a 3-step onboarding flow that captures user intent and personalizes the experience from the first visit.',
     outcome: 'Founder approved the redesign on first presentation and moved directly to implementation.\nNavigation hierarchy now separates paid from free, reducing cognitive load.\nServices lead with user motivation instead of product specs.\nOnboarding enables personalized recommendations from day one.',
     gallery: [
-      { src: '/portfolio/polystate-ux/before.jpg', title: 'Before', caption: 'Flat sidebar mixing paid services with free tools, no grouping or hierarchy', contain: true },
       { src: '/portfolio/polystate-ux/homepage.jpg', title: 'Redesigned homepage', caption: 'Journey bar, contextual widgets, service cards with pricing', contain: true },
+      { src: '/portfolio/polystate-ux/before.jpg', title: 'Before', caption: 'Flat sidebar mixing paid services with free tools, no grouping or hierarchy', contain: true },
       { src: '/portfolio/polystate-ux/customize.jpg', title: 'Customize Dashboard', caption: 'Toggle widgets on/off via side panel', contain: true },
       { src: '/portfolio/polystate-ux/navigation.jpg', title: 'Information Architecture', caption: '4-group nav: Services, Intelligence, Tools, Community', contain: true },
       { src: '/portfolio/polystate-ux/services-hub.jpg', title: 'Services Hub', caption: '"Why" layer before product cards', contain: true },
@@ -56,8 +56,8 @@ const WORK = [
     intervention: 'Re-architected the layout to surface trust signals and decision elements on initial load.\nRemoved dependency on widget interaction.\nDesigned a flow aligned with user attention and decision points.\nWorked within an existing layout and could not remove the widget entirely - redefined its role instead.',
     outcome: 'Made all key actions visible without interaction.\nAligned the flow with user attention instead of UI constraints.\nCreated a structure ready for testing and measurable improvement.',
     gallery: [
-      { src: '/portfolio/webtrigo/before-raw.jpg', title: 'Original Layout', caption: 'Conversion elements hidden behind widget interaction', contain: true },
       { src: '/portfolio/webtrigo/after-raw.jpg', title: 'Redesigned Layout', caption: 'Trust signals visible on initial load. No interaction required.', contain: true },
+      { src: '/portfolio/webtrigo/before-raw.jpg', title: 'Original Layout', caption: 'Conversion elements hidden behind widget interaction', contain: true },
       { src: '/portfolio/webtrigo/mobile-raw.jpg', title: 'Mobile Version', caption: 'Same psychological sequence adapted for mobile', contain: true },
     ],
   },
