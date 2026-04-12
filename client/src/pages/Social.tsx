@@ -21,6 +21,18 @@ const WORK = [
     ],
   },
   {
+    title: 'Prospera x Polystate',
+    tags: 'Ad Campaign · Copywriting · Creative Direction',
+    context: 'Prospera is a special economic zone in Honduras offering global tax residency in 7 days for a flat $5,000 annual fee. Polystate needed a campaign that could cut through the noise in the global mobility space.',
+    problem: 'Vague brief with no defined direction.\nComplex product that requires trust before action.\nTarget audience is sceptical of anything that sounds like a loophole.',
+    intervention: 'Designed the full creative concept from scratch, including copywriting and visual direction.\nBuilt a series of 13 ad creatives targeting founders and globally mobile professionals.\nEach creative isolates one specific pain point and resolves it in one sentence.\nDark, atmospheric visual language using Prospera architecture photography to build credibility.',
+    outcome: 'A coherent, launch-ready campaign across 13 formats.\nCopy built around scepticism as a feature, not an obstacle.\nEvery creative stands alone and works as part of a series.',
+    gallery: [
+      { src: '/portfolio/prospera/campaign-portrait.png', title: 'Ad Series', caption: '13 ad creatives, portrait format' },
+      { src: '/portfolio/prospera/campaign-square.png', title: 'Ad Series', caption: '13 ad creatives, square format' },
+    ],
+  },
+  {
     title: 'Tina Koestler',
     tags: 'Branding · Content Strategy · Library Organisation',
     context: 'Somatic practitioner launching an independent practice. Needed a brand identity, content system, and organised creative archive.',
