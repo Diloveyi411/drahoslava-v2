@@ -47,6 +47,14 @@ export default function Psychology() {
           <p style={{ fontFamily: 'Urbanist', fontWeight: 300, fontSize: 18, lineHeight: 1.65, color: 'rgba(237,237,234,0.5)' }}>
             Inner systems, nervous system work and self-discovery. Coming soon.
           </p>
+          <a
+            href="https://create.kahoot.it/share/nauceny-optimizmus/4e2eb884-d846-4191-9f37-8b22c81364ed"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'inline-block', marginTop: 32, padding: '14px 28px', borderRadius: 999, background: 'linear-gradient(135deg, #6B7FD7 0%, #C4B5FD 100%)', color: '#07070D', fontFamily: 'Urbanist', fontWeight: 600, fontSize: 16, textDecoration: 'none' }}
+          >
+            Kahoot: Naučený optimizmus
+          </a>
           <button onClick={() => navigate('/')} style={{ marginTop: 40, fontFamily: 'Urbanist', fontWeight: 400, fontSize: 14, color: 'rgba(237,237,234,0.3)', background: 'none', border: 'none', cursor: 'pointer' }}>
             ← Back to hub
           </button>
